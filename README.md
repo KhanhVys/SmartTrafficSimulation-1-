@@ -36,8 +36,8 @@ Xe, đèn giao thông và giao lộ được mô hình hóa thành các đối t
 |---|---|
 | Loại mô hình | Ngã tư cắt ngang bởi đường đôi |
 | Số ngã tư | 1 |
-| Đường đơn | 2 chiều, mỗi chiều 1 làn, mỗi làn chứa 1 xe (tổng 2 làn) |
-| Đường đôi | Có dải phân cách, mỗi chiều 3 làn (tổng 6 làn) |
+| Đường đơn | 2 chiều, mỗi chiều 1 làn (tổng 2 làn). Mỗi làn đủ rộng cho 2 xe đứng song song: một hàng cho rẽ trái + quay đầu, một hàng cho đi thẳng + rẽ phải |
+| Đường đôi | Có dải phân cách, mỗi chiều 3 làn (tổng 6 làn). Làn trái: rẽ trái (+ quay đầu), làn giữa: đi thẳng, làn phải: rẽ phải |
 | Hướng xe | Đi thẳng, rẽ trái, rẽ phải, quay đầu |
 | Chuyển làn | Không cho phép, xe đi theo làn cố định |
 | Loại xe | Chỉ ô tô |
@@ -45,6 +45,9 @@ Xe, đèn giao thông và giao lộ được mô hình hóa thành các đối t
 | Tốc độ xe | Tùy chỉnh được |
 | Cách rẽ | Rẽ theo đường cong |
 | Ưu tiên lưu thông | Theo tín hiệu đèn |
+| Bước mô phỏng | 1 tick = 0.02 giây (50 tick = 1 giây) |
+| EventBus | Để sau, chưa dùng ở bản MVP |
+| Luồng chạy | Luồng mô phỏng (cập nhật xe + đèn) và luồng chính (SFML: cửa sổ + vẽ) |
 | Hiển thị | SFML, có xi-nhan cho rẽ trái và quay đầu |
 | Phạm vi bản đầu (MVP) | Mô hình chạy được với các mục trên |
 
@@ -54,10 +57,11 @@ Xe, đèn giao thông và giao lộ được mô hình hóa thành các đối t
 - Xe đã qua vạch dừng: tiếp tục đi, không giảm tốc.
 - Xe chờ đèn đỏ xếp hàng tại vạch dừng theo làn.
 
-### Chu kỳ đèn (38 giây)
+### Chu kỳ đèn (ví dụ minh họa 38 giây)
 
 Thứ tự mỗi hướng: **Xanh, Vàng, Đỏ**. Hai nhóm hướng đi chung pha: **thẳng + rẽ phải** và **rẽ trái + quay đầu**.
 Ký hiệu: **BN** = Bắc-Nam, **ĐT** = Đông-Tây.
+Thời lượng từng pha sẽ **cấu hình được**. Đường đôi 3 làn dự kiến cho đèn xanh dài hơn, nên tổng chu kỳ có thể khác 38 giây.
 
 | Giây | Pha đang chạy |
 |---|---|
@@ -77,7 +81,9 @@ Ký hiệu: **BN** = Bắc-Nam, **ĐT** = Đông-Tây.
 
 ### Chưa chốt
 
-- Làn nào của đường đôi dành cho hướng nào (gợi ý: làn trái cho rẽ trái và quay đầu, làn giữa đi thẳng, làn phải đi thẳng và rẽ phải).
+- Đường đôi là hướng BN hay ĐT.
+- Thời lượng cụ thể của từng pha (xanh dài hơn cho đường đôi).
+- Xe quay đầu đi ở làn trái cùng xe rẽ trái (đang giả định như vậy).
 
 ## Phân công
 
