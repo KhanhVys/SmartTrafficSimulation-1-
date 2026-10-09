@@ -1,59 +1,59 @@
-# SmartTrafficSimulation
+﻿# SmartTrafficSimulation
 
 
 ## Module Concurrency / Thread
 
-Đây là module **Người 3 – Concurrency / Thread** của project mô phỏng giao thông thông minh. Module chịu trách nhiệm quản lý thread mô phỏng và đồng bộ dữ liệu giữa Simulation Core với các thành phần đọc snapshot.
+─É├óy l├á module **Ng╞░ß╗¥i 3 ΓÇô Concurrency / Thread** cß╗ºa project m├┤ phß╗Ång giao th├┤ng th├┤ng minh. Module chß╗ïu tr├ích nhiß╗çm quß║ún l├╜ thread m├┤ phß╗Ång v├á ─æß╗ông bß╗Ö dß╗» liß╗çu giß╗»a Simulation Core vß╗¢i c├íc th├ánh phß║ºn ─æß╗ìc snapshot.
 
-Module này không sở hữu logic chính của `Vehicle`, `TrafficLight` hoặc luật giao thông. Core/Logic vẫn là nơi cập nhật trạng thái thật; module Concurrency chỉ quản lý luồng, lưu trữ và cung cấp bản sao dữ liệu an toàn.
+Module n├áy kh├┤ng sß╗ƒ hß╗»u logic ch├¡nh cß╗ºa `Vehicle`, `TrafficLight` hoß║╖c luß║¡t giao th├┤ng. Core/Logic vß║½n l├á n╞íi cß║¡p nhß║¡t trß║íng th├íi thß║¡t; module Concurrency chß╗ë quß║ún l├╜ luß╗ông, l╞░u trß╗» v├á cung cß║Ñp bß║ún sao dß╗» liß╗çu an to├án.
 
-## Chức năng chính
+## Chß╗⌐c n─âng ch├¡nh
 
-Module cung cấp:
+Module cung cß║Ñp:
 
-- `SimulationThread`: chạy callback mô phỏng trên worker thread.
-- `SnapshotStore`: lưu và đồng bộ snapshot bằng `mutex` và `lock_guard`.
-- `SimulationSnapshot`: hợp đồng dữ liệu giữa Simulation Core và thành phần hiển thị.
-- `Types.h`: nơi định nghĩa tập trung các enum dùng chung.
-- `TurnCurve.h`: tính quỹ đạo quay đầu bằng đường cong Bézier bậc hai.
-- Cơ chế dừng và `join()` thread an toàn.
-- Bảo vệ trường hợp gọi `start()` nhiều lần.
-- Kiểm tra race condition bằng ThreadSanitizer.
+- `SimulationThread`: chß║íy callback m├┤ phß╗Ång tr├¬n worker thread.
+- `SnapshotStore`: l╞░u v├á ─æß╗ông bß╗Ö snapshot bß║▒ng `mutex` v├á `lock_guard`.
+- `SimulationSnapshot`: hß╗úp ─æß╗ông dß╗» liß╗çu giß╗»a Simulation Core v├á th├ánh phß║ºn hiß╗ân thß╗ï.
+- `Types.h`: n╞íi ─æß╗ïnh ngh─⌐a tß║¡p trung c├íc enum d├╣ng chung.
+- `TurnCurve.h`: t├¡nh quß╗╣ ─æß║ío quay ─æß║ºu bß║▒ng ─æ╞░ß╗¥ng cong B├⌐zier bß║¡c hai.
+- C╞í chß║┐ dß╗½ng v├á `join()` thread an to├án.
+- Bß║úo vß╗ç tr╞░ß╗¥ng hß╗úp gß╗ìi `start()` nhiß╗üu lß║ºn.
+- Kiß╗âm tra race condition bß║▒ng ThreadSanitizer.
 
-## Cấu trúc thư mục
+## Cß║Ñu tr├║c th╞░ mß╗Ñc
 
 ```text
 SmartTrafficSimulation/
-├── .gitignore
-├── README.md
-├── CONCURRENCY.md
-├── examples/
-│   └── ConcurrencyPrototype.cpp
-└── src/
-    ├── ConcurrencyModule.cpp
-    ├── common/
-    │   ├── Types.h
-    │   └── TurnCurve.h
-    └── concurrency/
-        ├── CMakeLists.txt
-        ├── SimulationSnapshot.h
-        ├── SnapshotStore.h
-        ├── SnapshotStore.cpp
-        ├── SimulationThread.h
-        └── SimulationThread.cpp
+Γö£ΓöÇΓöÇ .gitignore
+Γö£ΓöÇΓöÇ README.md
+Γö£ΓöÇΓöÇ CONCURRENCY.md
+Γö£ΓöÇΓöÇ examples/
+Γöé   ΓööΓöÇΓöÇ ConcurrencyPrototype.cpp
+ΓööΓöÇΓöÇ src/
+    Γö£ΓöÇΓöÇ ConcurrencyModule.cpp
+    Γö£ΓöÇΓöÇ common/
+    Γöé   Γö£ΓöÇΓöÇ Types.h
+    Γöé   ΓööΓöÇΓöÇ TurnCurve.h
+    ΓööΓöÇΓöÇ concurrency/
+        Γö£ΓöÇΓöÇ CMakeLists.txt
+        Γö£ΓöÇΓöÇ SimulationSnapshot.h
+        Γö£ΓöÇΓöÇ SnapshotStore.h
+        Γö£ΓöÇΓöÇ SnapshotStore.cpp
+        Γö£ΓöÇΓöÇ SimulationThread.h
+        ΓööΓöÇΓöÇ SimulationThread.cpp
 ```
 
-`README.md` là tài liệu tổng quan của project. `CONCURRENCY.md` là tài liệu chi tiết riêng cho module Concurrency nếu nhóm giữ file này.
+`README.md` l├á t├ái liß╗çu tß╗òng quan cß╗ºa project. `CONCURRENCY.md` l├á t├ái liß╗çu chi tiß║┐t ri├¬ng cho module Concurrency nß║┐u nh├│m giß╗» file n├áy.
 
-## Quy ước kiểu dữ liệu dùng chung
+## Quy ╞░ß╗¢c kiß╗âu dß╗» liß╗çu d├╣ng chung
 
-Các enum dùng chung chỉ được định nghĩa một lần trong:
+C├íc enum d├╣ng chung chß╗ë ─æ╞░ß╗úc ─æß╗ïnh ngh─⌐a mß╗Öt lß║ºn trong:
 
 ```text
 src/common/Types.h
 ```
 
-Nội dung hiện tại:
+Nß╗Öi dung hiß╗çn tß║íi:
 
 ```cpp
 #pragma once
@@ -63,13 +63,13 @@ enum class Direction { North, South, East, West };
 enum class Movement { Straight, Left, Right, UTurn };
 ```
 
-Các file khác phải include:
+C├íc file kh├íc phß║úi include:
 
 ```cpp
 #include "common/Types.h"
 ```
 
-Không định nghĩa lại `LightColor`, `Direction` hoặc `Movement` trong các module khác, vì sẽ gây lỗi định nghĩa trùng khi tích hợp.
+Kh├┤ng ─æß╗ïnh ngh─⌐a lß║íi `LightColor`, `Direction` hoß║╖c `Movement` trong c├íc module kh├íc, v├¼ sß║╜ g├óy lß╗ùi ─æß╗ïnh ngh─⌐a tr├╣ng khi t├¡ch hß╗úp.
 
 ## Snapshot data contract
 
@@ -87,16 +87,16 @@ struct VehicleSnapshot {
 };
 ```
 
-Ý nghĩa các trường:
+├¥ ngh─⌐a c├íc tr╞░ß╗¥ng:
 
-- `vehicleId`: mã xe.
-- `x`, `y`: vị trí xe.
-- `direction`: hướng di chuyển chính.
-- `movement`: đi thẳng, rẽ trái, rẽ phải hoặc quay đầu.
-- `signalingLeft`: xe có đang bật xi-nhan trái hay không.
-- `rotationAngleDegrees`: góc xoay của sprite/xe khi hiển thị.
+- `vehicleId`: m├ú xe.
+- `x`, `y`: vß╗ï tr├¡ xe.
+- `direction`: h╞░ß╗¢ng di chuyß╗ân ch├¡nh.
+- `movement`: ─æi thß║│ng, rß║╜ tr├íi, rß║╜ phß║úi hoß║╖c quay ─æß║ºu.
+- `signalingLeft`: xe c├│ ─æang bß║¡t xi-nhan tr├íi hay kh├┤ng.
+- `rotationAngleDegrees`: g├│c xoay cß╗ºa sprite/xe khi hiß╗ân thß╗ï.
 
-Khi tạo snapshot từ `Vehicle` thật:
+Khi tß║ío snapshot tß╗½ `Vehicle` thß║¡t:
 
 ```cpp
 VehicleSnapshot snapshot{
@@ -120,7 +120,7 @@ struct LightSnapshot {
 };
 ```
 
-`turnArrow` phải được đặt trước `color` khi dùng aggregate initializer:
+`turnArrow` phß║úi ─æ╞░ß╗úc ─æß║╖t tr╞░ß╗¢c `color` khi d├╣ng aggregate initializer:
 
 ```cpp
 LightSnapshot lightSnapshot{
@@ -130,7 +130,7 @@ LightSnapshot lightSnapshot{
 };
 ```
 
-`turnArrow` biểu thị mũi tên rẽ đang được phép theo pha đèn. Logic quyết định giá trị này thuộc về Traffic Light/Core.
+`turnArrow` biß╗âu thß╗ï m┼⌐i t├¬n rß║╜ ─æang ─æ╞░ß╗úc ph├⌐p theo pha ─æ├¿n. Logic quyß║┐t ─æß╗ïnh gi├í trß╗ï n├áy thuß╗Öc vß╗ü Traffic Light/Core.
 
 ### `SimulationSnapshot`
 
@@ -142,11 +142,11 @@ struct SimulationSnapshot {
 };
 ```
 
-`SnapshotStore::getSnapshot()` trả về bản sao dữ liệu. Thành phần đọc snapshot không giữ mutex trong lúc xử lý hoặc render.
+`SnapshotStore::getSnapshot()` trß║ú vß╗ü bß║ún sao dß╗» liß╗çu. Th├ánh phß║ºn ─æß╗ìc snapshot kh├┤ng giß╗» mutex trong l├║c xß╗¡ l├╜ hoß║╖c render.
 
 ## `SimulationThread`
 
-API chính:
+API ch├¡nh:
 
 ```cpp
 class SimulationThread {
@@ -167,7 +167,7 @@ public:
 };
 ```
 
-### Khởi động và dừng
+### Khß╗ƒi ─æß╗Öng v├á dß╗½ng
 
 ```cpp
 SimulationThread simulationThread(
@@ -179,16 +179,16 @@ SimulationThread simulationThread(
 
 simulationThread.start();
 
-// Khi đóng ứng dụng:
+// Khi ─æ├│ng ß╗⌐ng dß╗Ñng:
 simulationThread.requestStop();
 simulationThread.join();
 ```
 
-Destructor cũng gọi `requestStop()` và `join()` để tránh worker thread còn chạy khi object bị hủy.
+Destructor c┼⌐ng gß╗ìi `requestStop()` v├á `join()` ─æß╗â tr├ính worker thread c├▓n chß║íy khi object bß╗ï hß╗ºy.
 
-### Gọi `start()` lần hai
+### Gß╗ìi `start()` lß║ºn hai
 
-Nếu thread đang chạy, gọi `start()` lần hai sẽ bị từ chối bằng exception:
+Nß║┐u thread ─æang chß║íy, gß╗ìi `start()` lß║ºn hai sß║╜ bß╗ï tß╗½ chß╗æi bß║▒ng exception:
 
 ```cpp
 try {
@@ -198,9 +198,9 @@ try {
 }
 ```
 
-Cách này tránh việc tạo thread trùng hoặc làm chương trình gọi `std::terminate()`.
+C├ích n├áy tr├ính viß╗çc tß║ío thread tr├╣ng hoß║╖c l├ám ch╞░╞íng tr├¼nh gß╗ìi `std::terminate()`.
 
-Sau khi đã dừng và `join()`, thread có thể được khởi động lại an toàn:
+Sau khi ─æ├ú dß╗½ng v├á `join()`, thread c├│ thß╗â ─æ╞░ß╗úc khß╗ƒi ─æß╗Öng lß║íi an to├án:
 
 ```cpp
 simulationThread.requestStop();
@@ -211,7 +211,7 @@ simulationThread.start();
 
 ## `SnapshotStore`
 
-API sử dụng:
+API sß╗¡ dß╗Ñng:
 
 ```cpp
 snapshotStore.publishTick(currentTick);
@@ -219,31 +219,31 @@ snapshotStore.publishVehicles(vehicleSnapshots);
 snapshotStore.publishLights(lightSnapshots);
 ```
 
-Lấy snapshot:
+Lß║Ñy snapshot:
 
 ```cpp
 const SimulationSnapshot snapshot =
 snapshotStore.getSnapshot();
 ```
 
-`SnapshotStore` sử dụng:
+`SnapshotStore` sß╗¡ dß╗Ñng:
 
-- `vehicleMutex` để bảo vệ danh sách xe.
-- `lightMutex` để bảo vệ danh sách đèn.
-- `lock_guard` để khóa tự động và mở khóa khi ra khỏi scope.
-- `atomic` để lưu tick hiện tại.
+- `vehicleMutex` ─æß╗â bß║úo vß╗ç danh s├ích xe.
+- `lightMutex` ─æß╗â bß║úo vß╗ç danh s├ích ─æ├¿n.
+- `lock_guard` ─æß╗â kh├│a tß╗▒ ─æß╗Öng v├á mß╗ƒ kh├│a khi ra khß╗Åi scope.
+- `atomic` ─æß╗â l╞░u tick hiß╗çn tß║íi.
 
-Khi lấy cả xe và đèn, thứ tự khóa cố định là:
+Khi lß║Ñy cß║ú xe v├á ─æ├¿n, thß╗⌐ tß╗▒ kh├│a cß╗æ ─æß╗ïnh l├á:
 
 ```text
 lightMutex -> vehicleMutex
 ```
 
-Mọi code mở rộng `SnapshotStore` phải giữ cùng thứ tự để tránh deadlock.
+Mß╗ìi code mß╗ƒ rß╗Öng `SnapshotStore` phß║úi giß╗» c├╣ng thß╗⌐ tß╗▒ ─æß╗â tr├ính deadlock.
 
-## Luồng cập nhật dữ liệu
+## Luß╗ông cß║¡p nhß║¡t dß╗» liß╗çu
 
-Luồng dữ liệu dự kiến:
+Luß╗ông dß╗» liß╗çu dß╗▒ kiß║┐n:
 
 ```text
 SimulationThread
@@ -251,7 +251,7 @@ SimulationThread
         v
 SimulationEngine::update()
         |
-        +--> Vehicle / TrafficLight thật
+        +--> Vehicle / TrafficLight thß║¡t
         |
         +--> publishVehicles()
         +--> publishLights()
@@ -264,7 +264,7 @@ SnapshotStore
 getSnapshot()
 ```
 
-Ví dụ trong Simulation Engine:
+V├¡ dß╗Ñ trong Simulation Engine:
 
 ```cpp
 void SimulationEngine::update(std::size_t currentTick) {
@@ -300,7 +300,7 @@ void SimulationEngine::update(std::size_t currentTick) {
 }
 ```
 
-## Quỹ đạo xe quay đầu
+## Quß╗╣ ─æß║ío xe quay ─æß║ºu
 
 File:
 
@@ -308,7 +308,7 @@ File:
 src/common/TurnCurve.h
 ```
 
-`TurnCurve` sử dụng đường cong Bézier bậc hai:
+`TurnCurve` sß╗¡ dß╗Ñng ─æ╞░ß╗¥ng cong B├⌐zier bß║¡c hai:
 
 ```cpp
 const TurnCurveSample sample =
@@ -320,13 +320,13 @@ const TurnCurveSample sample =
     );
 ```
 
-Trong đó `turnProgress` nằm trong khoảng `0.0` đến `1.0`.
+Trong ─æ├│ `turnProgress` nß║▒m trong khoß║úng `0.0` ─æß║┐n `1.0`.
 
-- `0.0`: bắt đầu quay.
-- `1.0`: kết thúc quay.
-- `controlPoint`: quyết định độ cong của quỹ đạo.
+- `0.0`: bß║»t ─æß║ºu quay.
+- `1.0`: kß║┐t th├║c quay.
+- `controlPoint`: quyß║┐t ─æß╗ïnh ─æß╗Ö cong cß╗ºa quß╗╣ ─æß║ío.
 
-Kết quả trả về:
+Kß║┐t quß║ú trß║ú vß╗ü:
 
 ```cpp
 struct TurnCurveSample {
@@ -335,7 +335,7 @@ struct TurnCurveSample {
 };
 ```
 
-Cập nhật vào snapshot:
+Cß║¡p nhß║¡t v├áo snapshot:
 
 ```cpp
 vehicleSnapshot.x = sample.position.x;
@@ -344,13 +344,13 @@ vehicleSnapshot.rotationAngleDegrees =
     sample.rotationAngleDegrees;
 ```
 
-Góc xoay được tính từ vector tiếp tuyến của đường cong, vì vậy xe thay đổi hướng tự nhiên trong lúc di chuyển.
+G├│c xoay ─æ╞░ß╗úc t├¡nh tß╗½ vector tiß║┐p tuyß║┐n cß╗ºa ─æ╞░ß╗¥ng cong, v├¼ vß║¡y xe thay ─æß╗òi h╞░ß╗¢ng tß╗▒ nhi├¬n trong l├║c di chuyß╗ân.
 
-## Build trực tiếp bằng g++
+## Build trß╗▒c tiß║┐p bß║▒ng g++
 
-Do project module hiện không giữ `CMakeLists.txt` ở thư mục gốc, có thể build prototype trực tiếp bằng g++.
+Do project module hiß╗çn kh├┤ng giß╗» `CMakeLists.txt` ß╗ƒ th╞░ mß╗Ñc gß╗æc, c├│ thß╗â build prototype trß╗▒c tiß║┐p bß║▒ng g++.
 
-### Prototype module hóa
+### Prototype module h├│a
 
 Linux/macOS/WSL:
 
@@ -363,13 +363,13 @@ g++ -std=c++17 -pthread -Wall -Wextra -Wpedantic \
   -o concurrency_prototype
 ```
 
-Chạy:
+Chß║íy:
 
 ```bash
 ./concurrency_prototype
 ```
 
-Windows PowerShell dùng MinGW:
+Windows PowerShell d├╣ng MinGW:
 
 ```powershell
 g++ -std=c++17 -pthread -Wall -Wextra -Wpedantic `
@@ -380,13 +380,13 @@ g++ -std=c++17 -pthread -Wall -Wextra -Wpedantic `
   -o concurrency_prototype.exe
 ```
 
-Chạy:
+Chß║íy:
 
 ```powershell
 .\concurrency_prototype.exe
 ```
 
-### Prototype một file
+### Prototype mß╗Öt file
 
 ```bash
 g++ -std=c++17 -pthread -Wall -Wextra -Wpedantic \
@@ -397,7 +397,7 @@ g++ -std=c++17 -pthread -Wall -Wextra -Wpedantic \
 
 ## ThreadSanitizer
 
-Build bản kiểm tra race condition:
+Build bß║ún kiß╗âm tra race condition:
 
 ```bash
 g++ -fsanitize=thread \
@@ -412,19 +412,19 @@ g++ -fsanitize=thread \
   -o concurrency_tsan
 ```
 
-Chạy:
+Chß║íy:
 
 ```bash
 ./concurrency_tsan
 ```
 
-Kết quả đạt yêu cầu là chương trình không xuất hiện:
+Kß║┐t quß║ú ─æß║ít y├¬u cß║ºu l├á ch╞░╞íng tr├¼nh kh├┤ng xuß║Ñt hiß╗çn:
 
 ```text
 WARNING: ThreadSanitizer: data race
 ```
 
-## CMake khi tích hợp vào project chính
+## CMake khi t├¡ch hß╗úp v├áo project ch├¡nh
 
 File module:
 
@@ -432,7 +432,7 @@ File module:
 src/concurrency/CMakeLists.txt
 ```
 
-Project chính của nhóm cần tự khai báo:
+Project ch├¡nh cß╗ºa nh├│m cß║ºn tß╗▒ khai b├ío:
 
 ```cmake
 find_package(Threads REQUIRED)
@@ -443,17 +443,17 @@ target_link_libraries(SmartTrafficSimulation
 )
 ```
 
-Không thêm `examples/ConcurrencyPrototype.cpp` hoặc `src/ConcurrencyModule.cpp` vào executable chính nếu executable chính đã có `main.cpp` riêng.
+Kh├┤ng th├¬m `examples/ConcurrencyPrototype.cpp` hoß║╖c `src/ConcurrencyModule.cpp` v├áo executable ch├¡nh nß║┐u executable ch├¡nh ─æ├ú c├│ `main.cpp` ri├¬ng.
 
-## Quy tắc tích hợp Git
+## Quy tß║»c t├¡ch hß╗úp Git
 
-Branch làm việc của module:
+Branch l├ám viß╗çc cß╗ºa module:
 
 ```text
 feature/concurrency
 ```
 
-Cập nhật branch:
+Cß║¡p nhß║¡t branch:
 
 ```bash
 git checkout feature/concurrency
@@ -461,7 +461,7 @@ git fetch origin
 git pull --rebase origin feature/concurrency
 ```
 
-Commit thay đổi:
+Commit thay ─æß╗òi:
 
 ```bash
 git add .
@@ -474,14 +474,14 @@ Push branch:
 git push origin feature/concurrency
 ```
 
-Sau đó tạo Pull Request:
+Sau ─æ├│ tß║ío Pull Request:
 
 ```text
 base: main
 compare: feature/concurrency
 ```
 
-Nếu Pull Request báo conflict, cập nhật `main` vào branch cá nhân:
+Nß║┐u Pull Request b├ío conflict, cß║¡p nhß║¡t `main` v├áo branch c├í nh├ón:
 
 ```bash
 git checkout feature/concurrency
@@ -489,7 +489,7 @@ git fetch origin
 git merge origin/main
 ```
 
-Sửa các file conflict, sau đó:
+Sß╗¡a c├íc file conflict, sau ─æ├│:
 
 ```bash
 git add .
@@ -497,143 +497,143 @@ git commit -m "merge: resolve conflicts with main"
 git push origin feature/concurrency
 ```
 
-Không sử dụng `git push --force` lên `main`.
+Kh├┤ng sß╗¡ dß╗Ñng `git push --force` l├¬n `main`.
 
-## Checklist bàn giao
+## Checklist b├án giao
 
-- [ ] `Types.h` là nơi duy nhất định nghĩa các enum dùng chung.
+- [ ] `Types.h` l├á n╞íi duy nhß║Ñt ─æß╗ïnh ngh─⌐a c├íc enum d├╣ng chung.
 - [ ] `SimulationSnapshot.h` include `common/Types.h`.
-- [ ] `VehicleSnapshot` có `signalingLeft`.
-- [ ] `LightSnapshot` có `turnArrow` trước `color`.
-- [ ] `SimulationThread` có `start()`, `requestStop()` và `join()` an toàn.
-- [ ] Gọi `start()` lần hai được xử lý bằng exception, không crash.
-- [ ] Snapshot được publish bằng `SnapshotStore`.
-- [ ] Không truy cập trực tiếp vector dùng chung từ thread khác.
-- [ ] Không còn `CMakeLists.txt` ở thư mục gốc nếu project chính đã quản lý CMake.
-- [ ] Chạy build với `-Wall -Wextra -Wpedantic` thành công.
-- [ ] Chạy ThreadSanitizer không phát hiện data race.
-- [ ] Commit đã được push lên `feature/concurrency`.
+- [ ] `VehicleSnapshot` c├│ `signalingLeft`.
+- [ ] `LightSnapshot` c├│ `turnArrow` tr╞░ß╗¢c `color`.
+- [ ] `SimulationThread` c├│ `start()`, `requestStop()` v├á `join()` an to├án.
+- [ ] Gß╗ìi `start()` lß║ºn hai ─æ╞░ß╗úc xß╗¡ l├╜ bß║▒ng exception, kh├┤ng crash.
+- [ ] Snapshot ─æ╞░ß╗úc publish bß║▒ng `SnapshotStore`.
+- [ ] Kh├┤ng truy cß║¡p trß╗▒c tiß║┐p vector d├╣ng chung tß╗½ thread kh├íc.
+- [ ] Kh├┤ng c├▓n `CMakeLists.txt` ß╗ƒ th╞░ mß╗Ñc gß╗æc nß║┐u project ch├¡nh ─æ├ú quß║ún l├╜ CMake.
+- [ ] Chß║íy build vß╗¢i `-Wall -Wextra -Wpedantic` th├ánh c├┤ng.
+- [ ] Chß║íy ThreadSanitizer kh├┤ng ph├ít hiß╗çn data race.
+- [ ] Commit ─æ├ú ─æ╞░ß╗úc push l├¬n `feature/concurrency`.
 =======
-Phần mềm **mô phỏng giao thông đô thị thời gian thực** viết bằng C++ cho môn Lập trình Hướng đối tượng (OOP).
+Phß║ºn mß╗üm **m├┤ phß╗Ång giao th├┤ng ─æ├┤ thß╗ï thß╗¥i gian thß╗▒c** viß║┐t bß║▒ng C++ cho m├┤n Lß║¡p tr├¼nh H╞░ß╗¢ng ─æß╗æi t╞░ß╗úng (OOP).
 
-Xe, đèn giao thông và giao lộ được mô hình hóa thành các đối tượng tự vận hành, có khả năng tự điều chỉnh hành vi.
+Xe, ─æ├¿n giao th├┤ng v├á giao lß╗Ö ─æ╞░ß╗úc m├┤ h├¼nh h├│a th├ánh c├íc ─æß╗æi t╞░ß╗úng tß╗▒ vß║¡n h├ánh, c├│ khß║ú n─âng tß╗▒ ─æiß╗üu chß╗ënh h├ánh vi.
 
-## Kiến trúc và kỹ thuật chính
+## Kiß║┐n tr├║c v├á kß╗╣ thuß║¡t ch├¡nh
 
-- **State Pattern**: trạng thái đèn giao thông và hành vi của xe
-- **Composite Pattern**: cấu trúc mạng lưới đường
-- **Multithreading**: xử lý đồng thời thật bằng `std::thread`, `mutex`, `lock_guard`
-- **SFML**: hiển thị đồ họa
+- **State Pattern**: trß║íng th├íi ─æ├¿n giao th├┤ng v├á h├ánh vi cß╗ºa xe
+- **Composite Pattern**: cß║Ñu tr├║c mß║íng l╞░ß╗¢i ─æ╞░ß╗¥ng
+- **Multithreading**: xß╗¡ l├╜ ─æß╗ông thß╗¥i thß║¡t bß║▒ng `std::thread`, `mutex`, `lock_guard`
+- **SFML**: hiß╗ân thß╗ï ─æß╗ô hß╗ìa
 
-## Các class chính
+## C├íc class ch├¡nh
 
-| Phần | Class |
+| Phß║ºn | Class |
 |---|---|
 | Xe | `Vehicle` |
-| Đèn giao thông | `TrafficLight` |
-| Trạng thái xe / đèn | `IVehicleState` / `ILightState` |
-| Đường / Ngã tư | `Road` / `Intersection` |
-| Thành phần đường (Composite) | `IRoadComponent` |
-| Mạng đường | `RoadNetwork` |
-| Đồng hồ mô phỏng | `SimulationClock` |
-| Hệ thống sự kiện | `EventBus` |
-| Bộ điều khiển mô phỏng | `SimulationEngine` |
+| ─É├¿n giao th├┤ng | `TrafficLight` |
+| Trß║íng th├íi xe / ─æ├¿n | `IVehicleState` / `ILightState` |
+| ─É╞░ß╗¥ng / Ng├ú t╞░ | `Road` / `Intersection` |
+| Th├ánh phß║ºn ─æ╞░ß╗¥ng (Composite) | `IRoadComponent` |
+| Mß║íng ─æ╞░ß╗¥ng | `RoadNetwork` |
+| ─Éß╗ông hß╗ô m├┤ phß╗Ång | `SimulationClock` |
+| Hß╗ç thß╗æng sß╗▒ kiß╗çn | `EventBus` |
+| Bß╗Ö ─æiß╗üu khiß╗ân m├┤ phß╗Ång | `SimulationEngine` |
 | Sinh xe | `TrafficGenerator` |
-| Hiển thị | `Renderer` |
+| Hiß╗ân thß╗ï | `Renderer` |
 
-**State của xe:** `AcceleratingState`, `BrakingState`, `WaitingState`, `TurningState`, `CruisingState`
-**State của đèn:** `RedState`, `YellowState`, `GreenState`
+**State cß╗ºa xe:** `AcceleratingState`, `BrakingState`, `WaitingState`, `TurningState`, `CruisingState`
+**State cß╗ºa ─æ├¿n:** `RedState`, `YellowState`, `GreenState`
 
-## Mô hình đã chốt (theo biên bản họp)
+## M├┤ h├¼nh ─æ├ú chß╗æt (theo bi├¬n bß║ún hß╗ìp)
 
-| Hạng mục | Nội dung |
+| Hß║íng mß╗Ñc | Nß╗Öi dung |
 |---|---|
-| Loại mô hình | Ngã tư cắt ngang bởi đường đôi |
-| Số ngã tư | 1 |
-| Đường đơn (hướng Bắc-Nam) | 2 chiều, mỗi chiều 1 làn (tổng 2 làn). Mỗi làn đủ rộng cho 2 xe đứng song song: một hàng cho rẽ trái + quay đầu, một hàng cho đi thẳng + rẽ phải |
-| Đường đôi (hướng Đông-Tây) | Có dải phân cách, mỗi chiều 3 làn (tổng 6 làn). Làn trái: rẽ trái + quay đầu, làn giữa: đi thẳng, làn phải: rẽ phải |
-| Hướng xe | Đi thẳng, rẽ trái, rẽ phải, quay đầu |
-| Chuyển làn | Không cho phép, xe đi theo làn cố định |
-| Loại xe | Chỉ ô tô |
-| Số xe | 13 xe ban đầu, cố định, không sinh thêm |
-| Tốc độ xe | Tùy chỉnh được |
-| Cách rẽ | Rẽ theo đường cong |
-| Ưu tiên lưu thông | Theo tín hiệu đèn |
-| Bước mô phỏng | 1 tick = 0.02 giây (50 tick = 1 giây) |
-| EventBus | Để sau, chưa dùng ở bản MVP |
-| Luồng chạy | Luồng mô phỏng (cập nhật xe + đèn) và luồng chính (SFML: cửa sổ + vẽ) |
-| Hiển thị | SFML, có xi-nhan cho rẽ trái và quay đầu |
-| Phạm vi bản đầu (MVP) | Mô hình chạy được với các mục trên |
+| Loß║íi m├┤ h├¼nh | Ng├ú t╞░ cß║»t ngang bß╗ƒi ─æ╞░ß╗¥ng ─æ├┤i |
+| Sß╗æ ng├ú t╞░ | 1 |
+| ─É╞░ß╗¥ng ─æ╞ín (h╞░ß╗¢ng Bß║»c-Nam) | 2 chiß╗üu, mß╗ùi chiß╗üu 1 l├án (tß╗òng 2 l├án). Mß╗ùi l├án ─æß╗º rß╗Öng cho 2 xe ─æß╗⌐ng song song: mß╗Öt h├áng cho rß║╜ tr├íi + quay ─æß║ºu, mß╗Öt h├áng cho ─æi thß║│ng + rß║╜ phß║úi |
+| ─É╞░ß╗¥ng ─æ├┤i (h╞░ß╗¢ng ─É├┤ng-T├óy) | C├│ dß║úi ph├ón c├ích, mß╗ùi chiß╗üu 3 l├án (tß╗òng 6 l├án). L├án tr├íi: rß║╜ tr├íi + quay ─æß║ºu, l├án giß╗»a: ─æi thß║│ng, l├án phß║úi: rß║╜ phß║úi |
+| H╞░ß╗¢ng xe | ─Éi thß║│ng, rß║╜ tr├íi, rß║╜ phß║úi, quay ─æß║ºu |
+| Chuyß╗ân l├án | Kh├┤ng cho ph├⌐p, xe ─æi theo l├án cß╗æ ─æß╗ïnh |
+| Loß║íi xe | Chß╗ë ├┤ t├┤ |
+| Sß╗æ xe | 13 xe ban ─æß║ºu, cß╗æ ─æß╗ïnh, kh├┤ng sinh th├¬m |
+| Tß╗æc ─æß╗Ö xe | T├╣y chß╗ënh ─æ╞░ß╗úc |
+| C├ích rß║╜ | Rß║╜ theo ─æ╞░ß╗¥ng cong |
+| ╞»u ti├¬n l╞░u th├┤ng | Theo t├¡n hiß╗çu ─æ├¿n |
+| B╞░ß╗¢c m├┤ phß╗Ång | 1 tick = 0.02 gi├óy (50 tick = 1 gi├óy) |
+| EventBus | ─Éß╗â sau, ch╞░a d├╣ng ß╗ƒ bß║ún MVP |
+| Luß╗ông chß║íy | Luß╗ông m├┤ phß╗Ång (cß║¡p nhß║¡t xe + ─æ├¿n) v├á luß╗ông ch├¡nh (SFML: cß╗¡a sß╗ò + vß║╜) |
+| Hiß╗ân thß╗ï | SFML, c├│ xi-nhan cho rß║╜ tr├íi v├á quay ─æß║ºu |
+| Phß║ím vi bß║ún ─æß║ºu (MVP) | M├┤ h├¼nh chß║íy ─æ╞░ß╗úc vß╗¢i c├íc mß╗Ñc tr├¬n |
 
-### Quy tắc xe theo đèn
+### Quy tß║»c xe theo ─æ├¿n
 
-- Xe chưa qua vạch dừng khi đèn chuyển pha: giảm tốc và dừng lại.
-- Xe đã qua vạch dừng: tiếp tục đi, không giảm tốc.
-- Xe chờ đèn đỏ xếp hàng tại vạch dừng theo làn.
+- Xe ch╞░a qua vß║ích dß╗½ng khi ─æ├¿n chuyß╗ân pha: giß║úm tß╗æc v├á dß╗½ng lß║íi.
+- Xe ─æ├ú qua vß║ích dß╗½ng: tiß║┐p tß╗Ñc ─æi, kh├┤ng giß║úm tß╗æc.
+- Xe chß╗¥ ─æ├¿n ─æß╗Å xß║┐p h├áng tß║íi vß║ích dß╗½ng theo l├án.
 
-### Chu kỳ đèn (38 giây)
+### Chu kß╗│ ─æ├¿n (38 gi├óy)
 
-Thứ tự mỗi hướng: **Xanh, Vàng, Đỏ**. Hai nhóm hướng đi chung pha: **thẳng + rẽ phải** và **rẽ trái + quay đầu**.
-Ký hiệu: **BN** = Bắc-Nam, **ĐT** = Đông-Tây.
-Thời lượng đèn theo biên bản họp. Nên khai báo thành hằng số để sau này đổi số mà không sửa logic.
+Thß╗⌐ tß╗▒ mß╗ùi h╞░ß╗¢ng: **Xanh, V├áng, ─Éß╗Å**. Hai nh├│m h╞░ß╗¢ng ─æi chung pha: **thß║│ng + rß║╜ phß║úi** v├á **rß║╜ tr├íi + quay ─æß║ºu**.
+K├╜ hiß╗çu: **BN** = Bß║»c-Nam, **─ÉT** = ─É├┤ng-T├óy.
+Thß╗¥i l╞░ß╗úng ─æ├¿n theo bi├¬n bß║ún hß╗ìp. N├¬n khai b├ío th├ánh hß║▒ng sß╗æ ─æß╗â sau n├áy ─æß╗òi sß╗æ m├á kh├┤ng sß╗¡a logic.
 
-| Giây | Pha đang chạy |
+| Gi├óy | Pha ─æang chß║íy |
 |---|---|
-| 0-5 | BN thẳng + rẽ phải: Xanh |
-| 6-7 | BN thẳng + rẽ phải: Vàng |
-| 8-9 | Đỏ toàn bộ |
-| 10-14 | BN rẽ trái + quay đầu: Xanh |
-| 15-16 | BN rẽ trái + quay đầu: Vàng |
-| 17-18 | Đỏ toàn bộ |
-| 19-24 | ĐT thẳng + rẽ phải: Xanh |
-| 25-26 | ĐT thẳng + rẽ phải: Vàng |
-| 27-28 | Đỏ toàn bộ |
-| 29-33 | ĐT rẽ trái + quay đầu: Xanh |
-| 34-35 | ĐT rẽ trái + quay đầu: Vàng |
-| 36-37 | Đỏ toàn bộ |
-| 38 | Quay lại giây 0 |
+| 0-5 | BN thß║│ng + rß║╜ phß║úi: Xanh |
+| 6-7 | BN thß║│ng + rß║╜ phß║úi: V├áng |
+| 8-9 | ─Éß╗Å to├án bß╗Ö |
+| 10-14 | BN rß║╜ tr├íi + quay ─æß║ºu: Xanh |
+| 15-16 | BN rß║╜ tr├íi + quay ─æß║ºu: V├áng |
+| 17-18 | ─Éß╗Å to├án bß╗Ö |
+| 19-24 | ─ÉT thß║│ng + rß║╜ phß║úi: Xanh |
+| 25-26 | ─ÉT thß║│ng + rß║╜ phß║úi: V├áng |
+| 27-28 | ─Éß╗Å to├án bß╗Ö |
+| 29-33 | ─ÉT rß║╜ tr├íi + quay ─æß║ºu: Xanh |
+| 34-35 | ─ÉT rß║╜ tr├íi + quay ─æß║ºu: V├áng |
+| 36-37 | ─Éß╗Å to├án bß╗Ö |
+| 38 | Quay lß║íi gi├óy 0 |
 
-### Chưa chốt
+### Ch╞░a chß╗æt
 
-Hiện không còn mục nào.
+Hiß╗çn kh├┤ng c├▓n mß╗Ñc n├áo.
 
-## Phân công
+## Ph├ón c├┤ng
 
-| Thành viên | Phần việc | Branch |
+| Th├ánh vi├¬n | Phß║ºn viß╗çc | Branch |
 |---|---|---|
-| Người 1 | Core Simulation (Vehicle, TrafficLight), slide thuyết trình | `feature/vehicle` |
-| Người 2 | Logic / Thuật toán điều phối giao thông | `feature/logic` |
-| Người 3 | Concurrency / Thread | `feature/concurrency` |
-| Người 4 | Tích hợp, kiểm thử, review code | `feature/integration` |
-| Người 5 | GUI (SFML) | `feature/gui` |
+| Ng╞░ß╗¥i 1 | Core Simulation (Vehicle, TrafficLight), slide thuyß║┐t tr├¼nh | `feature/vehicle` |
+| Ng╞░ß╗¥i 2 | Logic / Thuß║¡t to├ín ─æiß╗üu phß╗æi giao th├┤ng | `feature/logic` |
+| Ng╞░ß╗¥i 3 | Concurrency / Thread | `feature/concurrency` |
+| Ng╞░ß╗¥i 4 | T├¡ch hß╗úp, kiß╗âm thß╗¡, review code | `feature/integration` |
+| Ng╞░ß╗¥i 5 | GUI (SFML) | `feature/gui` |
 
-> Ghi tên thành viên vào bảng này khi nhóm chốt.
+> Ghi t├¬n th├ánh vi├¬n v├áo bß║úng n├áy khi nh├│m chß╗æt.
 
-## Mốc thời gian
+## Mß╗æc thß╗¥i gian
 
-| Mốc | Nội dung |
+| Mß╗æc | Nß╗Öi dung |
 |---|---|
-| 21/9 | Khởi động, thống nhất cấu trúc và quy ước |
-| 28/9 | Cấu trúc project và prototype thread chạy độc lập |
-| 12/10 | Core Simulation ổn định, bàn giao tích hợp |
-| 19/10 | Tích hợp lần 1, GUI kết nối dữ liệu thật |
-| 25/10 | Test toàn hệ thống, sửa lỗi |
-| 30/10 | Freeze bản chính thức |
-| 31/10 | Demo và thuyết trình |
+| 21/9 | Khß╗ƒi ─æß╗Öng, thß╗æng nhß║Ñt cß║Ñu tr├║c v├á quy ╞░ß╗¢c |
+| 28/9 | Cß║Ñu tr├║c project v├á prototype thread chß║íy ─æß╗Öc lß║¡p |
+| 12/10 | Core Simulation ß╗òn ─æß╗ïnh, b├án giao t├¡ch hß╗úp |
+| 19/10 | T├¡ch hß╗úp lß║ºn 1, GUI kß║┐t nß╗æi dß╗» liß╗çu thß║¡t |
+| 25/10 | Test to├án hß╗ç thß╗æng, sß╗¡a lß╗ùi |
+| 30/10 | Freeze bß║ún ch├¡nh thß╗⌐c |
+| 31/10 | Demo v├á thuyß║┐t tr├¼nh |
 
-## Cấu trúc thư mục
+## Cß║Ñu tr├║c th╞░ mß╗Ñc
 
 ```
 SmartTrafficSimulation/
-├── src/        # mã nguồn (.h và .cpp)
-├── docs/       # báo cáo, slide
-├── .gitignore
-└── README.md
+Γö£ΓöÇΓöÇ src/        # m├ú nguß╗ôn (.h v├á .cpp)
+Γö£ΓöÇΓöÇ docs/       # b├ío c├ío, slide
+Γö£ΓöÇΓöÇ .gitignore
+ΓööΓöÇΓöÇ README.md
 ```
 
-## Cách build
+## C├ích build
 
-**Yêu cầu:** C++17 (GCC 13 trở lên hoặc MSVC 2022), CMake 3.16 trở lên, Ninja (Windows: `winget install Ninja-build.Ninja`).
+**Y├¬u cß║ºu:** C++17 (GCC 13 trß╗ƒ l├¬n hoß║╖c MSVC 2022), CMake 3.16 trß╗ƒ l├¬n, Ninja (Windows: `winget install Ninja-build.Ninja`).
 
 ```bash
 cmake -S . -B build -G Ninja -DBUILD_GUI=OFF
@@ -641,47 +641,47 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-- `-DBUILD_GUI=OFF`: bỏ qua phần đồ họa. Khi cần GUI, bỏ tham số này, CMake sẽ tự tải **SFML 3** (lần đầu cần có mạng).
-- Dự án dùng chung kiểu dữ liệu trong `src/common/Types.h`. Không tự định nghĩa lại `Direction`, `Movement`, `LightColor`.
-- Không commit thư mục `build/` và file `.exe`.
+- `-DBUILD_GUI=OFF`: bß╗Å qua phß║ºn ─æß╗ô hß╗ìa. Khi cß║ºn GUI, bß╗Å tham sß╗æ n├áy, CMake sß║╜ tß╗▒ tß║úi **SFML 3** (lß║ºn ─æß║ºu cß║ºn c├│ mß║íng).
+- Dß╗▒ ├ín d├╣ng chung kiß╗âu dß╗» liß╗çu trong `src/common/Types.h`. Kh├┤ng tß╗▒ ─æß╗ïnh ngh─⌐a lß║íi `Direction`, `Movement`, `LightColor`.
+- Kh├┤ng commit th╞░ mß╗Ñc `build/` v├á file `.exe`.
 
-## Quy ước đặt tên
+## Quy ╞░ß╗¢c ─æß║╖t t├¬n
 
-| Thành phần | Quy tắc | Ví dụ |
+| Th├ánh phß║ºn | Quy tß║»c | V├¡ dß╗Ñ |
 |---|---|---|
-| File | PascalCase, trùng tên class | `Vehicle.h`, `Vehicle.cpp` |
+| File | PascalCase, tr├╣ng t├¬n class | `Vehicle.h`, `Vehicle.cpp` |
 | Class | PascalCase | `TrafficLight` |
-| State class | PascalCase + hậu tố `State` | `RedState` |
-| Hàm | camelCase | `update()`, `addComponent()` |
-| Biến | camelCase | `vehicleId`, `currentTick` |
-| Hằng số | CHỮ_HOA_GẠCH_DƯỚI | `MAX_VEHICLES` |
+| State class | PascalCase + hß║¡u tß╗æ `State` | `RedState` |
+| H├ám | camelCase | `update()`, `addComponent()` |
+| Biß║┐n | camelCase | `vehicleId`, `currentTick` |
+| Hß║▒ng sß╗æ | CHß╗«_HOA_Gß║áCH_D╞»ß╗ÜI | `MAX_VEHICLES` |
 | Enum | PascalCase | `enum class Direction { North, South, East, West };` |
 
-- File `.h` để khai báo, `.cpp` để cài đặt.
-- Dùng `#pragma once` cho mọi header.
-- Chỉ `#include` thư viện cần thiết.
-- Comment để giải thích logic khó hiểu, không comment những dòng quá hiển nhiên.
+- File `.h` ─æß╗â khai b├ío, `.cpp` ─æß╗â c├ái ─æß║╖t.
+- D├╣ng `#pragma once` cho mß╗ìi header.
+- Chß╗ë `#include` th╞░ viß╗çn cß║ºn thiß║┐t.
+- Comment ─æß╗â giß║úi th├¡ch logic kh├│ hiß╗âu, kh├┤ng comment nhß╗»ng d├▓ng qu├í hiß╗ân nhi├¬n.
 
-## Quy tắc Git
+## Quy tß║»c Git
 
-1. Mỗi người làm trên **branch riêng**, chỉ push vào branch của mình.
-2. **Không push thẳng lên `main`.** Muốn đưa code vào `main`, tạo **Pull Request** và chờ Người 4 duyệt.
-3. **Không push code chưa compile được.**
-4. Commit ghi rõ nội dung thay đổi (ví dụ `Add TrafficLight state classes`).
-5. Không tự ý sửa hoặc xóa code của người khác khi chưa trao đổi.
-6. Không tự ý đổi tên class, file, interface đã thống nhất. Muốn đổi phải báo nhóm trưởng.
-7. Trước khi merge phải kiểm tra code và build lại project.
+1. Mß╗ùi ng╞░ß╗¥i l├ám tr├¬n **branch ri├¬ng**, chß╗ë push v├áo branch cß╗ºa m├¼nh.
+2. **Kh├┤ng push thß║│ng l├¬n `main`.** Muß╗æn ─æ╞░a code v├áo `main`, tß║ío **Pull Request** v├á chß╗¥ Ng╞░ß╗¥i 4 duyß╗çt.
+3. **Kh├┤ng push code ch╞░a compile ─æ╞░ß╗úc.**
+4. Commit ghi r├╡ nß╗Öi dung thay ─æß╗òi (v├¡ dß╗Ñ `Add TrafficLight state classes`).
+5. Kh├┤ng tß╗▒ ├╜ sß╗¡a hoß║╖c x├│a code cß╗ºa ng╞░ß╗¥i kh├íc khi ch╞░a trao ─æß╗òi.
+6. Kh├┤ng tß╗▒ ├╜ ─æß╗òi t├¬n class, file, interface ─æ├ú thß╗æng nhß║Ñt. Muß╗æn ─æß╗òi phß║úi b├ío nh├│m tr╞░ß╗ƒng.
+7. Tr╞░ß╗¢c khi merge phß║úi kiß╗âm tra code v├á build lß║íi project.
 
-### Lấy code về và làm việc
+### Lß║Ñy code vß╗ü v├á l├ám viß╗çc
 
 ```bash
 git clone https://github.com/KhanhVys/SmartTrafficSimulation-1-.git
 cd SmartTrafficSimulation-1-
-git checkout <branch của bạn>
+git checkout <branch cß╗ºa bß║ín>
 
-# sau khi sửa code
+# sau khi sß╗¡a code
 git add .
-git commit -m "Nội dung thay đổi"
+git commit -m "Nß╗Öi dung thay ─æß╗òi"
 git push
 ```
 
