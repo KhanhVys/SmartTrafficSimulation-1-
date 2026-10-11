@@ -1,0 +1,1332 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:218 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeMinGWFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mingw32-make.exe"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "/REGISTRY-NOTFOUND/bin/"
+      - "c:/MinGW/bin/"
+      - "/MinGW/bin/"
+      - "/REGISTRY-NOTFOUND/MinGW/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/mingw32-make.exe.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/mingw32-make.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/"
+    found: "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/g++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is GNU, found in:
+        C:/TrafficSimulation/build/CMakeFiles/4.4.4/CompilerIdCXX/a.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/ar.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/ranlib.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/strip.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/strip.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/ld.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/ld.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/nm.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/nm.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/objdump.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/objdump.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/objcopy.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/objcopy.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/readelf.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/readelf.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/dlltool.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/dlltool.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/addr2line.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/addr2line.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/tapi.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/tapi.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/tapi"
+      - "C:/Windows/System32/tapi.com"
+      - "C:/Windows/System32/tapi.exe"
+      - "C:/Windows/System32/tapi"
+      - "C:/Windows/tapi.com"
+      - "C:/Windows/tapi.exe"
+      - "C:/Windows/tapi"
+      - "C:/Windows/System32/wbem/tapi.com"
+      - "C:/Windows/System32/wbem/tapi.exe"
+      - "C:/Windows/System32/wbem/tapi"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi"
+      - "C:/Windows/System32/OpenSSH/tapi.com"
+      - "C:/Windows/System32/OpenSSH/tapi.exe"
+      - "C:/Windows/System32/OpenSSH/tapi"
+      - "C:/Program Files/dotnet/tapi.com"
+      - "C:/Program Files/dotnet/tapi.exe"
+      - "C:/Program Files/dotnet/tapi"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/tapi.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/tapi.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/tapi"
+      - "C:/Program Files/CMake/bin/tapi.com"
+      - "C:/Program Files/CMake/bin/tapi.exe"
+      - "C:/Program Files/CMake/bin/tapi"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/tapi.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/tapi.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/tapi"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/tapi.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/tapi.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-4.9"
+      - "gcc-ar-4"
+      - "gcc-ar4"
+      - "gcc-ar"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar-4.9.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar-4.9.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar-4.9"
+      - "C:/Windows/System32/gcc-ar-4.9.com"
+      - "C:/Windows/System32/gcc-ar-4.9.exe"
+      - "C:/Windows/System32/gcc-ar-4.9"
+      - "C:/Windows/gcc-ar-4.9.com"
+      - "C:/Windows/gcc-ar-4.9.exe"
+      - "C:/Windows/gcc-ar-4.9"
+      - "C:/Windows/System32/wbem/gcc-ar-4.9.com"
+      - "C:/Windows/System32/wbem/gcc-ar-4.9.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-4.9"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-4.9.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-4.9.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-4.9"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-4.9.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-4.9.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-4.9"
+      - "C:/Program Files/dotnet/gcc-ar-4.9.com"
+      - "C:/Program Files/dotnet/gcc-ar-4.9.exe"
+      - "C:/Program Files/dotnet/gcc-ar-4.9"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar-4.9.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar-4.9.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar-4.9"
+      - "C:/Program Files/CMake/bin/gcc-ar-4.9.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-4.9.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-4.9"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar-4.9.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar-4.9.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar-4.9"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-4.9.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-4.9.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-4.9"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar-4.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar-4.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar-4"
+      - "C:/Windows/System32/gcc-ar-4.com"
+      - "C:/Windows/System32/gcc-ar-4.exe"
+      - "C:/Windows/System32/gcc-ar-4"
+      - "C:/Windows/gcc-ar-4.com"
+      - "C:/Windows/gcc-ar-4.exe"
+      - "C:/Windows/gcc-ar-4"
+      - "C:/Windows/System32/wbem/gcc-ar-4.com"
+      - "C:/Windows/System32/wbem/gcc-ar-4.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-4"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-4.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-4.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-4"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-4.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-4.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-4"
+      - "C:/Program Files/dotnet/gcc-ar-4.com"
+      - "C:/Program Files/dotnet/gcc-ar-4.exe"
+      - "C:/Program Files/dotnet/gcc-ar-4"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar-4.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar-4.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar-4"
+      - "C:/Program Files/CMake/bin/gcc-ar-4.com"
+      - "C:/Program Files/CMake/bin/gcc-ar-4.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar-4"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar-4.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar-4.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar-4"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-4.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-4.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-4"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar4.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar4.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar4"
+      - "C:/Windows/System32/gcc-ar4.com"
+      - "C:/Windows/System32/gcc-ar4.exe"
+      - "C:/Windows/System32/gcc-ar4"
+      - "C:/Windows/gcc-ar4.com"
+      - "C:/Windows/gcc-ar4.exe"
+      - "C:/Windows/gcc-ar4"
+      - "C:/Windows/System32/wbem/gcc-ar4.com"
+      - "C:/Windows/System32/wbem/gcc-ar4.exe"
+      - "C:/Windows/System32/wbem/gcc-ar4"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar4.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar4.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar4"
+      - "C:/Windows/System32/OpenSSH/gcc-ar4.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar4.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar4"
+      - "C:/Program Files/dotnet/gcc-ar4.com"
+      - "C:/Program Files/dotnet/gcc-ar4.exe"
+      - "C:/Program Files/dotnet/gcc-ar4"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar4.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar4.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ar4"
+      - "C:/Program Files/CMake/bin/gcc-ar4.com"
+      - "C:/Program Files/CMake/bin/gcc-ar4.exe"
+      - "C:/Program Files/CMake/bin/gcc-ar4"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar4.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar4.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ar4"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar4.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar4.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar4"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-4.9"
+      - "gcc-ranlib-4"
+      - "gcc-ranlib4"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib-4.9.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib-4.9.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib-4.9"
+      - "C:/Windows/System32/gcc-ranlib-4.9.com"
+      - "C:/Windows/System32/gcc-ranlib-4.9.exe"
+      - "C:/Windows/System32/gcc-ranlib-4.9"
+      - "C:/Windows/gcc-ranlib-4.9.com"
+      - "C:/Windows/gcc-ranlib-4.9.exe"
+      - "C:/Windows/gcc-ranlib-4.9"
+      - "C:/Windows/System32/wbem/gcc-ranlib-4.9.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-4.9.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-4.9"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-4.9.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-4.9.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-4.9"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-4.9.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-4.9.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-4.9"
+      - "C:/Program Files/dotnet/gcc-ranlib-4.9.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-4.9.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-4.9"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib-4.9.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib-4.9.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib-4.9"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-4.9.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-4.9.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-4.9"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-4.9.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-4.9.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-4.9"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-4.9.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-4.9.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-4.9"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib-4.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib-4.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib-4"
+      - "C:/Windows/System32/gcc-ranlib-4.com"
+      - "C:/Windows/System32/gcc-ranlib-4.exe"
+      - "C:/Windows/System32/gcc-ranlib-4"
+      - "C:/Windows/gcc-ranlib-4.com"
+      - "C:/Windows/gcc-ranlib-4.exe"
+      - "C:/Windows/gcc-ranlib-4"
+      - "C:/Windows/System32/wbem/gcc-ranlib-4.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-4.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-4"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-4.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-4.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-4"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-4.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-4.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-4"
+      - "C:/Program Files/dotnet/gcc-ranlib-4.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-4.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-4"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib-4.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib-4.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib-4"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-4.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-4.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib-4"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-4.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-4.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-4"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-4.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-4.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-4"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib4.com"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib4.exe"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib4"
+      - "C:/Windows/System32/gcc-ranlib4.com"
+      - "C:/Windows/System32/gcc-ranlib4.exe"
+      - "C:/Windows/System32/gcc-ranlib4"
+      - "C:/Windows/gcc-ranlib4.com"
+      - "C:/Windows/gcc-ranlib4.exe"
+      - "C:/Windows/gcc-ranlib4"
+      - "C:/Windows/System32/wbem/gcc-ranlib4.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib4.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib4"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib4.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib4.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib4"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib4.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib4.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib4"
+      - "C:/Program Files/dotnet/gcc-ranlib4.com"
+      - "C:/Program Files/dotnet/gcc-ranlib4.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib4"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib4.com"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib4.exe"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/gcc-ranlib4"
+      - "C:/Program Files/CMake/bin/gcc-ranlib4.com"
+      - "C:/Program Files/CMake/bin/gcc-ranlib4.exe"
+      - "C:/Program Files/CMake/bin/gcc-ranlib4"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib4.com"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib4.exe"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/gcc-ranlib4"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib4.com"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib4.exe"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib4"
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc-ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Platform/Windows-GNU.cmake:167 (enable_language)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Platform/Windows-GNU-CXX.cmake:2 (__windows_compiler_gnu)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeCXXInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "windres"
+      - "windres"
+    candidate_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Program Files/Cloudflare/Cloudflare WARP/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Users/nhata/AppData/Local/Microsoft/WindowsApps/"
+      - "C:/Users/nhata/AppData/Local/Programs/Microsoft VS Code/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/CMake/sbin/"
+      - "C:/Program Files/CMake/"
+      - "C:/Program Files (x86)/TrafficSimulation/bin/"
+      - "C:/Program Files (x86)/TrafficSimulation/sbin/"
+      - "C:/Program Files (x86)/TrafficSimulation/"
+    searched_directories:
+      - "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/windres.com"
+    found: "C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/windres.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\"
+        - "C:\\Program Files\\CMake\\bin"
+        - "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin"
+        - "C:\\Users\\nhata\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "C:\\Users\\nhata\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/TrafficSimulation"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "C:/Program Files/CMake"
+        - "C:/Program Files (x86)/TrafficSimulation"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt"
+      binary: "C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~2/Dev-Cpp/MinGW64/bin/mingw32-make.exe -f Makefile cmTC_b6b9b/fast
+        C:/PROGRA~2/Dev-Cpp/MinGW64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_b6b9b.dir\\build.make CMakeFiles/cmTC_b6b9b.dir/build
+        mingw32-make.exe[1]: Entering directory 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt'
+        Building CXX object CMakeFiles/cmTC_b6b9b.dir/CMakeCXXCompilerABI.cpp.obj
+        "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe"   -v -o CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"
+        Using built-in specs.
+        COLLECT_GCC=C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../../../src/gcc-4.9.2/configure --build=x86_64-w64-mingw32 --enable-targets=all --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-cxx-flags=-DWINPTHREAD_STATIC --disable-build-with-cxx --disable-build-poststage1-with-cxx --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --prefix=/mingw64tdm --with-local-prefix=/mingw64tdm --with-pkgversion=tdm64-1 --with-bugurl=http://tdm-gcc.tdragon.net/bugs
+        Thread model: posix
+        gcc version 4.9.2 (tdm64-1) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64'
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/cc1plus.exe -quiet -v -iprefix C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\nhata\\AppData\\Local\\Temp\\ccoUXjZS.s
+        GNU C++ (tdm64-1) version 4.9.2 (x86_64-w64-mingw32)
+        	compiled by GNU C version 4.9.2, GMP version 4.3.2, MPFR version 2.4.2, MPC version 0.8.2
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32"
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward"
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include"
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed"
+        ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include
+        End of search list.
+        GNU C++ (tdm64-1) version 4.9.2 (x86_64-w64-mingw32)
+        	compiled by GNU C version 4.9.2, GMP version 4.3.2, MPFR version 2.4.2, MPC version 0.8.2
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 199b949b87568ce5f1a18d5adc9fa901
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64'
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\nhata\\AppData\\Local\\Temp\\ccoUXjZS.s
+        GNU assembler version 2.24.51 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.24.51.20140703
+        COMPILER_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_b6b9b.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_b6b9b.dir\\link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe
+        COLLECT_LTO_WRAPPER=C:/Program\\ Files\\ (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../../../src/gcc-4.9.2/configure --build=x86_64-w64-mingw32 --enable-targets=all --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-cxx-flags=-DWINPTHREAD_STATIC --disable-build-with-cxx --disable-build-poststage1-with-cxx --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --prefix=/mingw64tdm --with-local-prefix=/mingw64tdm --with-pkgversion=tdm64-1 --with-bugurl=http://tdm-gcc.tdragon.net/bugs
+        Thread model: posix
+        gcc version 4.9.2 (tdm64-1) 
+        COMPILER_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/;C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b6b9b.exe' '-mtune=generic' '-march=x86-64'
+         C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\nhata\\AppData\\Local\\Temp\\ccDdP8Gd.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep --exclude-libs=libpthread.a -Bdynamic -o cmTC_b6b9b.exe C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. -v --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a --no-whole-archive --out-implib libcmTC_b6b9b.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
+        collect2 version 4.9.2
+        C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\nhata\\AppData\\Local\\Temp\\ccDdP8Gd.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep --exclude-libs=libpthread.a -Bdynamic -o cmTC_b6b9b.exe C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. -v --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a --no-whole-archive --out-implib libcmTC_b6b9b.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o
+        GNU ld (GNU Binutils) 2.24.51.20140703
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_b6b9b.dir/objects.a
+        "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\ar.exe" qc CMakeFiles\\cmTC_b6b9b.dir/objects.a @CMakeFiles\\cmTC_b6b9b.dir\\objects1.rsp
+        "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe"  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a -Wl,--no-whole-archive -o cmTC_b6b9b.exe -Wl,--out-implib,libcmTC_b6b9b.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make.exe[1]: Leaving directory 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:255 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++]
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32]
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward]
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include]
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include]
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed]
+          add: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include]
+        end of search list found
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++]
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32]
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward]
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include]
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/include]
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed]
+        collapse include dir [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include] ==> [C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include]
+        implicit include dirs: [C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++;C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32;C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward;C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include;C:/Program Files (x86)/Dev-Cpp/MinGW64/include;C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed;C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:291 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wild))("|,| |$)]
+        ignore line: [Change Dir: 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt']
+        ignore line: []
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~2/Dev-Cpp/MinGW64/bin/mingw32-make.exe -f Makefile cmTC_b6b9b/fast]
+        ignore line: [C:/PROGRA~2/Dev-Cpp/MinGW64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_b6b9b.dir\\build.make CMakeFiles/cmTC_b6b9b.dir/build]
+        ignore line: [mingw32-make.exe[1]: Entering directory 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt']
+        ignore line: [Building CXX object CMakeFiles/cmTC_b6b9b.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: ["C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe"   -v -o CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../../../src/gcc-4.9.2/configure --build=x86_64-w64-mingw32 --enable-targets=all --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-cxx-flags=-DWINPTHREAD_STATIC --disable-build-with-cxx --disable-build-poststage1-with-cxx --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --prefix=/mingw64tdm --with-local-prefix=/mingw64tdm --with-pkgversion=tdm64-1 --with-bugurl=http://tdm-gcc.tdragon.net/bugs]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 4.9.2 (tdm64-1) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/cc1plus.exe -quiet -v -iprefix C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj -version -o C:\\Users\\nhata\\AppData\\Local\\Temp\\ccoUXjZS.s]
+        ignore line: [GNU C++ (tdm64-1) version 4.9.2 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 4.9.2  GMP version 4.3.2  MPFR version 2.4.2  MPC version 0.8.2]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32"]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward"]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include"]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include"]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed"]
+        ignore line: [ignoring duplicate directory "C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/x86_64-w64-mingw32]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++/backward]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../include]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/include-fixed]
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++ (tdm64-1) version 4.9.2 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 4.9.2  GMP version 4.3.2  MPFR version 2.4.2  MPC version 0.8.2]
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 199b949b87568ce5f1a18d5adc9fa901]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\nhata\\AppData\\Local\\Temp\\ccoUXjZS.s]
+        ignore line: [GNU assembler version 2.24.51 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.24.51.20140703]
+        ignore line: [COMPILER_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_b6b9b.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_b6b9b.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_b6b9b.dir\\link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/Program\\ Files\\ (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../../../src/gcc-4.9.2/configure --build=x86_64-w64-mingw32 --enable-targets=all --enable-languages=ada,c,c++,fortran,lto,objc,obj-c++ --enable-libgomp --enable-lto --enable-graphite --enable-cxx-flags=-DWINPTHREAD_STATIC --disable-build-with-cxx --disable-build-poststage1-with-cxx --enable-libstdcxx-debug --enable-threads=posix --enable-version-specific-runtime-libs --enable-fully-dynamic-string --enable-libstdcxx-threads --enable-libstdcxx-time --with-gnu-ld --disable-werror --disable-nls --disable-win32-registry --prefix=/mingw64tdm --with-local-prefix=/mingw64tdm --with-pkgversion=tdm64-1 --with-bugurl=http://tdm-gcc.tdragon.net/bugs]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 4.9.2 (tdm64-1) ]
+        ignore line: [COMPILER_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b6b9b.exe' '-mtune=generic' '-march=x86-64']
+        ignore line: [ C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/collect2.exe -plugin C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\nhata\\AppData\\Local\\Temp\\ccDdP8Gd.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep --exclude-libs=libpthread.a -Bdynamic -o cmTC_b6b9b.exe C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. -v --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a --no-whole-archive --out-implib libcmTC_b6b9b.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
+        ignore line: [collect2 version 4.9.2]
+        link line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\nhata\\AppData\\Local\\Temp\\ccDdP8Gd.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep --exclude-libs=libpthread.a -Bdynamic -o cmTC_b6b9b.exe C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. -v --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a --no-whole-archive --out-implib libcmTC_b6b9b.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> linker [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/ld.exe]
+        link line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\nhata\\AppData\\Local\\Temp\\ccDdP8Gd.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep --exclude-libs=libpthread.a -Bdynamic -o cmTC_b6b9b.exe C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. -v --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a --no-whole-archive --out-implib libcmTC_b6b9b.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o] ==> linker architecture flags [-m;i386pep]
+        ignore line: [C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/liblto_plugin-0.dll -plugin-opt=C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../libexec/gcc/x86_64-w64-mingw32/4.9.2/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\nhata\\AppData\\Local\\Temp\\ccDdP8Gd.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -m i386pep --exclude-libs=libpthread.a -Bdynamic -o cmTC_b6b9b.exe C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtbegin.o -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2 -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib -LC:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../.. -v --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a --no-whole-archive --out-implib libcmTC_b6b9b.dll.a --major-image-version 0 --minor-image-version 0 -Bstatic -lstdc++ -Bdynamic -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/../lib/gcc/x86_64-w64-mingw32/4.9.2/../../../../x86_64-w64-mingw32/lib/../lib/crtend.o]
+        ignore line: [GNU ld (GNU Binutils) 2.24.51.20140703]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_b6b9b.dir/objects.a]
+        ignore line: ["C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\ar.exe" qc CMakeFiles\\cmTC_b6b9b.dir/objects.a @CMakeFiles\\cmTC_b6b9b.dir\\objects1.rsp]
+        ignore line: ["C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe"  -v -Wl -v -Wl --whole-archive CMakeFiles\\cmTC_b6b9b.dir/objects.a -Wl --no-whole-archive -o cmTC_b6b9b.exe -Wl --out-implib libcmTC_b6b9b.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [mingw32-make.exe[1]: Leaving directory 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-shqqvt']
+        ignore line: []
+        ignore line: []
+        linker tool for 'CXX': C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/bin/ld.exe -m;i386pep
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Internal/CMakeDetermineLinkerId.cmake:41 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:337 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/bin/ld.exe" "-v"
+      GNU ld (GNU Binutils) 2.24.51.20140703
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake:34 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Internal/FeatureTesting.cmake:88 (_record_compiler_features)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/Compiler/CMakeCommonCompilerMacros.cmake:124 (_record_compiler_features_cxx)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeDetermineCompilerSupport.cmake:116 (cmake_record_cxx_compile_features)"
+      - "C:/Program Files/CMake/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:81 (CMAKE_DETERMINE_COMPILER_SUPPORT)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compile features"
+    directories:
+      source: "C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-evzlwd"
+      binary: "C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-evzlwd"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_FEATURE_TEST"
+      cached: false
+      stdout: |
+        Change Dir: 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-evzlwd'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/PROGRA~2/Dev-Cpp/MinGW64/bin/mingw32-make.exe -f Makefile cmTC_46bdc/fast
+        C:/PROGRA~2/Dev-Cpp/MinGW64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_46bdc.dir\\build.make CMakeFiles/cmTC_46bdc.dir/build
+        mingw32-make.exe[1]: Entering directory 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-evzlwd'
+        Building CXX object CMakeFiles/cmTC_46bdc.dir/feature_tests.cxx.obj
+        "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe"   -std=c++14 -o CMakeFiles\\cmTC_46bdc.dir\\feature_tests.cxx.obj -c C:\\TrafficSimulation\\build\\CMakeFiles\\CMakeScratch\\TryCompile-evzlwd\\feature_tests.cxx
+        Linking CXX executable cmTC_46bdc.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_46bdc.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_46bdc.dir/objects.a
+        "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\ar.exe" qc CMakeFiles\\cmTC_46bdc.dir/objects.a @CMakeFiles\\cmTC_46bdc.dir\\objects1.rsp
+        "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\g++.exe" -Wl,--whole-archive CMakeFiles\\cmTC_46bdc.dir/objects.a -Wl,--no-whole-archive -o cmTC_46bdc.exe -Wl,--out-implib,libcmTC_46bdc.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_46bdc.dir\\linkLibs.rsp
+        mingw32-make.exe[1]: Leaving directory 'C:/TrafficSimulation/build/CMakeFiles/CMakeScratch/TryCompile-evzlwd'
+        
+      exitCode: 0
+...

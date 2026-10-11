@@ -1,0 +1,3 @@
+C:/TrafficSimulation/build/CMakeFiles/TrafficSimulation.dir
+C:/TrafficSimulation/build/CMakeFiles/edit_cache.dir
+C:/TrafficSimulation/build/CMakeFiles/rebuild_cache.dir
