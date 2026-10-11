@@ -1,22 +1,25 @@
-#ifndef TRAFFIC_LIGHT_H
-#define TRAFFIC_LIGHT_H
-
-#include <string>
+#pragma once
+#include <memory>
+#include "Enums.h"
+#include "ILightState.h"
 
 class TrafficLight {
 private:
-    double cycleTimer;
+    double elapsedTime;
+
+    SignalColor bnStraightRightColor;
+    SignalColor bnLeftUTurnColor;
+    SignalColor dtStraightRightColor; 
+    SignalColor dtLeftUTurnColor;
 
 public:
     TrafficLight();
-
     void update(double dt);
-    
-    bool isNorthSouthRed() const;
-    bool isEastWestRed() const;
-    
-    std::string getCurrentPhaseName() const;
-    double getCycleTimer() const { return cycleTimer; }
-};
+    bool isRedFor(Direction dir, TurnType turn) const;
 
-#endif
+    SignalColor getBNStraightRight() const { return bnStraightRightColor; }
+    SignalColor getBNLeftUTurn() const { return bnLeftUTurnColor; }
+    SignalColor getDTStraightRight() const { return dtStraightRightColor; }
+    SignalColor getDTLeftUTurn() const { return dtLeftUTurnColor; }
+    double getElapsedTime() const { return elapsedTime; }
+};

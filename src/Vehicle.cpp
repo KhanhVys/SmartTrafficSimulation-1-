@@ -1,22 +1,43 @@
 #include "Vehicle.h"
 
-Vehicle::Vehicle(std::string id, double startPos, double startSpeed)
-    : vehicleId(id), position(startPos), speed(startSpeed),
-      maxSpeed(13.89), length(4.5), safeDistance(10.0),
-      acceleration(2.5), deceleration(4.5) {
-    currentState = std::make_shared<CruisingState>();
+Vehicle::Vehicle(std::string id, Direction dir, TurnType turn, int lane, double maxSpd)
+    : id(id), direction(dir), turnType(turn), laneIndex(lane),
+      speed(0.0), maxSpeed(maxSpd), acceleration(8.0), deceleration(12.0),
+      position(150.0) {
+    currentState = std::make_unique<AcceleratingState>();
 }
 
-void Vehicle::setState(std::shared_ptr<IVehicleState> newState) {
-    currentState = newState;
+void Vehicle::setState(std::unique_ptr<IVehicleState> newState) {
+    if (newState && (!currentState || currentState->getStateName() != newState->getStateName())) {
+        currentState = std::move(newState);
+    }
 }
 
-void Vehicle::move(double dt) {
-    position += speed * dt;
-}
+void Vehicle::update(double dt, double distanceToStopLine, bool isRedLight, bool clearAhead) {
+    position = distanceToStopLine;
 
-void Vehicle::update(double distanceToNext, bool isRedLight, double dt) {
+    if ((isRedLight && position > 0.0 && position <= 40.0) || !clearAhead) {
+        if (speed > 0.0) {
+            setState(std::make_unique<BrakingState>());
+        } else {
+            setState(std::make_unique<WaitingState>());
+        }
+    } else if (!isRedLight && clearAhead) {
+        if (speed <= 0.0) {
+            setState(std::make_unique<AcceleratingState>());
+        } else if (speed >= maxSpeed) {
+            setState(std::make_unique<CruisingState>());
+        } else if (getStateName() == "Waiting") {
+            setState(std::make_unique<AcceleratingState>());
+        }
+    }
+
+    if (speed > 0.0 && position > 0.0) {
+        position -= speed * dt;
+        if (position < 0.0) position = 0.0;
+    }
+
     if (currentState) {
-        currentState->handle(*this, distanceToNext, isRedLight, dt);
+        currentState->handle(*this, dt);
     }
 }

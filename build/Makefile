@@ -47,10 +47,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\mingw64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\mingw64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -66,8 +66,8 @@ CMAKE_BINARY_DIR = C:\TrafficSimulation\build
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	"C:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
+	C:\mingw64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\mingw64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -127,6 +127,78 @@ TrafficSimulation: cmake_check_build_system
 TrafficSimulation/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/build
 .PHONY : TrafficSimulation/fast
+
+src/LightState.obj: src/LightState.cpp.obj
+.PHONY : src/LightState.obj
+
+# target to build an object file
+src/LightState.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj
+.PHONY : src/LightState.cpp.obj
+
+src/LightState.i: src/LightState.cpp.i
+.PHONY : src/LightState.i
+
+# target to preprocess a source file
+src/LightState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.i
+.PHONY : src/LightState.cpp.i
+
+src/LightState.s: src/LightState.cpp.s
+.PHONY : src/LightState.s
+
+# target to generate assembly for a file
+src/LightState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.s
+.PHONY : src/LightState.cpp.s
+
+src/Road.obj: src/Road.cpp.obj
+.PHONY : src/Road.obj
+
+# target to build an object file
+src/Road.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/Road.cpp.obj
+.PHONY : src/Road.cpp.obj
+
+src/Road.i: src/Road.cpp.i
+.PHONY : src/Road.i
+
+# target to preprocess a source file
+src/Road.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/Road.cpp.i
+.PHONY : src/Road.cpp.i
+
+src/Road.s: src/Road.cpp.s
+.PHONY : src/Road.s
+
+# target to generate assembly for a file
+src/Road.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/Road.cpp.s
+.PHONY : src/Road.cpp.s
+
+src/SimulationEngine.obj: src/SimulationEngine.cpp.obj
+.PHONY : src/SimulationEngine.obj
+
+# target to build an object file
+src/SimulationEngine.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.obj
+.PHONY : src/SimulationEngine.cpp.obj
+
+src/SimulationEngine.i: src/SimulationEngine.cpp.i
+.PHONY : src/SimulationEngine.i
+
+# target to preprocess a source file
+src/SimulationEngine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.i
+.PHONY : src/SimulationEngine.cpp.i
+
+src/SimulationEngine.s: src/SimulationEngine.cpp.s
+.PHONY : src/SimulationEngine.s
+
+# target to generate assembly for a file
+src/SimulationEngine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.s
+.PHONY : src/SimulationEngine.cpp.s
 
 src/TrafficLight.obj: src/TrafficLight.cpp.obj
 .PHONY : src/TrafficLight.obj
@@ -233,6 +305,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TrafficSimulation
+	@echo ... src/LightState.obj
+	@echo ... src/LightState.i
+	@echo ... src/LightState.s
+	@echo ... src/Road.obj
+	@echo ... src/Road.i
+	@echo ... src/Road.s
+	@echo ... src/SimulationEngine.obj
+	@echo ... src/SimulationEngine.i
+	@echo ... src/SimulationEngine.s
 	@echo ... src/TrafficLight.obj
 	@echo ... src/TrafficLight.i
 	@echo ... src/TrafficLight.s

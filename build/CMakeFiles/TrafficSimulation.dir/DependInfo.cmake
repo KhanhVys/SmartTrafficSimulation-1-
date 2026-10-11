@@ -8,6 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/TrafficSimulation/src/LightState.cpp" "CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj" "gcc" "CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj.d"
+  "C:/TrafficSimulation/src/Road.cpp" "CMakeFiles/TrafficSimulation.dir/src/Road.cpp.obj" "gcc" "CMakeFiles/TrafficSimulation.dir/src/Road.cpp.obj.d"
+  "C:/TrafficSimulation/src/SimulationEngine.cpp" "CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.obj" "gcc" "CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.obj.d"
   "C:/TrafficSimulation/src/TrafficLight.cpp" "CMakeFiles/TrafficSimulation.dir/src/TrafficLight.cpp.obj" "gcc" "CMakeFiles/TrafficSimulation.dir/src/TrafficLight.cpp.obj.d"
   "C:/TrafficSimulation/src/Vehicle.cpp" "CMakeFiles/TrafficSimulation.dir/src/Vehicle.cpp.obj" "gcc" "CMakeFiles/TrafficSimulation.dir/src/Vehicle.cpp.obj.d"
   "C:/TrafficSimulation/src/VehicleState.cpp" "CMakeFiles/TrafficSimulation.dir/src/VehicleState.cpp.obj" "gcc" "CMakeFiles/TrafficSimulation.dir/src/VehicleState.cpp.obj.d"

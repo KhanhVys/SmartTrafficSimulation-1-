@@ -1,43 +1,59 @@
 #include "TrafficLight.h"
 
-TrafficLight::TrafficLight() : cycleTimer(0.0) {}
+TrafficLight::TrafficLight() : elapsedTime(0.0) {
+    update(0.0);
+}
 
 void TrafficLight::update(double dt) {
-    cycleTimer += dt;
-    if (cycleTimer >= 38.0) {
-        cycleTimer = 0.0;
+    elapsedTime += dt;
+    if (elapsedTime >= 38.0) {
+        elapsedTime -= 38.0;
+    }
+
+    bnStraightRightColor = SignalColor::Red;
+    bnLeftUTurnColor     = SignalColor::Red;
+    dtStraightRightColor = SignalColor::Red;
+    dtLeftUTurnColor     = SignalColor::Red;
+
+    if (elapsedTime >= 0.0 && elapsedTime < 6.0) {
+        bnStraightRightColor = SignalColor::Green;
+    } else if (elapsedTime >= 6.0 && elapsedTime < 8.0) {
+        bnStraightRightColor = SignalColor::Yellow;
+    } else if (elapsedTime >= 8.0 && elapsedTime < 10.0) {
+    } else if (elapsedTime >= 10.0 && elapsedTime < 15.0) {
+        bnLeftUTurnColor = SignalColor::Green;
+    } else if (elapsedTime >= 15.0 && elapsedTime < 17.0) {
+        bnLeftUTurnColor = SignalColor::Yellow;
+    } else if (elapsedTime >= 17.0 && elapsedTime < 19.0) {
+    } else if (elapsedTime >= 19.0 && elapsedTime < 25.0) {
+        dtStraightRightColor = SignalColor::Green;
+    } else if (elapsedTime >= 25.0 && elapsedTime < 27.0) {
+        dtStraightRightColor = SignalColor::Yellow;
+    } else if (elapsedTime >= 27.0 && elapsedTime < 29.0) {
+    } else if (elapsedTime >= 29.0 && elapsedTime < 34.0) {
+        dtLeftUTurnColor = SignalColor::Green;
+    } else if (elapsedTime >= 34.0 && elapsedTime < 36.0) {
+        dtLeftUTurnColor = SignalColor::Yellow;
+    } else if (elapsedTime >= 36.0 && elapsedTime < 38.0) {
     }
 }
 
-bool TrafficLight::isNorthSouthRed() const {
-    double t = cycleTimer;
-    if ((t >= 8.0 && t < 29.0) || (t >= 36.0 && t <= 38.0)) {
-        return true;
-    }
-    return false;
-}
+bool TrafficLight::isRedFor(Direction dir, TurnType turn) const {
+    SignalColor activeColor = SignalColor::Red;
 
-bool TrafficLight::isEastWestRed() const {
-    double t = cycleTimer;
-    if ((t >= 0.0 && t < 19.0) || (t >= 27.0 && t <= 38.0)) {
-        return true;
+    if (dir == Direction::North || dir == Direction::South) {
+        if (turn == TurnType::Straight || turn == TurnType::Right) {
+            activeColor = bnStraightRightColor;
+        } else {
+            activeColor = bnLeftUTurnColor;
+        }
+    } else { // East, West
+        if (turn == TurnType::Straight || turn == TurnType::Right) {
+            activeColor = dtStraightRightColor;
+        } else {
+            activeColor = dtLeftUTurnColor;
+        }
     }
-    return false;
-}
 
-std::string TrafficLight::getCurrentPhaseName() const {
-    double t = cycleTimer;
-    if (t >= 0.0 && t < 6.0)   return "BN Thang + Phai: XANH";
-    if (t >= 6.0 && t < 8.0)   return "BN Thang + Phai: VANG";
-    if (t >= 8.0 && t < 10.0)  DANGER: return "DO TOAN BO";
-    if (t >= 10.0 && t < 15.0) return "BN Re trai + Quay dau: XANH";
-    if (t >= 15.0 && t < 17.0) return "BN Re trai + Quay dau: VANG";
-    if (t >= 17.0 && t < 19.0) return "DO TOAN BO";
-    if (t >= 19.0 && t < 25.0) return "DT Thang + Phai: XANH";
-    if (t >= 25.0 && t < 27.0) return "DT Thang + Phai: VANG";
-    if (t >= 27.0 && t < 29.0) return "DO TOAN BO";
-    if (t >= 29.0 && t < 34.0) return "DT Re trai + Quay dau: XANH";
-    if (t >= 34.0 && t < 36.0) return "DT Re trai + Quay dau: VANG";
-    if (t >= 36.0 && t <= 38.0) return "DO TOAN BO";
-    return "UNKNOWN";
+    return (activeColor == SignalColor::Red || activeColor == SignalColor::Yellow);
 }

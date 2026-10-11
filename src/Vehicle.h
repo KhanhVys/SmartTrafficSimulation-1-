@@ -1,42 +1,39 @@
-#ifndef VEHICLE_H
-#define VEHICLE_H
-
+#pragma once
 #include <string>
 #include <memory>
-#include "VehicleState.h"
+#include "Enums.h"
+#include "IVehicleState.h"
 
 class Vehicle {
 private:
-    std::string vehicleId;
-    double position;
+    std::string id;
+    Direction direction;
+    TurnType turnType;
+    int laneIndex;
+    
     double speed;
     double maxSpeed;
-    double length;
-    double safeDistance;
     double acceleration;
     double deceleration;
-
-    std::shared_ptr<IVehicleState> currentState;
+    double position;
+    
+    std::unique_ptr<IVehicleState> currentState;
 
 public:
-    Vehicle(std::string id, double startPos = 0.0, double startSpeed = 13.89);
+    Vehicle(std::string id, Direction dir, TurnType turn, int lane, double maxSpd = 35.0);
 
-    void update(double distanceToNext, bool isRedLight, double dt);
-    void move(double dt);
-    void setState(std::shared_ptr<IVehicleState> newState);
+    void update(double dt, double distanceToStopLine, bool isRedLight, bool clearAhead);
+    void setState(std::unique_ptr<IVehicleState> newState);
 
-    std::string getId() const { return vehicleId; }
-    double getPosition() const { return position; }
+    std::string getId() const { return id; }
+    Direction getDirection() const { return direction; }
+    TurnType getTurnType() const { return turnType; }
+    int getLaneIndex() const { return laneIndex; }
     double getSpeed() const { return speed; }
-    double getSpeedKmh() const { return speed * 3.6; }
+    void setSpeed(double spd) { speed = spd; }
     double getMaxSpeed() const { return maxSpeed; }
-    double getLength() const { return length; }
-    double getSafeDistance() const { return safeDistance; }
     double getAcceleration() const { return acceleration; }
     double getDeceleration() const { return deceleration; }
-
-    void setSpeed(double s) { speed = s; }
+    double getPosition() const { return position; }
     std::string getStateName() const { return currentState ? currentState->getStateName() : "Unknown"; }
 };
-
-#endif

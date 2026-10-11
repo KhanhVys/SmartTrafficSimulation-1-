@@ -44,10 +44,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\mingw64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\mingw64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -84,12 +84,12 @@ clean: CMakeFiles/TrafficSimulation.dir/clean
 CMakeFiles/TrafficSimulation.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\TrafficSimulation\build\CMakeFiles --progress-num=1,2,3,4,5 "Built target TrafficSimulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\TrafficSimulation\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target TrafficSimulation"
 .PHONY : CMakeFiles/TrafficSimulation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TrafficSimulation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\TrafficSimulation\build\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\TrafficSimulation\build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TrafficSimulation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\TrafficSimulation\build\CMakeFiles 0
 .PHONY : CMakeFiles/TrafficSimulation.dir/rule
@@ -101,7 +101,7 @@ TrafficSimulation: CMakeFiles/TrafficSimulation.dir/rule
 # codegen rule for target.
 CMakeFiles/TrafficSimulation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\TrafficSimulation\build\CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target TrafficSimulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\TrafficSimulation\build\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target TrafficSimulation"
 .PHONY : CMakeFiles/TrafficSimulation.dir/codegen
 
 # clean rule for target.
