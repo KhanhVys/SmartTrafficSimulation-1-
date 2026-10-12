@@ -15,6 +15,7 @@ struct VehicleSnapshot {
     double y = 0.0;
     Direction direction = Direction::North;
     Movement movement = Movement::Straight;
+    double rotationAngleDegrees = 0.0; //thêm góc
 };
 
 struct LightSnapshot {
