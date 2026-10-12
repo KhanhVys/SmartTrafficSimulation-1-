@@ -1,6 +1,7 @@
 #include <atomic>
 #include <chrono>
 #include <cstddef>
+#include "common/TurnCurve.h"
 #include <functional>
 #include <iostream>
 #include <mutex>
@@ -19,6 +20,8 @@ struct VehicleSnapshot {
     double y = 0.0;
     Direction direction = Direction::North;
     Movement movement = Movement::Straight;
+    // Góc xoay hiển thị của xe, đơn vị độ; xe quay đầu thường là 180 độ.
+    double rotationAngleDegrees = 0.0;
 };
 
 struct LightSnapshot {
@@ -144,6 +147,14 @@ int main() {
         const LightColor color = (tick % 2 == 0)
                                      ? LightColor::Green
                                      : LightColor::Red;
+        const double turnProgress =
+            static_cast<double>(tick % 50) / 49.0;
+        const TurnCurveSample turnSample = TurnCurve::sampleQuadraticBezier(
+            {100.0, 300.0},
+            {240.0, 190.0},
+            {100.0, 100.0},
+            turnProgress
+        );
 
         snapshotStore.publishTick(tick);
         snapshotStore.publishLights({
@@ -152,9 +163,12 @@ int main() {
         });
         snapshotStore.publishVehicles({
             {1, static_cast<double>(tick), 0.0,
-             Direction::North, Movement::Straight},
+             Direction::North, Movement::Straight, 0.0},
             {2, 0.0, static_cast<double>(tick),
-             Direction::East, Movement::Right},
+             Direction::East, Movement::Right, 90.0},
+            {3, turnSample.position.x, turnSample.position.y,
+             Direction::South, Movement::UTurn,
+             turnSample.rotationAngleDegrees},
         });
     };
 
@@ -171,6 +185,11 @@ int main() {
                   << " tick=" << snapshot.tick
                   << " vehicles=" << snapshot.vehicles.size()
                   << " lights=" << snapshot.lights.size() << '\n';
+        for (const VehicleSnapshot& vehicle : snapshot.vehicles) {
+            std::cout << "  vehicle " << vehicle.vehicleId
+                      << " rotation=" << vehicle.rotationAngleDegrees
+                      << " degrees\n";
+        }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
