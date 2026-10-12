@@ -1,109 +1,80 @@
-SmartTrafficSimulation — Concurrency module
+# SmartTrafficSimulation — Concurrency module
 
-Module này là phần của Người 3 – Concurrency / Thread. Module không sở hữu và không định nghĩa lại Vehicle, TrafficLight hay logic giao thông. Nó cung cấp:
+Module này là phần của **Người 3 – Concurrency / Thread**. Module không sở hữu và không định nghĩa lại `Vehicle`, `TrafficLight` hay logic giao thông. Nó cung cấp:
 
-•
-SimulationThread: quản lý luồng mô phỏng, dừng và join() an toàn.
+- `SimulationThread`: quản lý luồng mô phỏng, dừng và `join()` an toàn.
+- `SnapshotStore`: đồng bộ dữ liệu dùng chung giữa luồng mô phỏng và GUI.
+- `SimulationSnapshot`: hợp đồng dữ liệu để GUI đọc bản sao mà không giữ khóa khi render.
+- `VehicleSnapshot::rotationAngleDegrees`: góc xoay xe theo độ để GUI hiển thị đúng hướng; xe `UTurn` thường là `180.0`.
+- `TurnCurve`: tiện ích Bézier bậc hai để Core tính vị trí và góc tiếp tuyến của xe khi quay đầu.
 
-•
-SnapshotStore: đồng bộ dữ liệu dùng chung giữa luồng mô phỏng và GUI.
-
-•
-SimulationSnapshot: hợp đồng dữ liệu để GUI đọc bản sao mà không giữ khóa khi render.
-
-•
-VehicleSnapshot::rotationAngleDegrees: góc xoay xe theo độ để GUI hiển thị đúng hướng; xe UTurn thường là 180.0.
-
-•
-TurnCurve: tiện ích Bézier bậc hai để Core tính vị trí và góc tiếp tuyến của xe khi quay đầu.
-
-File cần merge vào project chính
+## File cần merge vào project chính
 
 Trưởng nhóm nên merge các file module hóa sau:
 
-Plain Text
-
-
+```text
 src/concurrency/SimulationSnapshot.h
 src/concurrency/SnapshotStore.h
 src/concurrency/SnapshotStore.cpp
 src/concurrency/SimulationThread.h
 src/concurrency/SimulationThread.cpp
-
-
+```
 
 Các file sau là cấu hình và tài liệu nên commit cùng branch:
 
-Plain Text
-
-
+```text
 CMakeLists.txt
 README.md
 .gitignore
+```
 
-
-
-src/ConcurrencyModule.cpp và examples/ConcurrencyPrototype.cpp là prototype có
-main() riêng. Có thể giữ trên Git để demo, nhưng không được thêm cả hai vào
+`src/ConcurrencyModule.cpp` và `examples/ConcurrencyPrototype.cpp` là prototype có
+`main()` riêng. Có thể giữ trên Git để demo, nhưng không được thêm cả hai vào
 executable mô phỏng chính.
 
-Build và chạy prototype
+## Build và chạy prototype
 
-Bash
-
-
+```bash
 cmake -S . -B build
 cmake --build build
 ./build/concurrency_prototype
-
-
+```
 
 Để build thêm prototype một-file:
 
-Bash
-
-
+```bash
 cmake -S . -B build-single -DBUILD_STANDALONE_SINGLE_FILE=ON
 cmake --build build-single
 ./build-single/concurrency_single_file
-
-
+```
 
 Hoặc build nhanh:
 
-Bash
-
-
+```bash
 g++ -std=c++17 -pthread -Wall -Wextra -Wpedantic \
   src/concurrency/SimulationThread.cpp \
   src/concurrency/SnapshotStore.cpp \
   examples/ConcurrencyPrototype.cpp \
   -Isrc -o concurrency_prototype
+```
 
+## Hợp đồng tích hợp với các thành viên
 
+### Người 1 — Core Simulation
 
-Hợp đồng tích hợp với các thành viên
+Trong callback mỗi tick, Core cập nhật `TrafficLight` và `Vehicle`, sau đó xuất dữ liệu phẳng:
 
-Người 1 — Core Simulation
-
-Trong callback mỗi tick, Core cập nhật TrafficLight và Vehicle, sau đó xuất dữ liệu phẳng:
-
-C++
-
-
+```cpp
 snapshotStore.publishTick(currentTick);
 snapshotStore.publishLights(lightSnapshots);
 snapshotStore.publishVehicles(vehicleSnapshots);
+```
 
+`lightSnapshots` và `vehicleSnapshots` được tạo từ dữ liệu của Core; module Concurrency không truy cập trực tiếp vào state nội bộ của Core.
 
+Mỗi `VehicleSnapshot` cần truyền thêm góc xoay hiển thị:
 
-lightSnapshots và vehicleSnapshots được tạo từ dữ liệu của Core; module Concurrency không truy cập trực tiếp vào state nội bộ của Core.
-
-Mỗi VehicleSnapshot cần truyền thêm góc xoay hiển thị:
-
-C++
-
-
+```cpp
 vehicleSnapshots.push_back({
     vehicle.getId(),
     vehicle.getX(),
@@ -112,28 +83,22 @@ vehicleSnapshots.push_back({
     vehicle.getMovement(),
     vehicle.getRotationAngleDegrees()
 });
+```
 
-
-
-Người 5 — GUI / SFML
+### Người 5 — GUI / SFML
 
 Trong vòng lặp ở luồng chính:
 
-C++
-
-
+```cpp
 const SimulationSnapshot snapshot = snapshotStore.getSnapshot();
 renderer.render(snapshot);
+```
 
-
-
-getSnapshot() trả về bản sao. GUI không được giữ mutex trong lúc vẽ.
+`getSnapshot()` trả về bản sao. GUI không được giữ mutex trong lúc vẽ.
 
 GUI dùng góc xoay như sau:
 
-C++
-
-
+```cpp
 for (const VehicleSnapshot& vehicle : snapshot.vehicles) {
     sprite.setPosition(
         static_cast<float>(vehicle.x),
@@ -144,27 +109,19 @@ for (const VehicleSnapshot& vehicle : snapshot.vehicles) {
     );
     window.draw(sprite);
 }
-
-
+```
 
 Quy ước góc theo độ:
 
-•
-0.0: không xoay.
-
-•
-90.0: xoay một góc vuông.
-
-•
-180.0: quay đầu (Movement::UTurn).
+- `0.0`: không xoay.
+- `90.0`: xoay một góc vuông.
+- `180.0`: quay đầu (`Movement::UTurn`).
 
 Nếu hướng gốc của sprite khác hướng quy ước của simulation, GUI có thể cộng hoặc trừ một offset hiển thị riêng.
 
 Core có thể tính xe quay đầu theo đường cong Bézier bậc hai:
 
-C++
-
-
+```cpp
 const TurnCurveSample sample = TurnCurve::sampleQuadraticBezier(
     {100.0, 300.0},  // điểm bắt đầu
     {240.0, 190.0},  // điểm điều khiển, quyết định độ cong
@@ -175,72 +132,52 @@ const TurnCurveSample sample = TurnCurve::sampleQuadraticBezier(
 vehicleSnapshot.x = sample.position.x;
 vehicleSnapshot.y = sample.position.y;
 vehicleSnapshot.rotationAngleDegrees = sample.rotationAngleDegrees;
-
-
+```
 
 Góc xoay được lấy từ vector tiếp tuyến của đường cong nên xe vừa di chuyển theo
-đường cong vừa xoay tự nhiên theo hướng đang chạy. TurnCurve chỉ là tiện ích
-tính toán; Core/Vehicle vẫn là nơi sở hữu trạng thái và quyết định turnProgress.
+đường cong vừa xoay tự nhiên theo hướng đang chạy. `TurnCurve` chỉ là tiện ích
+tính toán; Core/Vehicle vẫn là nơi sở hữu trạng thái và quyết định `turnProgress`.
 
-Người 4 — Tích hợp / Git
+### Người 4 — Tích hợp / Git
 
 Có thể tích hợp module bằng subtree hoặc merge branch:
 
-Bash
-
-
+```bash
 git checkout -b feature/concurrency
 git add src/concurrency examples CMakeLists.txt README.md .gitignore
 git commit -m "feat: add thread-safe simulation concurrency module"
 git push -u origin feature/concurrency
+```
 
+Sau đó mở Pull Request để Người 4 review. Nếu project chính đã có `CMakeLists.txt`, chỉ cần giữ lại target `concurrency`, include directory `src` và link thư viện này vào executable chính.
 
+## Cách ghép vào executable chính
 
-Sau đó mở Pull Request để Người 4 review. Nếu project chính đã có CMakeLists.txt, chỉ cần giữ lại target concurrency, include directory src và link thư viện này vào executable chính.
+Sau khi merge branch, `CMakeLists.txt` của project chính cần link thư viện:
 
-Cách ghép vào executable chính
-
-Sau khi merge branch, CMakeLists.txt của project chính cần link thư viện:
-
-Plain Text
-
-
+```cmake
 add_subdirectory(src/concurrency)
 
 target_link_libraries(SmartTrafficSimulation
     PRIVATE concurrency
 )
+```
 
+`main.cpp` của nhóm tạo `SimulationEngine`, khởi động `SimulationThread`,
+để callback gọi `SimulationEngine::update()`, rồi cho SFML đọc:
 
-
-main.cpp của nhóm tạo SimulationEngine, khởi động SimulationThread,
-để callback gọi SimulationEngine::update(), rồi cho SFML đọc:
-
-C++
-
-
+```cpp
 const SimulationSnapshot snapshot = snapshotStore.getSnapshot();
 renderer.render(window, snapshot);
+```
 
+Khi tích hợp thật, chỉ giữ một `main()` của project chính. Không link
+`concurrency_prototype` hoặc `concurrency_single_file` vào executable đó.
 
+## Quy tắc khóa
 
-Khi tích hợp thật, chỉ giữ một main() của project chính. Không link
-concurrency_prototype hoặc concurrency_single_file vào executable đó.
-
-Quy tắc khóa
-
-•
-vehicleMutex chỉ bảo vệ danh sách xe.
-
-•
-lightMutex chỉ bảo vệ trạng thái đèn.
-
-•
-getSnapshot() khóa theo thứ tự lightMutex trước, vehicleMutex sau.
-
-•
-Chỉ sao chép dữ liệu trong vùng khóa; không gọi GUI/Core callback khi đang giữ khóa.
-
-•
-Chỉ một nơi ghi dữ liệu mô phỏng; GUI chỉ đọc snapshot.
-
+- `vehicleMutex` chỉ bảo vệ danh sách xe.
+- `lightMutex` chỉ bảo vệ trạng thái đèn.
+- `getSnapshot()` khóa theo thứ tự **`lightMutex` trước, `vehicleMutex` sau**.
+- Chỉ sao chép dữ liệu trong vùng khóa; không gọi GUI/Core callback khi đang giữ khóa.
+- Chỉ một nơi ghi dữ liệu mô phỏng; GUI chỉ đọc snapshot.
