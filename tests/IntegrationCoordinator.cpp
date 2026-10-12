@@ -1,4 +1,6 @@
-#include "src/integration/IntegrationCoordinator.h"
+#undef NDEBUG  // giữ assert hoạt động cả khi build Release
+
+#include "integration/IntegrationCoordinator.h"
 
 #include <cassert>
 #include <stdexcept>
