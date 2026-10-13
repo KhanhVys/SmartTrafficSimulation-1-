@@ -119,7 +119,17 @@ SmartTrafficSimulation/
 
 ## Cách build
 
-> Cập nhật phần này khi nhóm chốt công cụ build (Visual Studio, CMake, g++...) và cách cài SFML.
+**Yêu cầu:** C++17 (GCC 13 trở lên hoặc MSVC 2022), CMake 3.16 trở lên, Ninja (Windows: `winget install Ninja-build.Ninja`).
+
+```bash
+cmake -S . -B build -G Ninja -DBUILD_GUI=OFF
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
+
+- `-DBUILD_GUI=OFF`: bỏ qua phần đồ họa. Khi cần GUI, bỏ tham số này, CMake sẽ tự tải **SFML 3** (lần đầu cần có mạng).
+- Dự án dùng chung kiểu dữ liệu trong `src/common/Types.h`. Không tự định nghĩa lại `Direction`, `Movement`, `LightColor`.
+- Không commit thư mục `build/` và file `.exe`.
 
 ## Quy ước đặt tên
 
@@ -151,8 +161,8 @@ SmartTrafficSimulation/
 ### Lấy code về và làm việc
 
 ```bash
-git clone https://github.com/KhanhVys/SmartTrafficSimulation-group3-.git
-cd SmartTrafficSimulation-group3-
+git clone https://github.com/KhanhVys/SmartTrafficSimulation-1-.git
+cd SmartTrafficSimulation-1-
 git checkout <branch của bạn>
 
 # sau khi sửa code
