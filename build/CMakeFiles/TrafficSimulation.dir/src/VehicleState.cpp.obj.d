@@ -1,6 +1,6 @@
 CMakeFiles/TrafficSimulation.dir/src/VehicleState.cpp.obj: \
- C:\TrafficSimulation\src\VehicleState.cpp \
- C:\TrafficSimulation\src\IVehicleState.h \
+ C:\SmartTrafficSimulation\src\VehicleState.cpp \
+ C:\SmartTrafficSimulation\src\IVehicleState.h \
  C:/mingw64/include/c++/16.2.0/string \
  C:/mingw64/include/c++/16.2.0/bits/requires_hosted.h \
  C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -104,7 +104,8 @@ CMakeFiles/TrafficSimulation.dir/src/VehicleState.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/bits/uses_allocator_args.h \
  C:/mingw64/include/c++/16.2.0/tuple \
  C:/mingw64/include/c++/16.2.0/bits/invoke.h \
- C:\TrafficSimulation\src\Vehicle.h C:/mingw64/include/c++/16.2.0/memory \
+ C:\SmartTrafficSimulation\src\Vehicle.h \
+ C:/mingw64/include/c++/16.2.0/memory \
  C:/mingw64/include/c++/16.2.0/bits/stl_tempbuf.h \
  C:/mingw64/include/c++/16.2.0/bits/stl_uninitialized.h \
  C:/mingw64/include/c++/16.2.0/bits/stl_raw_storage_iter.h \
@@ -145,4 +146,4 @@ CMakeFiles/TrafficSimulation.dir/src/VehicleState.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
  C:/mingw64/include/c++/16.2.0/pstl/glue_memory_defs.h \
  C:/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
- C:\TrafficSimulation\src\Enums.h
+ C:\SmartTrafficSimulation\src\Types.h

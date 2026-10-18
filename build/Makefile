@@ -56,10 +56,10 @@ RM = C:\mingw64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\TrafficSimulation
+CMAKE_SOURCE_DIR = C:\SmartTrafficSimulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\TrafficSimulation\build
+CMAKE_BINARY_DIR = C:\SmartTrafficSimulation\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\TrafficSimulation\build\CMakeFiles C:\TrafficSimulation\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\SmartTrafficSimulation\build\CMakeFiles C:\SmartTrafficSimulation\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\TrafficSimulation\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\SmartTrafficSimulation\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,30 @@ TrafficSimulation: cmake_check_build_system
 TrafficSimulation/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/build
 .PHONY : TrafficSimulation/fast
+
+src/Intersection.obj: src/Intersection.cpp.obj
+.PHONY : src/Intersection.obj
+
+# target to build an object file
+src/Intersection.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/Intersection.cpp.obj
+.PHONY : src/Intersection.cpp.obj
+
+src/Intersection.i: src/Intersection.cpp.i
+.PHONY : src/Intersection.i
+
+# target to preprocess a source file
+src/Intersection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/Intersection.cpp.i
+.PHONY : src/Intersection.cpp.i
+
+src/Intersection.s: src/Intersection.cpp.s
+.PHONY : src/Intersection.s
+
+# target to generate assembly for a file
+src/Intersection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TrafficSimulation.dir\build.make CMakeFiles/TrafficSimulation.dir/src/Intersection.cpp.s
+.PHONY : src/Intersection.cpp.s
 
 src/LightState.obj: src/LightState.cpp.obj
 .PHONY : src/LightState.obj
@@ -305,6 +329,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TrafficSimulation
+	@echo ... src/Intersection.obj
+	@echo ... src/Intersection.i
+	@echo ... src/Intersection.s
 	@echo ... src/LightState.obj
 	@echo ... src/LightState.i
 	@echo ... src/LightState.s

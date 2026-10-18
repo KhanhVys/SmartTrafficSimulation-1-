@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/TrafficSimulation.dir/src/Intersection.cpp.obj"
+  "CMakeFiles/TrafficSimulation.dir/src/Intersection.cpp.obj.d"
   "CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj"
   "CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj.d"
   "CMakeFiles/TrafficSimulation.dir/src/Road.cpp.obj"

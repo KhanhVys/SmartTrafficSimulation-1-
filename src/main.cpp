@@ -6,30 +6,29 @@
 
 int main() {
     SimulationEngine engine;
-    const double dt = 0.02;
-    int totalTicks = 1900;
+    const double dt = 0.02; 
+    int totalTicks = 1900;  
 
     for (int tick = 0; tick <= totalTicks; ++tick) {
         engine.step(dt);
 
         if (tick % 50 == 0) {
             double sec = engine.getTime();
-            const auto& light = engine.getTrafficLight();
+            const auto& light = engine.getIntersection().getTrafficLight();
 
             std::cout << "\033[2J\033[1H";
-
             std::cout << "=========================================================\n";
-            std::cout << "     SMART URBAN TRAFFIC SIMULATION (LIVE DASHBOARD)     \n";
+            std::cout << "      SMART TRAFFIC SIMULATION - CORE MODULE      \n";
             std::cout << "=========================================================\n";
-            std::cout << " [TIME: " << std::fixed << std::setprecision(1) << sec << "s / 38.0s] - Chu ky den giao thong:\n"
-                      << "  - BN (Thang + Phai) : " << (light.getBNStraightRight() == SignalColor::Green ? "GREEN" : (light.getBNStraightRight() == SignalColor::Yellow ? "YELLOW" : "RED")) << "\n"
-                      << "  - BN (Trai + Quay)  : " << (light.getBNLeftUTurn() == SignalColor::Green ? "GREEN" : (light.getBNLeftUTurn() == SignalColor::Yellow ? "YELLOW" : "RED")) << "\n"
-                      << "  - DT (Thang + Phai) : " << (light.getDTStraightRight() == SignalColor::Green ? "GREEN" : (light.getDTStraightRight() == SignalColor::Yellow ? "YELLOW" : "RED")) << "\n"
-                      << "  - DT (Trai + Quay)  : " << (light.getDTLeftUTurn() == SignalColor::Green ? "GREEN" : (light.getDTLeftUTurn() == SignalColor::Yellow ? "YELLOW" : "RED")) << "\n";
+            std::cout << " [TIME: " << std::fixed << std::setprecision(1) << sec << "s / 38.0s] - Trang thai den:\n"
+                      << "  - BN (Thang/Phai) : " << (light.getBnStraightRightColor() == LightColor::Green ? "GREEN" : (light.getBnStraightRightColor() == LightColor::Yellow ? "YELLOW" : "RED")) << "\n"
+                      << "  - BN (Trai/Quay)  : " << (light.getBnLeftUTurnColor() == LightColor::Green ? "GREEN" : "RED") << "\n"
+                      << "  - DT (Thang/Phai) : " << (light.getDtStraightRightColor() == LightColor::Green ? "GREEN" : (light.getDtStraightRightColor() == LightColor::Yellow ? "YELLOW" : "RED")) << "\n"
+                      << "  - DT (Trai/Quay)  : " << (light.getDtLeftUTurnColor() == LightColor::Green ? "GREEN" : "RED") << "\n";
             std::cout << "---------------------------------------------------------\n";
-            std::cout << std::left << std::setw(12) << "Vehicle ID"
+            std::cout << std::left << std::setw(14) << "Vehicle ID"
                       << std::setw(10) << "Dir"
-                      << std::setw(12) << "State"
+                      << std::setw(14) << "State"
                       << std::setw(10) << "Speed"
                       << std::setw(12) << "DistToStop\n";
             std::cout << "---------------------------------------------------------\n";
@@ -38,9 +37,9 @@ int main() {
                 std::string dirStr = (v->getDirection() == Direction::North) ? "North" :
                                      (v->getDirection() == Direction::South) ? "South" :
                                      (v->getDirection() == Direction::East) ? "East" : "West";
-                std::cout << std::left << std::setw(12) << v->getId()
+                std::cout << std::left << std::setw(14) << v->getVehicleId()
                           << std::setw(10) << dirStr
-                          << std::setw(12) << v->getStateName()
+                          << std::setw(14) << v->getStateName()
                           << std::setw(10) << std::setprecision(1) << v->getSpeed()
                           << std::setw(12) << std::setprecision(1) << v->getPosition() << "\n";
             }
@@ -51,7 +50,5 @@ int main() {
     }
 
     std::cout << "\n=== MO PHONG HOAN TAT THANH CONG! ===\n";
-    std::cout << "Nhan phim Enter de thoat...";
-    std::cin.get();
     return 0;
 }

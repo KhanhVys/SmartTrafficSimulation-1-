@@ -1,6 +1,6 @@
 CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj: \
- C:\TrafficSimulation\src\LightState.cpp \
- C:\TrafficSimulation\src\ILightState.h \
+ C:\SmartTrafficSimulation\src\LightState.cpp \
+ C:\SmartTrafficSimulation\src\ILightState.h \
  C:/mingw64/include/c++/16.2.0/string \
  C:/mingw64/include/c++/16.2.0/bits/requires_hosted.h \
  C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -104,4 +104,4 @@ CMakeFiles/TrafficSimulation.dir/src/LightState.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/bits/uses_allocator_args.h \
  C:/mingw64/include/c++/16.2.0/tuple \
  C:/mingw64/include/c++/16.2.0/bits/invoke.h \
- C:\TrafficSimulation\src\Enums.h
+ C:\SmartTrafficSimulation\src\Types.h

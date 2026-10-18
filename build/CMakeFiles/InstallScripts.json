@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/TrafficSimulation/build/cmake_install.cmake"
+		"C:/SmartTrafficSimulation/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

@@ -1,25 +1,26 @@
 #pragma once
 #include <memory>
-#include "Enums.h"
+#include "Types.h"
 #include "ILightState.h"
 
 class TrafficLight {
 private:
-    double elapsedTime;
+    double elapsedTime; 
 
-    SignalColor bnStraightRightColor;
-    SignalColor bnLeftUTurnColor;
-    SignalColor dtStraightRightColor; 
-    SignalColor dtLeftUTurnColor;
+    LightColor bnStraightRightColor;
+    LightColor bnLeftUTurnColor;
+    LightColor dtStraightRightColor;
+    LightColor dtLeftUTurnColor;
 
 public:
     TrafficLight();
+    
     void update(double dt);
-    bool isRedFor(Direction dir, TurnType turn) const;
+    bool isRedFor(Direction dir, Movement move) const;
 
-    SignalColor getBNStraightRight() const { return bnStraightRightColor; }
-    SignalColor getBNLeftUTurn() const { return bnLeftUTurnColor; }
-    SignalColor getDTStraightRight() const { return dtStraightRightColor; }
-    SignalColor getDTLeftUTurn() const { return dtLeftUTurnColor; }
+    LightColor getBnStraightRightColor() const { return bnStraightRightColor; }
+    LightColor getBnLeftUTurnColor() const { return bnLeftUTurnColor; }
+    LightColor getDtStraightRightColor() const { return dtStraightRightColor; }
+    LightColor getDtLeftUTurnColor() const { return dtLeftUTurnColor; }
     double getElapsedTime() const { return elapsedTime; }
 };

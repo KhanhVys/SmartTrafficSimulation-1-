@@ -28,5 +28,6 @@ void WaitingState::handle(Vehicle& vehicle, double dt) {
 }
 
 void TurningState::handle(Vehicle& vehicle, double dt) {
-    vehicle.setSpeed(15.0);
+    const double turningSpeed = 15.0;
+    vehicle.setSpeed(turningSpeed);
 }

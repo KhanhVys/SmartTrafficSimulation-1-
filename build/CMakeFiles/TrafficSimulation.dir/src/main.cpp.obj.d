@@ -1,5 +1,6 @@
 CMakeFiles/TrafficSimulation.dir/src/main.cpp.obj: \
- C:\TrafficSimulation\src\main.cpp C:/mingw64/include/c++/16.2.0/iostream \
+ C:\SmartTrafficSimulation\src\main.cpp \
+ C:/mingw64/include/c++/16.2.0/iostream \
  C:/mingw64/include/c++/16.2.0/bits/requires_hosted.h \
  C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++config.h \
  C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/os_defines.h \
@@ -176,7 +177,7 @@ CMakeFiles/TrafficSimulation.dir/src/main.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/limits \
  C:/mingw64/include/c++/16.2.0/bits/parse_numbers.h \
  C:/mingw64/include/c++/16.2.0/chrono \
- C:\TrafficSimulation\src\SimulationEngine.h \
+ C:\SmartTrafficSimulation\src\SimulationEngine.h \
  C:/mingw64/include/c++/16.2.0/vector \
  C:/mingw64/include/c++/16.2.0/bits/stl_uninitialized.h \
  C:/mingw64/include/c++/16.2.0/bits/stl_vector.h \
@@ -197,7 +198,11 @@ CMakeFiles/TrafficSimulation.dir/src/main.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
  C:/mingw64/include/c++/16.2.0/pstl/glue_memory_defs.h \
  C:/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
- C:\TrafficSimulation\src\TrafficLight.h C:\TrafficSimulation\src\Enums.h \
- C:\TrafficSimulation\src\ILightState.h C:\TrafficSimulation\src\Road.h \
- C:\TrafficSimulation\src\Vehicle.h \
- C:\TrafficSimulation\src\IVehicleState.h
+ C:\SmartTrafficSimulation\src\Intersection.h \
+ C:\SmartTrafficSimulation\src\Road.h \
+ C:\SmartTrafficSimulation\src\Vehicle.h \
+ C:\SmartTrafficSimulation\src\Types.h \
+ C:\SmartTrafficSimulation\src\IVehicleState.h \
+ C:\SmartTrafficSimulation\src\IRoadComponent.h \
+ C:\SmartTrafficSimulation\src\TrafficLight.h \
+ C:\SmartTrafficSimulation\src\ILightState.h

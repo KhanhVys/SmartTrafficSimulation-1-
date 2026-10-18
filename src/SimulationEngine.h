@@ -1,23 +1,21 @@
 #pragma once
 #include <vector>
 #include <memory>
-#include "TrafficLight.h"
-#include "Road.h"
+#include "Intersection.h"
 #include "Vehicle.h"
 
 class SimulationEngine {
 private:
-    TrafficLight trafficLight;
-    std::vector<std::shared_ptr<Road>> roads;
+    Intersection intersection;
     std::vector<std::shared_ptr<Vehicle>> allVehicles;
-    double currentSimulationTime;
+    double currentTickTime;
 
 public:
     SimulationEngine();
     void initializeScenario();
     void step(double dt);
 
-    double getTime() const { return currentSimulationTime; }
+    double getTime() const { return currentTickTime; }
     const std::vector<std::shared_ptr<Vehicle>>& getAllVehicles() const { return allVehicles; }
-    const TrafficLight& getTrafficLight() const { return trafficLight; }
+    Intersection& getIntersection() { return intersection; }
 };

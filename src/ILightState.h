@@ -1,28 +1,28 @@
 #pragma once
 #include <string>
-#include "Enums.h"
+#include "Types.h"
 
 class ILightState {
 public:
     virtual ~ILightState() = default;
-    virtual SignalColor getColor() const = 0;
+    virtual LightColor getColor() const = 0;
     virtual std::string getColorName() const = 0;
 };
 
 class RedState : public ILightState {
 public:
-    SignalColor getColor() const override { return SignalColor::Red; }
+    LightColor getColor() const override { return LightColor::Red; }
     std::string getColorName() const override { return "RED"; }
 };
 
 class YellowState : public ILightState {
 public:
-    SignalColor getColor() const override { return SignalColor::Yellow; }
+    LightColor getColor() const override { return LightColor::Yellow; }
     std::string getColorName() const override { return "YELLOW"; }
 };
 
 class GreenState : public ILightState {
 public:
-    SignalColor getColor() const override { return SignalColor::Green; }
+    LightColor getColor() const override { return LightColor::Green; }
     std::string getColorName() const override { return "GREEN"; }
 };

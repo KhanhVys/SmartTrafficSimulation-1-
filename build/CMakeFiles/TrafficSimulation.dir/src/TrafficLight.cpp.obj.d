@@ -1,6 +1,6 @@
 CMakeFiles/TrafficSimulation.dir/src/TrafficLight.cpp.obj: \
- C:\TrafficSimulation\src\TrafficLight.cpp \
- C:\TrafficSimulation\src\TrafficLight.h \
+ C:\SmartTrafficSimulation\src\TrafficLight.cpp \
+ C:\SmartTrafficSimulation\src\TrafficLight.h \
  C:/mingw64/include/c++/16.2.0/memory \
  C:/mingw64/include/c++/16.2.0/bits/memoryfwd.h \
  C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -110,7 +110,8 @@ CMakeFiles/TrafficSimulation.dir/src/TrafficLight.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
  C:/mingw64/include/c++/16.2.0/pstl/glue_memory_defs.h \
  C:/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
- C:\TrafficSimulation\src\Enums.h C:\TrafficSimulation\src\ILightState.h \
+ C:\SmartTrafficSimulation\src\Types.h \
+ C:\SmartTrafficSimulation\src\ILightState.h \
  C:/mingw64/include/c++/16.2.0/string \
  C:/mingw64/include/c++/16.2.0/bits/char_traits.h \
  C:/mingw64/include/c++/16.2.0/bits/localefwd.h \

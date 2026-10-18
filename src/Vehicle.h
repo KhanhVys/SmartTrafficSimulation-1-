@@ -1,33 +1,33 @@
 #pragma once
 #include <string>
 #include <memory>
-#include "Enums.h"
+#include "Types.h"
 #include "IVehicleState.h"
 
 class Vehicle {
 private:
-    std::string id;
+    std::string vehicleId;
     Direction direction;
-    TurnType turnType;
+    Movement movement;
     int laneIndex;
     
     double speed;
     double maxSpeed;
     double acceleration;
     double deceleration;
-    double position;
+    double position; 
     
     std::unique_ptr<IVehicleState> currentState;
 
 public:
-    Vehicle(std::string id, Direction dir, TurnType turn, int lane, double maxSpd = 35.0);
+    Vehicle(std::string id, Direction dir, Movement move, int lane, double maxSpd = 35.0, double startPos = 150.0);
 
     void update(double dt, double distanceToStopLine, bool isRedLight, bool clearAhead);
     void setState(std::unique_ptr<IVehicleState> newState);
 
-    std::string getId() const { return id; }
+    std::string getVehicleId() const { return vehicleId; }
     Direction getDirection() const { return direction; }
-    TurnType getTurnType() const { return turnType; }
+    Movement getMovement() const { return movement; }
     int getLaneIndex() const { return laneIndex; }
     double getSpeed() const { return speed; }
     void setSpeed(double spd) { speed = spd; }

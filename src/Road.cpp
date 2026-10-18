@@ -1,25 +1,28 @@
 #include "Road.h"
+#include <iostream>
 
 Road::Road(Direction dir, int lanes) : direction(dir), laneCount(lanes) {}
 
 void Road::addVehicle(std::shared_ptr<Vehicle> vehicle) {
-    vehicles.push_back(vehicle);
+    vehicleList.push_back(vehicle);
 }
 
 void Road::updateVehicles(double dt, bool isRedLightForLane, int laneIndex) {
-    for (size_t i = 0; i < vehicles.size(); ++i) {
-        auto& v = vehicles[i];
+    for (size_t i = 0; i < vehicleList.size(); ++i) {
+        auto& v = vehicleList[i];
         if (v->getLaneIndex() == laneIndex) {
-            // Kiểm tra khoảng cách an toàn với xe ngay trước cùng làn
             bool clearAhead = true;
             if (i > 0) {
-                // Giả lập check xe trước
-                double distanceToPreceding = v->getPosition() - vehicles[i-1]->getPosition();
-                if (distanceToPreceding > 0 && distanceToPreceding < 10.0) {
+                double distanceToPreceding = v->getPosition() - vehicleList[i - 1]->getPosition();
+                if (distanceToPreceding > 0 && distanceToPreceding < 12.0) {
                     clearAhead = false;
                 }
             }
             v->update(dt, v->getPosition(), isRedLightForLane, clearAhead);
         }
     }
+}
+
+void Road::displayInfo() const {
+    std::cout << "Road with " << laneCount << " lanes, containing " << vehicleList.size() << " vehicles.\n";
 }

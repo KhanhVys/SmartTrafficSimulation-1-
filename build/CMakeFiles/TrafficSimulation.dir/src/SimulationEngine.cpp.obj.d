@@ -1,6 +1,6 @@
 CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.obj: \
- C:\TrafficSimulation\src\SimulationEngine.cpp \
- C:\TrafficSimulation\src\SimulationEngine.h \
+ C:\SmartTrafficSimulation\src\SimulationEngine.cpp \
+ C:\SmartTrafficSimulation\src\SimulationEngine.h \
  C:/mingw64/include/c++/16.2.0/vector \
  C:/mingw64/include/c++/16.2.0/bits/requires_hosted.h \
  C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++config.h \
@@ -122,8 +122,9 @@ CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/backward/auto_ptr.h \
  C:/mingw64/include/c++/16.2.0/pstl/glue_memory_defs.h \
  C:/mingw64/include/c++/16.2.0/pstl/execution_defs.h \
- C:\TrafficSimulation\src\TrafficLight.h C:\TrafficSimulation\src\Enums.h \
- C:\TrafficSimulation\src\ILightState.h \
+ C:\SmartTrafficSimulation\src\Intersection.h \
+ C:\SmartTrafficSimulation\src\Road.h \
+ C:\SmartTrafficSimulation\src\Vehicle.h \
  C:/mingw64/include/c++/16.2.0/string \
  C:/mingw64/include/c++/16.2.0/bits/char_traits.h \
  C:/mingw64/include/c++/16.2.0/bits/localefwd.h \
@@ -151,32 +152,8 @@ CMakeFiles/TrafficSimulation.dir/src/SimulationEngine.cpp.obj: \
  C:/mingw64/include/c++/16.2.0/cerrno \
  C:/mingw64/include/c++/16.2.0/bits/charconv.h \
  C:/mingw64/include/c++/16.2.0/bits/basic_string.tcc \
- C:\TrafficSimulation\src\Road.h C:\TrafficSimulation\src\Vehicle.h \
- C:\TrafficSimulation\src\IVehicleState.h \
- C:/mingw64/include/c++/16.2.0/iostream \
- C:/mingw64/include/c++/16.2.0/ostream \
- C:/mingw64/include/c++/16.2.0/bits/ostream.h \
- C:/mingw64/include/c++/16.2.0/ios \
- C:/mingw64/include/c++/16.2.0/bits/ios_base.h \
- C:/mingw64/include/c++/16.2.0/bits/locale_classes.h \
- C:/mingw64/include/c++/16.2.0/bits/functexcept.h \
- C:/mingw64/include/c++/16.2.0/bits/locale_classes.tcc \
- C:/mingw64/include/c++/16.2.0/system_error \
- C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/error_constants.h \
- C:/mingw64/include/c++/16.2.0/stdexcept \
- C:/mingw64/include/c++/16.2.0/bits/stdexcept_except.h \
- C:/mingw64/include/c++/16.2.0/streambuf \
- C:/mingw64/include/c++/16.2.0/bits/streambuf.tcc \
- C:/mingw64/include/c++/16.2.0/bits/basic_ios.h \
- C:/mingw64/include/c++/16.2.0/bits/locale_facets.h \
- C:/mingw64/include/c++/16.2.0/cwctype \
- C:/mingw64/x86_64-w64-mingw32/include/wctype.h \
- C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/mingw64/include/c++/16.2.0/bits/streambuf_iterator.h \
- C:/mingw64/include/c++/16.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/mingw64/include/c++/16.2.0/bits/locale_facets.tcc \
- C:/mingw64/include/c++/16.2.0/bits/basic_ios.tcc \
- C:/mingw64/include/c++/16.2.0/bits/ostream_print.h \
- C:/mingw64/include/c++/16.2.0/bits/ostream.tcc \
- C:/mingw64/include/c++/16.2.0/istream \
- C:/mingw64/include/c++/16.2.0/bits/istream.tcc
+ C:\SmartTrafficSimulation\src\Types.h \
+ C:\SmartTrafficSimulation\src\IVehicleState.h \
+ C:\SmartTrafficSimulation\src\IRoadComponent.h \
+ C:\SmartTrafficSimulation\src\TrafficLight.h \
+ C:\SmartTrafficSimulation\src\ILightState.h

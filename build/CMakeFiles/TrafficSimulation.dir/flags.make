@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles\TrafficSimulation.dir\includes_CXX.rsp
 
-CXX_FLAGS = -g -std=c++17 -std=c++17
+CXX_FLAGS = -g -std=c++17
 
