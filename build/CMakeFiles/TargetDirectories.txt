@@ -1,3 +1,0 @@
-C:/SmartTrafficSimulation/build/CMakeFiles/TrafficSimulation.dir
-C:/SmartTrafficSimulation/build/CMakeFiles/edit_cache.dir
-C:/SmartTrafficSimulation/build/CMakeFiles/rebuild_cache.dir
