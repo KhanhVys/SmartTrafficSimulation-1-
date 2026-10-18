@@ -1,3 +1,4 @@
+
 #include "TrafficController.h"
 
 TrafficController::TrafficController()
@@ -33,33 +34,15 @@ TrafficPhase TrafficController::getCurrentPhase() const
     {
         return TrafficPhase::NorthSouthStraightRight;
     }
-
-    if (second >= 8 && second <= 9)
-    {
-        return TrafficPhase::AllRed;
-    }
-
-    if (second >= 10 && second <= 16)
+    else if (second >= 10 && second <= 16)
     {
         return TrafficPhase::NorthSouthLeftUTurn;
     }
-
-    if (second >= 17 && second <= 18)
-    {
-        return TrafficPhase::AllRed;
-    }
-
-    if (second >= 19 && second <= 26)
+    else if (second >= 19 && second <= 26)
     {
         return TrafficPhase::EastWestStraightRight;
     }
-
-    if (second >= 27 && second <= 28)
-    {
-        return TrafficPhase::AllRed;
-    }
-
-    if (second >= 29 && second <= 35)
+    else if (second >= 29 && second <= 35)
     {
         return TrafficPhase::EastWestLeftUTurn;
     }
@@ -67,68 +50,43 @@ TrafficPhase TrafficController::getCurrentPhase() const
     return TrafficPhase::AllRed;
 }
 
-SignalState TrafficController::getSignalState(
-    TrafficPhase phase) const
+LightColor TrafficController::getSignalState(TrafficPhase phase) const
 {
     int second = getCurrentSecond();
 
     switch (phase)
     {
-    case TrafficPhase::NorthSouthStraightRight:
-        if (second >= 0 && second <= 5)
-        {
-            return SignalState::Green;
-        }
+        case TrafficPhase::NorthSouthStraightRight:
+            if (second >= 0 && second <= 5)
+                return LightColor::Green;
+            if (second >= 6 && second <= 7)
+                return LightColor::Yellow;
+            return LightColor::Red;
 
-        if (second >= 6 && second <= 7)
-        {
-            return SignalState::Yellow;
-        }
+        case TrafficPhase::NorthSouthLeftUTurn:
+            if (second >= 10 && second <= 14)
+                return LightColor::Green;
+            if (second >= 15 && second <= 16)
+                return LightColor::Yellow;
+            return LightColor::Red;
 
-        return SignalState::Red;
+        case TrafficPhase::EastWestStraightRight:
+            if (second >= 19 && second <= 24)
+                return LightColor::Green;
+            if (second >= 25 && second <= 26)
+                return LightColor::Yellow;
+            return LightColor::Red;
 
-    case TrafficPhase::NorthSouthLeftUTurn:
-        if (second >= 10 && second <= 14)
-        {
-            return SignalState::Green;
-        }
+        case TrafficPhase::EastWestLeftUTurn:
+            if (second >= 29 && second <= 33)
+                return LightColor::Green;
+            if (second >= 34 && second <= 35)
+                return LightColor::Yellow;
+            return LightColor::Red;
 
-        if (second >= 15 && second <= 16)
-        {
-            return SignalState::Yellow;
-        }
-
-        return SignalState::Red;
-
-    case TrafficPhase::EastWestStraightRight:
-        if (second >= 19 && second <= 24)
-        {
-            return SignalState::Green;
-        }
-
-        if (second >= 25 && second <= 26)
-        {
-            return SignalState::Yellow;
-        }
-
-        return SignalState::Red;
-
-    case TrafficPhase::EastWestLeftUTurn:
-        if (second >= 29 && second <= 33)
-        {
-            return SignalState::Green;
-        }
-
-        if (second >= 34 && second <= 35)
-        {
-            return SignalState::Yellow;
-        }
-
-        return SignalState::Red;
-
-    case TrafficPhase::AllRed:
-        return SignalState::Red;
+        case TrafficPhase::AllRed:
+            return LightColor::Red;
     }
 
-    return SignalState::Red;
+    return LightColor::Red;
 }

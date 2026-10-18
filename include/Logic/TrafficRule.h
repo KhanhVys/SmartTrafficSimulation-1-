@@ -1,22 +1,8 @@
+
 #pragma once
 
+#include "common/Types.h"
 #include "TrafficController.h"
-
-enum class Direction
-{
-    North,
-    South,
-    East,
-    West
-};
-
-enum class MovementType
-{
-    Straight,
-    Left,
-    Right,
-    UTurn
-};
 
 enum class LaneType
 {
@@ -29,28 +15,33 @@ enum class LaneType
 class TrafficRule
 {
 public:
+    // Xác định pha đèn cần tuân theo.
     static TrafficPhase getRequiredPhase(
         Direction direction,
-        MovementType movement);
+        Movement movement);
 
+    // Xác định loại làn tương ứng với hướng đi.
     static LaneType getLaneType(
         Direction direction,
-        MovementType movement);
+        Movement movement);
 
+    // Kiểm tra xe có được phép di chuyển hay không.
     static bool canMove(
         Direction direction,
-        MovementType movement,
+        Movement movement,
         const TrafficController& controller);
 
+    // Kiểm tra xe có phải dừng trước vạch dừng hay không.
     static bool shouldStop(
         Direction direction,
-        MovementType movement,
+        Movement movement,
         const TrafficController& controller,
         bool hasCrossedStopLine);
 
+    // Kiểm tra xe có cần giảm tốc khi đèn vàng hay không.
     static bool shouldSlowDown(
         Direction direction,
-        MovementType movement,
+        Movement movement,
         const TrafficController& controller,
         bool hasCrossedStopLine);
 };

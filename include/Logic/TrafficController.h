@@ -1,4 +1,7 @@
+
 #pragma once
+
+#include "common/Types.h"
 
 enum class TrafficPhase
 {
@@ -7,13 +10,6 @@ enum class TrafficPhase
     EastWestStraightRight,
     EastWestLeftUTurn,
     AllRed
-};
-
-enum class SignalState
-{
-    Red,
-    Yellow,
-    Green
 };
 
 class TrafficController
@@ -26,13 +22,17 @@ public:
 
     TrafficController();
 
+    // Tiến simulation thêm một tick.
     void update();
 
     int getCurrentTick() const;
     int getCurrentSecond() const;
 
+    // Trả về pha đang hoạt động, bao gồm khoảng chuyển AllRed.
     TrafficPhase getCurrentPhase() const;
-    SignalState getSignalState(TrafficPhase phase) const;
+
+    // Trả về màu đèn của nhóm pha được yêu cầu.
+    LightColor getSignalState(TrafficPhase phase) const;
 
 private:
     int currentTick;
