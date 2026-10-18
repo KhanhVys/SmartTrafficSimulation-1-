@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "Types.h"
+#include "common/Types.h"
 #include "ILightState.h"
 
 class TrafficLight {

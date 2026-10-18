@@ -1,9 +1,10 @@
 #include "Vehicle.h"
+#include <cmath>
 
-Vehicle::Vehicle(std::string id, Direction dir, Movement move, int lane, double maxSpd, double startPos)
+Vehicle::Vehicle(int id, Direction dir, Movement move, int lane, double maxSpd, double startPos)
     : vehicleId(id), direction(dir), movement(move), laneIndex(lane),
       speed(0.0), maxSpeed(maxSpd), acceleration(8.0), deceleration(12.0),
-      position(startPos) {
+      position(startPos), x(0.0), y(0.0) {
     currentState = std::make_unique<AcceleratingState>();
 }
 
@@ -18,14 +19,20 @@ void Vehicle::update(double dt, double distanceToStopLine, bool isRedLight, bool
 
     bool effectiveRedLight = isRedLight && (position > 0.0);
 
-    if ((effectiveRedLight && position <= 40.0) || !clearAhead) {
+    double brakingDist = (speed * speed) / (2.0 * deceleration);
+    
+    bool needToBrakeForLight = effectiveRedLight && (position <= brakingDist);
+
+    if (needToBrakeForLight || !clearAhead) {
         if (speed > 0.0) {
             setState(std::make_unique<BrakingState>());
         } else {
             setState(std::make_unique<WaitingState>());
         }
-    } else if (!effectiveRedLight && clearAhead) {
-        if (speed <= 0.0) {
+    } else {
+        if (position <= 0.0 && (movement == Movement::Left || movement == Movement::Right || movement == Movement::UTurn)) {
+             setState(std::make_unique<TurningState>());
+        } else if (speed <= 0.0) {
             setState(std::make_unique<AcceleratingState>());
         } else if (speed >= maxSpeed) {
             setState(std::make_unique<CruisingState>());
@@ -36,9 +43,30 @@ void Vehicle::update(double dt, double distanceToStopLine, bool isRedLight, bool
 
     if (speed > 0.0) {
         position -= speed * dt;
+        
+        if (effectiveRedLight && position < 0.0) {
+            position = 0.0;
+            speed = 0.0;
+            setState(std::make_unique<WaitingState>());
+        }
+
         if (position < -60.0) {
             position = 180.0; 
         }
+    }
+
+    if (direction == Direction::North) {
+        x = laneIndex * 3.5; 
+        y = -position;
+    } else if (direction == Direction::South) {
+        x = -laneIndex * 3.5;
+        y = position;
+    } else if (direction == Direction::East) {
+        x = -position;
+        y = -laneIndex * 3.5;
+    } else if (direction == Direction::West) {
+        x = position;
+        y = laneIndex * 3.5;
     }
 
     if (currentState) {

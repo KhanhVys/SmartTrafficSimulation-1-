@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "Types.h"
+#include "common/Types.h"
 
 class ILightState {
 public:

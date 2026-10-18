@@ -18,7 +18,7 @@ int main() {
 
             std::cout << "\033[2J\033[1H";
             std::cout << "=========================================================\n";
-            std::cout << "      SMART TRAFFIC SIMULATION - CORE MODULE      \n";
+            std::cout << "      SMART TRAFFIC SIMULATION - CORE MODULE (UPDATE)    \n";
             std::cout << "=========================================================\n";
             std::cout << " [TIME: " << std::fixed << std::setprecision(1) << sec << "s / 38.0s] - Trang thai den:\n"
                       << "  - BN (Thang/Phai) : " << (light.getBnStraightRightColor() == LightColor::Green ? "GREEN" : (light.getBnStraightRightColor() == LightColor::Yellow ? "YELLOW" : "RED")) << "\n"
@@ -30,7 +30,8 @@ int main() {
                       << std::setw(10) << "Dir"
                       << std::setw(14) << "State"
                       << std::setw(10) << "Speed"
-                      << std::setw(12) << "DistToStop\n";
+                      << std::setw(12) << "DistToStop"
+                      << std::setw(15) << "Coordinates (x, y)\n";
             std::cout << "---------------------------------------------------------\n";
 
             for (const auto& v : engine.getAllVehicles()) {
@@ -41,7 +42,8 @@ int main() {
                           << std::setw(10) << dirStr
                           << std::setw(14) << v->getStateName()
                           << std::setw(10) << std::setprecision(1) << v->getSpeed()
-                          << std::setw(12) << std::setprecision(1) << v->getPosition() << "\n";
+                          << std::setw(12) << std::setprecision(1) << v->getPosition()
+                          << "(" << std::fixed << std::setprecision(1) << v->getX() << ", " << v->getY() << ")\n";
             }
             std::cout << "=========================================================\n";
         }
