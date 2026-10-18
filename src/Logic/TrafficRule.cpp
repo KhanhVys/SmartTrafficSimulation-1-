@@ -1,61 +1,54 @@
+
 #include "TrafficRule.h"
 
 TrafficPhase TrafficRule::getRequiredPhase(
     Direction direction,
-    MovementType movement)
+    Movement movement)
 {
     bool isNorthSouth =
-        direction == Direction::North ||
-        direction == Direction::South;
-
-    bool isStraightOrRight =
-        movement == MovementType::Straight ||
-        movement == MovementType::Right;
+        (direction == Direction::North ||
+         direction == Direction::South);
 
     if (isNorthSouth)
     {
-        if (isStraightOrRight)
+        if (movement == Movement::Left ||
+            movement == Movement::UTurn)
         {
-            return TrafficPhase::NorthSouthStraightRight;
+            return TrafficPhase::NorthSouthLeftUTurn;
         }
 
-        return TrafficPhase::NorthSouthLeftUTurn;
+        return TrafficPhase::NorthSouthStraightRight;
     }
 
-    if (isStraightOrRight)
+    if (movement == Movement::Left ||
+        movement == Movement::UTurn)
     {
-        return TrafficPhase::EastWestStraightRight;
+        return TrafficPhase::EastWestLeftUTurn;
     }
 
-    return TrafficPhase::EastWestLeftUTurn;
+    return TrafficPhase::EastWestStraightRight;
 }
 
 LaneType TrafficRule::getLaneType(
     Direction direction,
-    MovementType movement)
+    Movement movement)
 {
     bool isNorthSouth =
-        direction == Direction::North ||
-        direction == Direction::South;
+        (direction == Direction::North ||
+         direction == Direction::South);
 
-    if (isNorthSouth)
-    {
-        if (movement == MovementType::Left ||
-            movement == MovementType::UTurn)
-        {
-            return LaneType::LeftUTurn;
-        }
-
-        return LaneType::StraightRight;
-    }
-
-    if (movement == MovementType::Left ||
-        movement == MovementType::UTurn)
+    if (movement == Movement::Left ||
+        movement == Movement::UTurn)
     {
         return LaneType::LeftUTurn;
     }
 
-    if (movement == MovementType::Right)
+    if (isNorthSouth)
+    {
+        return LaneType::StraightRight;
+    }
+
+    if (movement == Movement::Right)
     {
         return LaneType::Right;
     }
@@ -65,35 +58,31 @@ LaneType TrafficRule::getLaneType(
 
 bool TrafficRule::canMove(
     Direction direction,
-    MovementType movement,
+    Movement movement,
     const TrafficController& controller)
 {
-    TrafficPhase requiredPhase =
-        getRequiredPhase(direction, movement);
+    TrafficPhase phase = getRequiredPhase(direction, movement);
 
-    return controller.getSignalState(requiredPhase)
-        == SignalState::Green;
+    return controller.getSignalState(phase) == LightColor::Green;
 }
 
 bool TrafficRule::shouldStop(
     Direction direction,
-    MovementType movement,
+    Movement movement,
     const TrafficController& controller,
     bool hasCrossedStopLine)
 {
-    // Xe đã vượt vạch dừng phải tiếp tục qua giao lộ.
     if (hasCrossedStopLine)
     {
         return false;
     }
 
-    // Xe chỉ được bắt đầu đi khi đèn của hướng đi xanh.
     return !canMove(direction, movement, controller);
 }
 
 bool TrafficRule::shouldSlowDown(
     Direction direction,
-    MovementType movement,
+    Movement movement,
     const TrafficController& controller,
     bool hasCrossedStopLine)
 {
@@ -102,9 +91,7 @@ bool TrafficRule::shouldSlowDown(
         return false;
     }
 
-    TrafficPhase requiredPhase =
-        getRequiredPhase(direction, movement);
+    TrafficPhase phase = getRequiredPhase(direction, movement);
 
-    return controller.getSignalState(requiredPhase)
-        == SignalState::Yellow;
+    return controller.getSignalState(phase) == LightColor::Yellow;
 }
