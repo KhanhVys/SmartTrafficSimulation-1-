@@ -17,20 +17,35 @@ SimulationThread::~SimulationThread() {
 }
 
 void SimulationThread::start() {
+    std::lock_guard<std::mutex> lifecycleLock(lifecycleMutex);
+
     bool expected = false;
     if (!running.compare_exchange_strong(expected, true)) {
         throw std::logic_error("SimulationThread is already running");
     }
 
+    // Thread đã kết thúc nhưng chưa join vẫn joinable; phải join trước
+    // khi gán worker mới, nếu không std::thread sẽ gọi std::terminate().
+    if (worker.joinable()) {
+        worker.join();
+    }
+
     stopRequested.store(false);
-    worker = std::thread(&SimulationThread::run, this);
+    try {
+        worker = std::thread(&SimulationThread::run, this);
+    } catch (...) {
+        running.store(false);
+        throw;
+    }
 }
 
 void SimulationThread::requestStop() {
     stopRequested.store(true);
+    stopCondition.notify_all();
 }
 
 void SimulationThread::join() {
+    std::lock_guard<std::mutex> lifecycleLock(lifecycleMutex);
     if (worker.joinable()) {
         worker.join();
     }
@@ -45,7 +60,15 @@ void SimulationThread::run() {
 
     while (!stopRequested.load()) {
         tickFunction(tick++);
-        std::this_thread::sleep_for(tickInterval);
+
+        std::unique_lock<std::mutex> waitLock(waitMutex);
+        stopCondition.wait_for(
+            waitLock,
+            tickInterval,
+            [this] {
+                return stopRequested.load();
+            }
+        );
     }
 
     running.store(false);
