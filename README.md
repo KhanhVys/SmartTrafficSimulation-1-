@@ -181,3 +181,23 @@ Khi tích hợp thật, chỉ giữ một `main()` của project chính. Không 
 - `getSnapshot()` khóa theo thứ tự **`lightMutex` trước, `vehicleMutex` sau**.
 - Chỉ sao chép dữ liệu trong vùng khóa; không gọi GUI/Core callback khi đang giữ khóa.
 - Chỉ một nơi ghi dữ liệu mô phỏng; GUI chỉ đọc snapshot.
+
+
+## Báo cáo sửa lỗi T2–T6
+
+- **T2:** Không dùng `CMakeLists.txt` ở thư mục gốc của module này; chỉ giữ `src/concurrency/CMakeLists.txt`. Project chính của nhóm gọi module bằng `add_subdirectory(src/concurrency)` và tự khai báo `find_package(Threads REQUIRED)`.
+- **T3–T4:** `examples/ConcurrencyPrototype.cpp` dùng class `SimulationEngine` có `update()`, `start()`, `stop()` và `getSnapshotStore()`. `SimulationThread` gọi `SimulationEngine::update()` trong worker thread; dữ liệu được publish qua `SnapshotStore`.
+- **T5:** `SimulationThread::start()` khóa vòng đời, từ chối gọi lần hai khi đang chạy bằng `std::logic_error`, tự `join()` worker cũ trước khi restart sau khi worker đã dừng, và `requestStop()` đánh thức thread ngay bằng `condition_variable`. Destructor luôn `requestStop()` rồi `join()`.
+- **T6:** Chạy build cảnh báo nghiêm ngặt và ThreadSanitizer trên prototype; không phát hiện race condition.
+
+### CMake của project chính
+
+CMake ở project chính cần có:
+
+```cmake
+find_package(Threads REQUIRED)
+add_subdirectory(src/concurrency)
+target_link_libraries(SmartTrafficSimulation PRIVATE concurrency)
+```
+
+Không build `examples/ConcurrencyPrototype.cpp` cùng executable chính nếu executable chính đã có `main.cpp` riêng.
