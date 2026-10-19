@@ -2,7 +2,9 @@
 
 #include <atomic>
 #include <chrono>
+#include <condition_variable>
 #include <functional>
+#include <mutex>
 #include <thread>
 
 class SimulationThread {
@@ -28,5 +30,8 @@ private:
     std::chrono::milliseconds tickInterval;
     std::atomic<bool> stopRequested{false};
     std::atomic<bool> running{false};
+    mutable std::mutex lifecycleMutex;
+    std::condition_variable stopCondition;
+    std::mutex waitMutex;
     std::thread worker;
 };
