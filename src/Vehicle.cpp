@@ -1,21 +1,18 @@
 #include "Vehicle.h"
-#include "IVehicleState.h"
-#include "AcceleratingState.h"
+#include "States.h"
+#include "Constants.h" // Dùng hằng số của Leader
 #include <cmath>
 
 Vehicle::Vehicle(int id, Direction dir, Movement mov, float sx, float sy)
     : id(id), direction(dir), movement(mov), x(sx), y(sy),
-      speed(0.0f), maxSpeed(Config::DEFAULT_MAX_SPEED),
-      acceleration(Config::DEFAULT_ACCELERATION), braking(Config::DEFAULT_BRAKING),
-      distanceToStopLine(9999.0f), vehicleAhead(nullptr), safeDistance(Config::DEFAULT_SAFE_DISTANCE),
+      speed(0.0f), maxSpeed(100.0f), acceleration(50.0f), braking(250.0f),
+      distanceToStopLine(9999.0f), vehicleAhead(nullptr), safeDistance(40.0f),
       brakeForLight(false), brakeForVehicle(false), canProceedFlag(false), shouldTurnFlag(false), turnProgress(0.0f)
 {
     currentState = std::make_unique<AcceleratingState>();
 }
 
 Vehicle::~Vehicle() = default;
-
-void Vehicle::setDistanceToStopLine(float d) { distanceToStopLine = (d > 0.0f) ? d : 0.0f; }
 
 bool Vehicle::canStopBeforeStopLine() const {
     if (distanceToStopLine <= 0.0f) return true;
@@ -41,10 +38,10 @@ void Vehicle::moveForward(float dt) {
     if (!isSafeToMove()) return;
     float d = speed * dt;
 
-    if (shouldBrake() && distanceToStopLine > 0.0f) {
+    // Nếu cần phanh và CHƯA QUA VẠCH (distanceToStopLine >= 0)
+    if (shouldBrake() && distanceToStopLine >= 0.0f) {
         if (d >= distanceToStopLine) {
-            d = distanceToStopLine - 0.01f;
-            if (d < 0.0f) d = 0.0f;
+            d = distanceToStopLine; // Dừng khựng ngay tại vạch, không đè lên
         }
     }
 
@@ -55,10 +52,7 @@ void Vehicle::moveForward(float dt) {
         case Direction::West:  x -= d; break;
     }
 
-    if (distanceToStopLine > 0.0f) {
-        distanceToStopLine -= d;
-        if (distanceToStopLine < 0.0f) distanceToStopLine = 0.0f;
-    }
+    distanceToStopLine -= d; 
 }
 
 void Vehicle::updateTurning(float dt) {

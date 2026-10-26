@@ -1,5 +1,5 @@
 #pragma once
-#include "common/Types.h" // Đã đổi include
+#include "Types.h"
 #include <memory>
 
 class ILightState;
@@ -8,6 +8,7 @@ class TrafficLight {
 public:
     TrafficLight();
     ~TrafficLight();
+
     void update(int currentTick);
     LightColor getColor(Direction direction, Movement movement) const;
     bool isRedFor(Direction direction, Movement movement) const;

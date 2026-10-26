@@ -1,5 +1,5 @@
 #pragma once
-#include "common/Types.h" // Đã đổi include
+#include "Types.h"
 #include <memory>
 
 class IVehicleState;
@@ -9,7 +9,7 @@ public:
     Vehicle(int id, Direction direction, Movement movement, float startX, float startY);
     ~Vehicle();
 
-    void update(float deltaTime);
+    void update(float dt);
     void setState(std::unique_ptr<IVehicleState> newState);
     IVehicleState* getState() const { return currentState.get(); }
 
@@ -22,12 +22,14 @@ public:
     float     getMaxSpeed() const { return maxSpeed; }
     float     getAcceleration() const { return acceleration; }
     float     getBraking() const { return braking; }
+    void      setSpeed(float s) { speed = s; }
 
-    void setSpeed(float s) { speed = s; }
-
-    void  setDistanceToStopLine(float d);
+    void  setDistanceToStopLine(float d) { distanceToStopLine = d; }
     float getDistanceToStopLine() const { return distanceToStopLine; }
-    bool  hasPassedStopLine() const { return distanceToStopLine <= 0.0f; }
+    
+    // FIX THEO YÊU CẦU CỦA LEADER: < 0 mới tính là đã qua vạch
+    bool  hasPassedStopLine() const { return distanceToStopLine < 0.0f; } 
+    
     bool  canStopBeforeStopLine() const;
 
     void setVehicleAhead(Vehicle* v) { vehicleAhead = v; }
@@ -43,18 +45,18 @@ public:
     void setShouldTurn(bool b) { shouldTurnFlag = b; }
     bool shouldTurn() const    { return shouldTurnFlag; }
 
-    void moveForward(float deltaTime);
-    void updateTurning(float deltaTime);
+    void moveForward(float dt);
+    void updateTurning(float dt);
     bool isTurnComplete() const;
 
 private:
     int       id;
-    Direction direction;    // <--- Mình đã kiểm tra, dòng này đã có sẵn trong code nhé!
+    Direction direction;
     Movement  movement;
     float     x, y;
     float     speed, maxSpeed, acceleration, braking;
 
-    float    distanceToStopLine;
+    float    distanceToStopLine; 
     Vehicle* vehicleAhead;
     float    safeDistance;
 
