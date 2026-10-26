@@ -1,43 +1,68 @@
 #pragma once
-#include <string>
+#include "CommonTypes.h"
 #include <memory>
-#include "common/Types.h"
-#include "IVehicleState.h"
+
+class IVehicleState;
 
 class Vehicle {
-private:
-    int vehicleId; 
-    Direction direction;
-    Movement movement;
-    int laneIndex;
-    
-    double speed;
-    double maxSpeed;
-    double acceleration;
-    double deceleration;
-    double position; 
-    double x;
-    double y;
-    
-    std::unique_ptr<IVehicleState> currentState;
-
 public:
-    Vehicle(int id, Direction dir, Movement move, int lane, double maxSpd = 35.0, double startPos = 150.0);
+    Vehicle(int id, Direction direction, Movement movement, float startX, float startY);
+    ~Vehicle();
 
-    void update(double dt, double distanceToStopLine, bool isRedLight, bool clearAhead);
+    void update(float deltaTime);
     void setState(std::unique_ptr<IVehicleState> newState);
+    IVehicleState* getState() const { return currentState.get(); }
 
-    int getVehicleId() const { return vehicleId; }
+    int       getId() const { return id; }
     Direction getDirection() const { return direction; }
-    Movement getMovement() const { return movement; }
-    int getLaneIndex() const { return laneIndex; }
-    double getSpeed() const { return speed; }
-    void setSpeed(double spd) { speed = spd; }
-    double getMaxSpeed() const { return maxSpeed; }
-    double getAcceleration() const { return acceleration; }
-    double getDeceleration() const { return deceleration; }
-    double getPosition() const { return position; }
-    double getX() const { return x; }
-    double getY() const { return y; }
-    std::string getStateName() const { return currentState ? currentState->getStateName() : "Unknown"; }
+    Movement  getMovement()  const { return movement; }
+    float     getX() const { return x; }
+    float     getY() const { return y; }
+    float     getSpeed() const { return speed; }
+    float     getMaxSpeed() const { return maxSpeed; }
+    float     getAcceleration() const { return acceleration; }
+    float     getBraking() const { return braking; }
+
+    void setSpeed(float s) { speed = s; }
+
+    void  setDistanceToStopLine(float d);
+    float getDistanceToStopLine() const { return distanceToStopLine; }
+    bool  hasPassedStopLine() const { return distanceToStopLine <= 0.0f; }
+    bool  canStopBeforeStopLine() const;
+
+    void setVehicleAhead(Vehicle* v) { vehicleAhead = v; }
+    Vehicle* getVehicleAhead() const { return vehicleAhead; }
+    bool  isSafeToMove() const;
+
+    void setBrakeForLight(bool b)   { brakeForLight = b; }
+    bool getBrakeForLight() const   { return brakeForLight; }
+    void setCanProceed(bool b) { canProceedFlag = b; }
+    bool canProceed() const    { return canProceedFlag; }
+    bool shouldBrake() const { return brakeForLight || brakeForVehicle; }
+
+    void setShouldTurn(bool b) { shouldTurnFlag = b; }
+    bool shouldTurn() const    { return shouldTurnFlag; }
+
+    void moveForward(float deltaTime);
+    void updateTurning(float deltaTime);
+    bool isTurnComplete() const;
+
+private:
+    int       id;
+    Direction direction;
+    Movement  movement;
+    float     x, y;
+    float     speed, maxSpeed, acceleration, braking;
+
+    float    distanceToStopLine;
+    Vehicle* vehicleAhead;
+    float    safeDistance;
+
+    bool brakeForLight;
+    bool brakeForVehicle;
+    bool canProceedFlag;
+    bool shouldTurnFlag;
+
+    std::unique_ptr<IVehicleState> currentState;
+    float turnProgress;
 };

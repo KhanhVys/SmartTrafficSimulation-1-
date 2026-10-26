@@ -1,75 +1,69 @@
 #include "Vehicle.h"
+#include "IVehicleState.h"
+#include "AcceleratingState.h"
 #include <cmath>
 
-Vehicle::Vehicle(int id, Direction dir, Movement move, int lane, double maxSpd, double startPos)
-    : vehicleId(id), direction(dir), movement(move), laneIndex(lane),
-      speed(0.0), maxSpeed(maxSpd), acceleration(8.0), deceleration(12.0),
-      position(startPos), x(0.0), y(0.0) {
+Vehicle::Vehicle(int id, Direction dir, Movement mov, float sx, float sy)
+    : id(id), direction(dir), movement(mov), x(sx), y(sy),
+      speed(0.0f), maxSpeed(Config::DEFAULT_MAX_SPEED),
+      acceleration(Config::DEFAULT_ACCELERATION), braking(Config::DEFAULT_BRAKING),
+      distanceToStopLine(9999.0f), vehicleAhead(nullptr), safeDistance(Config::DEFAULT_SAFE_DISTANCE),
+      brakeForLight(false), brakeForVehicle(false), canProceedFlag(false), shouldTurnFlag(false), turnProgress(0.0f)
+{
     currentState = std::make_unique<AcceleratingState>();
 }
 
-void Vehicle::setState(std::unique_ptr<IVehicleState> newState) {
-    if (newState && (!currentState || currentState->getStateName() != newState->getStateName())) {
-        currentState = std::move(newState);
+Vehicle::~Vehicle() = default;
+
+void Vehicle::setDistanceToStopLine(float d) { distanceToStopLine = (d > 0.0f) ? d : 0.0f; }
+
+bool Vehicle::canStopBeforeStopLine() const {
+    if (distanceToStopLine <= 0.0f) return true;
+    float stoppingDist = (speed * speed) / (2.0f * braking);
+    return stoppingDist <= distanceToStopLine;
+}
+
+bool Vehicle::isSafeToMove() const {
+    if (vehicleAhead == nullptr) return true;
+    float dx = vehicleAhead->x - x;
+    float dy = vehicleAhead->y - y;
+    return std::sqrt(dx*dx + dy*dy) > safeDistance;
+}
+
+void Vehicle::update(float dt) {
+    brakeForVehicle = !isSafeToMove();
+    if (currentState) currentState->update(*this, dt);
+}
+
+void Vehicle::setState(std::unique_ptr<IVehicleState> s) { currentState = std::move(s); }
+
+void Vehicle::moveForward(float dt) {
+    if (!isSafeToMove()) return;
+    float d = speed * dt;
+
+    if (shouldBrake() && distanceToStopLine > 0.0f) {
+        if (d >= distanceToStopLine) {
+            d = distanceToStopLine - 0.01f;
+            if (d < 0.0f) d = 0.0f;
+        }
+    }
+
+    switch (direction) {
+        case Direction::North: y -= d; break;
+        case Direction::South: y += d; break;
+        case Direction::East:  x += d; break;
+        case Direction::West:  x -= d; break;
+    }
+
+    if (distanceToStopLine > 0.0f) {
+        distanceToStopLine -= d;
+        if (distanceToStopLine < 0.0f) distanceToStopLine = 0.0f;
     }
 }
 
-void Vehicle::update(double dt, double distanceToStopLine, bool isRedLight, bool clearAhead) {
-    position = distanceToStopLine;
-
-    bool effectiveRedLight = isRedLight && (position > 0.0);
-
-    double brakingDist = (speed * speed) / (2.0 * deceleration);
-    
-    bool needToBrakeForLight = effectiveRedLight && (position <= brakingDist);
-
-    if (needToBrakeForLight || !clearAhead) {
-        if (speed > 0.0) {
-            setState(std::make_unique<BrakingState>());
-        } else {
-            setState(std::make_unique<WaitingState>());
-        }
-    } else {
-        if (position <= 0.0 && (movement == Movement::Left || movement == Movement::Right || movement == Movement::UTurn)) {
-             setState(std::make_unique<TurningState>());
-        } else if (speed <= 0.0) {
-            setState(std::make_unique<AcceleratingState>());
-        } else if (speed >= maxSpeed) {
-            setState(std::make_unique<CruisingState>());
-        } else if (getStateName() == "Waiting") {
-            setState(std::make_unique<AcceleratingState>());
-        }
-    }
-
-    if (speed > 0.0) {
-        position -= speed * dt;
-        
-        if (effectiveRedLight && position < 0.0) {
-            position = 0.0;
-            speed = 0.0;
-            setState(std::make_unique<WaitingState>());
-        }
-
-        if (position < -60.0) {
-            position = 180.0; 
-        }
-    }
-
-    if (direction == Direction::North) {
-        x = laneIndex * 3.5; 
-        y = -position;
-    } else if (direction == Direction::South) {
-        x = -laneIndex * 3.5;
-        y = position;
-    } else if (direction == Direction::East) {
-        x = -position;
-        y = -laneIndex * 3.5;
-    } else if (direction == Direction::West) {
-        x = position;
-        y = laneIndex * 3.5;
-    }
-
-    if (currentState) {
-        currentState->handle(*this, dt);
-    }
+void Vehicle::updateTurning(float dt) {
+    turnProgress += dt;
+    if (turnProgress > 1.0f) turnProgress = 1.0f;
 }
+
+bool Vehicle::isTurnComplete() const { return turnProgress >= 1.0f; }

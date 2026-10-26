@@ -1,26 +1,20 @@
 #pragma once
+#include "CommonTypes.h"
 #include <memory>
-#include "common/Types.h"
-#include "ILightState.h"
+
+class ILightState;
 
 class TrafficLight {
-private:
-    double elapsedTime; 
-
-    LightColor bnStraightRightColor;
-    LightColor bnLeftUTurnColor;
-    LightColor dtStraightRightColor;
-    LightColor dtLeftUTurnColor;
-
 public:
     TrafficLight();
-    
-    void update(double dt);
-    bool isRedFor(Direction dir, Movement move) const;
+    ~TrafficLight();
+    void update(int currentTick);
+    LightColor getColor(Direction direction, Movement movement) const;
+    bool isRedFor(Direction direction, Movement movement) const;
 
-    LightColor getBnStraightRightColor() const { return bnStraightRightColor; }
-    LightColor getBnLeftUTurnColor() const { return bnLeftUTurnColor; }
-    LightColor getDtStraightRightColor() const { return dtStraightRightColor; }
-    LightColor getDtLeftUTurnColor() const { return dtLeftUTurnColor; }
-    double getElapsedTime() const { return elapsedTime; }
+private:
+    int currentTick;
+    std::unique_ptr<ILightState> currentState;
+    LightColor calculateColor(int tickInCycle, Direction direction, Movement movement) const;
+    void setState(std::unique_ptr<ILightState> newState);
 };
