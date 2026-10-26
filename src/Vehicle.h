@@ -1,5 +1,5 @@
 #pragma once
-#include "CommonTypes.h"
+#include "common/Types.h" // Đã đổi include
 #include <memory>
 
 class IVehicleState;
@@ -49,7 +49,7 @@ public:
 
 private:
     int       id;
-    Direction direction;
+    Direction direction;    // <--- Mình đã kiểm tra, dòng này đã có sẵn trong code nhé!
     Movement  movement;
     float     x, y;
     float     speed, maxSpeed, acceleration, braking;

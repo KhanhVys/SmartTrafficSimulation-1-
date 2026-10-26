@@ -1,5 +1,5 @@
 #pragma once
-#include "CommonTypes.h"
+#include "common/Types.h" // Đã đổi include
 #include <memory>
 
 class ILightState;

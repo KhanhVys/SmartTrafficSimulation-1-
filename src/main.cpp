@@ -7,7 +7,8 @@
 #include <cmath>
 #include <iomanip>
 #include <thread>   
-#include <chrono>  
+#include <chrono>   
+
 class TrafficRule {
 public:
     void applyRules(Vehicle& v, TrafficLight& light) {
@@ -69,27 +70,29 @@ int main() {
     TrafficRule rule;
     std::vector<std::unique_ptr<Vehicle>> vehicles;
 
-    vehicles.push_back(std::make_unique<Vehicle>(1, Direction::South, Movement::GoStraight, 350, 50));
-    vehicles.push_back(std::make_unique<Vehicle>(2, Direction::South, Movement::GoStraight, 350, 130));
-    vehicles.push_back(std::make_unique<Vehicle>(3, Direction::South, Movement::GoStraight, 350, 210));
-    vehicles.push_back(std::make_unique<Vehicle>(4, Direction::North, Movement::GoStraight, 450, 550));
-    vehicles.push_back(std::make_unique<Vehicle>(5, Direction::North, Movement::GoStraight, 450, 470));
-    vehicles.push_back(std::make_unique<Vehicle>(6, Direction::North, Movement::GoStraight, 450, 390));
-    vehicles.push_back(std::make_unique<Vehicle>(7, Direction::East,  Movement::GoStraight, 50,  250));
-    vehicles.push_back(std::make_unique<Vehicle>(8, Direction::East,  Movement::GoStraight, 130, 250));
-    vehicles.push_back(std::make_unique<Vehicle>(9, Direction::East,  Movement::GoStraight, 210, 250));
-    vehicles.push_back(std::make_unique<Vehicle>(10, Direction::West, Movement::GoStraight, 750, 350));
-    vehicles.push_back(std::make_unique<Vehicle>(11, Direction::West, Movement::GoStraight, 670, 350));
-    vehicles.push_back(std::make_unique<Vehicle>(12, Direction::West, Movement::GoStraight, 590, 350));
-    vehicles.push_back(std::make_unique<Vehicle>(13, Direction::South, Movement::GoStraight, 350, 290));
+    // ĐÃ CẬP NHẬT: Movement::Straight
+    vehicles.push_back(std::make_unique<Vehicle>(1, Direction::South, Movement::Straight, 350, 50));
+    vehicles.push_back(std::make_unique<Vehicle>(2, Direction::South, Movement::Straight, 350, 130));
+    vehicles.push_back(std::make_unique<Vehicle>(3, Direction::South, Movement::Straight, 350, 210));
+    vehicles.push_back(std::make_unique<Vehicle>(4, Direction::North, Movement::Straight, 450, 550));
+    vehicles.push_back(std::make_unique<Vehicle>(5, Direction::North, Movement::Straight, 450, 470));
+    vehicles.push_back(std::make_unique<Vehicle>(6, Direction::North, Movement::Straight, 450, 390));
+    vehicles.push_back(std::make_unique<Vehicle>(7, Direction::East,  Movement::Straight, 50,  250));
+    vehicles.push_back(std::make_unique<Vehicle>(8, Direction::East,  Movement::Straight, 130, 250));
+    vehicles.push_back(std::make_unique<Vehicle>(9, Direction::East,  Movement::Straight, 210, 250));
+    vehicles.push_back(std::make_unique<Vehicle>(10, Direction::West, Movement::Straight, 750, 350));
+    vehicles.push_back(std::make_unique<Vehicle>(11, Direction::West, Movement::Straight, 670, 350));
+    vehicles.push_back(std::make_unique<Vehicle>(12, Direction::West, Movement::Straight, 590, 350));
+    vehicles.push_back(std::make_unique<Vehicle>(13, Direction::South, Movement::Straight, 350, 290));
 
-    const int TOTAL_TICKS = 50 * 40;
+    const int TOTAL_TICKS = 50 * 40; 
     const float DT = 0.02f;
 
     auto nextTickTime = std::chrono::steady_clock::now();
 
     for (int tick = 0; tick <= TOTAL_TICKS; tick++) {
         light.update(tick);
+        
         for (auto& v : vehicles) {
             v->setDistanceToStopLine(calcDistToStopLine(v->getX(), v->getY(), v->getDirection()));
             v->setVehicleAhead(findVehicleAhead(v.get(), vehicles));
@@ -113,7 +116,6 @@ int main() {
         }
 
         nextTickTime += std::chrono::milliseconds(20);
-
         std::this_thread::sleep_until(nextTickTime);
     }
     

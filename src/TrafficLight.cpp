@@ -40,8 +40,10 @@ LightColor TrafficLight::calculateColor(int tickInCycle, Direction dir, Movement
     int second = tickInCycle / Config::TICKS_PER_SECOND;
     bool isNorthSouth  = (dir == Direction::North || dir == Direction::South);
     bool isEastWest    = (dir == Direction::East  || dir == Direction::West);
-    bool isStraightR   = (mov == Movement::GoStraight || mov == Movement::TurnRight);
-    bool isLeftU       = (mov == Movement::TurnLeft   || mov == Movement::UTurn);
+    
+    // ĐÃ CẬP NHẬT TÊN ENUM THEO YÊU CẦU CỦA NGƯỜI 2
+    bool isStraightR   = (mov == Movement::Straight || mov == Movement::Right);
+    bool isLeftU       = (mov == Movement::Left     || mov == Movement::UTurn);
 
     if (second >= 0  && second <= 5  && isNorthSouth && isStraightR) return LightColor::Green;
     if (second >= 6  && second <= 7  && isNorthSouth && isStraightR) return LightColor::Yellow;
@@ -51,5 +53,6 @@ LightColor TrafficLight::calculateColor(int tickInCycle, Direction dir, Movement
     if (second >= 25 && second <= 26 && isEastWest   && isStraightR) return LightColor::Yellow;
     if (second >= 29 && second <= 33 && isEastWest   && isLeftU)     return LightColor::Green;
     if (second >= 34 && second <= 35 && isEastWest   && isLeftU)     return LightColor::Yellow;
+
     return LightColor::Red;
 }
