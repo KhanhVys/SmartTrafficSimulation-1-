@@ -22,6 +22,19 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/src/integration/IntegrationCoordinator.cpp)
 endif()
 
 enable_testing()
+add_executable(TrafficRuleTest
+    tests/TrafficRuleTest.cpp
+    src/Logic/TrafficRule.cpp
+    src/Logic/TrafficController.cpp
+)
+
+target_include_directories(TrafficRuleTest PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/Logic
+    ${PROJECT_SOURCE_DIR}/src
+)
+
+add_test(NAME TrafficRuleTest COMMAND TrafficRuleTest)
 if(TARGET integration AND EXISTS ${PROJECT_SOURCE_DIR}/tests/IntegrationCoordinator.cpp)
     add_executable(IntegrationCoordinatorTest tests/IntegrationCoordinator.cpp)
     target_link_libraries(IntegrationCoordinatorTest PRIVATE integration)

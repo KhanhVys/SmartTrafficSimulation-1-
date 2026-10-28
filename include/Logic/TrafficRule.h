@@ -44,4 +44,9 @@ public:
         Movement movement,
         const TrafficController& controller,
         bool hasCrossedStopLine);
+
+    // Quyết định xe dừng hay đi dựa trên màu đèn và vị trí xe.
+    static bool shouldStop(
+        LightColor lightColor,
+        bool hasCrossedStopLine);
 };

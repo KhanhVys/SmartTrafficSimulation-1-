@@ -95,3 +95,16 @@ bool TrafficRule::shouldSlowDown(
 
     return controller.getSignalState(phase) == LightColor::Yellow;
 }
+
+bool TrafficRule::shouldStop(
+    LightColor lightColor,
+    bool hasCrossedStopLine)
+{
+    if (hasCrossedStopLine)
+    {
+        return false;
+    }
+
+    return lightColor == LightColor::Yellow ||
+           lightColor == LightColor::Red;
+}
