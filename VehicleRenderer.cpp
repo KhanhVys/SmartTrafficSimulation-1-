@@ -1,6 +1,10 @@
 #include "VehicleRenderer.h"
 
-VehicleRenderer::VehicleRenderer(sf::Vector2f startPos) {
+#include <cmath>
+
+VehicleRenderer::VehicleRenderer(sf::Vector2f startPos, Direction dir, Movement mov) 
+    : direction(dir), movement(mov) {
+    
     // 1. Thân xe
     body.setSize(sf::Vector2f{50.0f, 26.0f});
     body.setFillColor(sf::Color(30, 144, 255));
@@ -25,7 +29,7 @@ VehicleRenderer::VehicleRenderer(sf::Vector2f startPos) {
     wheel3.setSize(wheelSize); wheel3.setFillColor(wheelColor); wheel3.setOrigin(sf::Vector2f{6.0f, 3.0f});
     wheel4.setSize(wheelSize); wheel4.setFillColor(wheelColor); wheel4.setOrigin(sf::Vector2f{6.0f, 3.0f});
 
-    // 5. BỔ SUNG KHỞI TẠO ĐÈN XI-NHAN (MÀU CAM)
+    // 5. Khởi tạo đèn xi-nhan (màu cam)
     sf::Vector2f signalSize{4.0f, 4.0f};
     sf::Color orangeColor(255, 140, 0);
 
@@ -41,30 +45,43 @@ VehicleRenderer::VehicleRenderer(sf::Vector2f startPos) {
 }
 
 void VehicleRenderer::setPosition(sf::Vector2f pos) {
-    body.setPosition(pos);
-    roof.setPosition(sf::Vector2f{pos.x - 2.0f, pos.y});
-    headlight.setPosition(sf::Vector2f{pos.x + 23.0f, pos.y});
+    float rad = rotationDeg * 3.14159265f / 180.0f;
+    float c = std::cos(rad);
+    float s = std::sin(rad);
 
-    wheel1.setPosition(sf::Vector2f{pos.x + 14.0f, pos.y - 14.0f});
-    wheel2.setPosition(sf::Vector2f{pos.x + 14.0f, pos.y + 14.0f});
-    wheel3.setPosition(sf::Vector2f{pos.x - 14.0f, pos.y - 14.0f});
-    wheel4.setPosition(sf::Vector2f{pos.x - 14.0f, pos.y + 14.0f});
+    // Đặt từng bộ phận theo vị trí tương đối so với tâm xe, xoay theo góc của xe
+    auto place = [&](sf::RectangleShape& part, float ox, float oy) {
+        part.setPosition(sf::Vector2f{pos.x + ox * c - oy * s, pos.y + ox * s + oy * c});
+        part.setRotation(sf::degrees(rotationDeg));
+    };
+
+    place(body,      0.0f,   0.0f);
+    place(roof,     -2.0f,   0.0f);
+    place(headlight, 23.0f,  0.0f);
+
+    place(wheel1,    14.0f, -14.0f);
+    place(wheel2,    14.0f,  14.0f);
+    place(wheel3,   -14.0f, -14.0f);
+    place(wheel4,   -14.0f,  14.0f);
 
     // Vị trí 2 xi-nhan đặt ở 2 góc đầu xe phía trước
-    leftSignal.setPosition(sf::Vector2f{pos.x + 22.0f, pos.y - 11.0f});
-    rightSignal.setPosition(sf::Vector2f{pos.x + 22.0f, pos.y + 11.0f});
+    place(leftSignal,  22.0f, -11.0f);
+    place(rightSignal, 22.0f,  11.0f);
 }
 
 void VehicleRenderer::move(sf::Vector2f offset) {
     setPosition(sf::Vector2f{body.getPosition().x + offset.x, body.getPosition().y + offset.y});
 }
 
-// Hàm chuyển đổi bật xi-nhan
+void VehicleRenderer::setRotation(float degrees) {
+    rotationDeg = degrees;
+    setPosition(body.getPosition());
+}
+
 void VehicleRenderer::setTurnSignal(TurnSignal signal) {
     currentSignal = signal;
 }
 
-// Cập nhật nhấp nháy đèn mỗi 0.25 giây
 void VehicleRenderer::update() {
     if (blinkClock.getElapsedTime().asSeconds() > 0.25f) {
         blinkVisible = !blinkVisible;
@@ -73,12 +90,10 @@ void VehicleRenderer::update() {
 }
 
 void VehicleRenderer::draw(sf::RenderWindow& window) {
-    // Vẽ bánh xe, thân xe, kính và đèn pha
     window.draw(wheel1); window.draw(wheel2);
     window.draw(wheel3); window.draw(wheel4);
     window.draw(body); window.draw(roof); window.draw(headlight);
 
-    // BỔ SUNG VẼ XI-NHAN KHI ĐƯỢC BẬT VÀ TRONG PHA SÁNG
     if (blinkVisible) {
         if (currentSignal == TurnSignal::Left) {
             window.draw(leftSignal);
@@ -91,4 +106,16 @@ void VehicleRenderer::draw(sf::RenderWindow& window) {
 
 sf::Vector2f VehicleRenderer::getPosition() const {
     return body.getPosition();
+}
+
+float VehicleRenderer::getRotation() const {
+    return rotationDeg;
+}
+
+Direction VehicleRenderer::getDirection() const {
+    return direction;
+}
+
+Movement VehicleRenderer::getMovement() const {
+    return movement;
 }
