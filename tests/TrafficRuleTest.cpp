@@ -1,3 +1,4 @@
+#undef NDEBUG
 #include "Logic/TrafficRule.h"
 #include <cassert>
 #include <iostream>
