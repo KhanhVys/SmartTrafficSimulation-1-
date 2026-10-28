@@ -2,10 +2,7 @@
 #define VEHICLE_RENDERER_H
 
 #include <SFML/Graphics.hpp>
-
-// Các kiểu dùng chung theo quy chuẩn dự án
-enum class Direction { North, South, East, West };
-enum class Movement  { Straight, Left, Right, UTurn };
+#include "common/Types.h"   // Direction, Movement dùng chung toàn dự án
 
 enum class TurnSignal {
     None,
