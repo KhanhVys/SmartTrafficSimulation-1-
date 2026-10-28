@@ -1,13 +1,9 @@
 #pragma once
 
+#include "common/Types.h"
+
 #include <cstddef>
 #include <vector>
-
-enum class LightColor { Red, Yellow, Green };
-
-enum class Direction { North, South, East, West };
-
-enum class Movement { Straight, Left, Right, UTurn };
 
 struct VehicleSnapshot {
     int vehicleId = 0;
@@ -15,11 +11,14 @@ struct VehicleSnapshot {
     double y = 0.0;
     Direction direction = Direction::North;
     Movement movement = Movement::Straight;
-    double rotationAngleDegrees = 0.0; //thêm góc
+    bool signalingLeft = false;
+    // Góc xoay hiển thị của xe, đơn vị độ; xe quay đầu thường là 180 độ.
+    double rotationAngleDegrees = 0.0;
 };
 
 struct LightSnapshot {
     Direction direction = Direction::North;
+    bool turnArrow = false;
     LightColor color = LightColor::Red;
 };
 
