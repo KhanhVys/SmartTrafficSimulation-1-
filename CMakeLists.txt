@@ -22,6 +22,21 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/src/integration/IntegrationCoordinator.cpp)
 endif()
 
 enable_testing()
+# Logic library
+add_library(logic STATIC
+    src/Logic/TrafficRule.cpp
+)
+
+target_link_libraries(logic PUBLIC common)
+
+# TrafficRule test
+add_executable(TrafficRuleTest
+    tests/TrafficRuleTest.cpp
+)
+
+target_link_libraries(TrafficRuleTest PRIVATE logic)
+
+add_test(NAME TrafficRuleTest COMMAND TrafficRuleTest)
 if(TARGET integration AND EXISTS ${PROJECT_SOURCE_DIR}/tests/IntegrationCoordinator.cpp)
     add_executable(IntegrationCoordinatorTest tests/IntegrationCoordinator.cpp)
     target_link_libraries(IntegrationCoordinatorTest PRIVATE integration)
@@ -48,7 +63,7 @@ if(EXISTS ${PROJECT_SOURCE_DIR}/src/main.cpp)
     list(FILTER APP_SOURCES EXCLUDE REGEX ".*/ConcurrencyModule\\.cpp$")
 
     add_executable(SmartTrafficSimulation ${APP_SOURCES})
-    target_link_libraries(SmartTrafficSimulation PRIVATE common Threads::Threads)
+    target_link_libraries(SmartTrafficSimulation PRIVATE common Threads::Threads logic)
     if(TARGET concurrency)
         target_link_libraries(SmartTrafficSimulation PRIVATE concurrency)
     endif()
