@@ -16,11 +16,16 @@ private:
     sf::RenderWindow window;
     MapRenderer mapRenderer;
 
-    // Quản lý pool xe theo vehicleId để xe có thể xuất hiện/biến mất linh động
+    // Quản lý pool xe theo vehicleId (sử dụng emplace do VehicleRenderer không có constructor mặc định)
     std::unordered_map<int, VehicleRenderer> activeVehicles;
 
-    // Quản lý trạng thái đèn giao thông theo snapshot thực tế
-    std::vector<TrafficLightRenderer> trafficLights;
+    // Cấu trúc ánh xạ đèn giao thông gắn liền với (direction, turnArrow)
+    struct LightMapping {
+        Direction direction;
+        bool turnArrow;
+        TrafficLightRenderer renderer;
+    };
+    std::vector<LightMapping> trafficLights;
 
     void updateLights(const std::vector<LightSnapshot>& lightSnapshots);
     void updateVehicles(const std::vector<VehicleSnapshot>& vehicleSnapshots);
