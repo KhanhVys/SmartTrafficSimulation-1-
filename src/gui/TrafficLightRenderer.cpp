@@ -1,6 +1,6 @@
 #include "TrafficLightRenderer.h"
 
-TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn)
+TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn, float arrowAngleDeg)
     : hasArrow(leftTurn) {
 
     if (!leftTurn) {
@@ -25,15 +25,23 @@ TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn)
         arrowLamp.setFillColor(sf::Color(15, 15, 15));
         arrowLamp.setPosition(sf::Vector2f{ox + 3.0f, oy + 3.0f});
 
-        // Arrow pointing left: shaft + head
-        arrowShaft.setSize(sf::Vector2f{9.0f, 4.0f});
-        arrowShaft.setPosition(sf::Vector2f{ox + 14.0f, oy + 12.0f});
+        // Tâm đèn: mũi tên xoay quanh điểm này
+        sf::Vector2f center{ox + 14.0f, oy + 14.0f};
 
+        // Thân mũi tên (gốc xoay ở đầu thân, đặt đúng tâm đèn)
+        arrowShaft.setSize(sf::Vector2f{9.0f, 4.0f});
+        arrowShaft.setOrigin(sf::Vector2f{0.0f, 2.0f});
+        arrowShaft.setPosition(center);
+        arrowShaft.setRotation(sf::degrees(arrowAngleDeg));
+
+        // Đầu mũi tên (gốc xoay đặt đúng tâm đèn)
         arrow.setPointCount(3);
         arrow.setPoint(0, sf::Vector2f{0.0f, 7.0f});    // tip
         arrow.setPoint(1, sf::Vector2f{8.0f, 0.0f});
         arrow.setPoint(2, sf::Vector2f{8.0f, 14.0f});
-        arrow.setPosition(sf::Vector2f{ox + 6.0f, oy + 7.0f});
+        arrow.setOrigin(sf::Vector2f{8.0f, 7.0f});
+        arrow.setPosition(center);
+        arrow.setRotation(sf::degrees(arrowAngleDeg));
     }
 
     setState(LightColor::Red);

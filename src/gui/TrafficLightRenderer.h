@@ -17,7 +17,7 @@ private:
     bool hasArrow;
 
 public:
-    TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false);
+    TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false, float arrowAngleDeg = 0.0f);
     void setState(LightColor state);
     void draw(sf::RenderWindow& window);
 };
