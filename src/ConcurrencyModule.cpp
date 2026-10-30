@@ -20,12 +20,14 @@ struct VehicleSnapshot {
     double y = 0.0;
     Direction direction = Direction::North;
     Movement movement = Movement::Straight;
+    bool signalingLeft = false;
     // Góc xoay hiển thị của xe, đơn vị độ; xe quay đầu thường là 180 độ.
     double rotationAngleDegrees = 0.0;
 };
 
 struct LightSnapshot {
     Direction direction = Direction::North;
+    bool turnArrow = false;
     LightColor color = LightColor::Red;
 };
 
@@ -37,18 +39,17 @@ struct SimulationSnapshot {
 
 class SnapshotStore {
 public:
-    void publishTick(std::size_t tick) {
-        currentTick.store(tick);
-    }
+    void publishSnapshot(
+        std::size_t tick,
+        const std::vector<LightSnapshot>& newLights,
+        const std::vector<VehicleSnapshot>& newVehicles) {
+        // Thứ tự khóa bắt buộc: lightMutex trước, vehicleMutex sau.
+        std::lock_guard<std::mutex> lightLock(lightMutex);
+        std::lock_guard<std::mutex> vehicleLock(vehicleMutex);
 
-    void publishVehicles(const std::vector<VehicleSnapshot>& newVehicles) {
-        std::lock_guard<std::mutex> lock(vehicleMutex);
-        vehicles = newVehicles;
-    }
-
-    void publishLights(const std::vector<LightSnapshot>& newLights) {
-        std::lock_guard<std::mutex> lock(lightMutex);
         lights = newLights;
+        vehicles = newVehicles;
+        currentTick.store(tick);
     }
 
     SimulationSnapshot getSnapshot() const {
@@ -156,20 +157,22 @@ int main() {
             turnProgress
         );
 
-        snapshotStore.publishTick(tick);
-        snapshotStore.publishLights({
-            {Direction::North, color},
-            {Direction::South, color},
-        });
-        snapshotStore.publishVehicles({
-            {1, static_cast<double>(tick), 0.0,
-             Direction::North, Movement::Straight, 0.0},
-            {2, 0.0, static_cast<double>(tick),
-             Direction::East, Movement::Right, 90.0},
-            {3, turnSample.position.x, turnSample.position.y,
-             Direction::South, Movement::UTurn,
-             turnSample.rotationAngleDegrees},
-        });
+        snapshotStore.publishSnapshot(
+            tick,
+            {
+                {Direction::North, false, color},
+                {Direction::South, true, color},
+            },
+            {
+                {1, static_cast<double>(tick), 0.0,
+                 Direction::North, Movement::Straight, false, 0.0},
+                {2, 0.0, static_cast<double>(tick),
+                 Direction::East, Movement::Right, true, 90.0},
+                {3, turnSample.position.x, turnSample.position.y,
+                 Direction::South, Movement::UTurn,
+                 true, turnSample.rotationAngleDegrees},
+            }
+        );
     };
 
     SimulationThread simulationThread(
