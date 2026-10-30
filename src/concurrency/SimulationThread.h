@@ -3,6 +3,7 @@
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
+#include <exception>
 #include <functional>
 #include <mutex>
 #include <thread>
@@ -25,6 +26,7 @@ public:
 
 private:
     void run();
+    void rethrowWorkerException();
 
     TickFunction tickFunction;
     std::chrono::milliseconds tickInterval;
@@ -33,5 +35,7 @@ private:
     mutable std::mutex lifecycleMutex;
     std::condition_variable stopCondition;
     std::mutex waitMutex;
+    std::mutex exceptionMutex;
+    std::exception_ptr workerException;
     std::thread worker;
 };
