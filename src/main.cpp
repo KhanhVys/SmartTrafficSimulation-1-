@@ -24,9 +24,11 @@ int main() {
     coordinator.addStage("traffic_light", [&] { simulation->updateTrafficLight(); });
     coordinator.addStage("vehicles", [&] { simulation->updateVehicles(); });
     coordinator.addStage("publish_snapshot", [&] {
-        store.publishTick(static_cast<std::size_t>(simulation->getCurrentTick()));
-        store.publishLights(SnapshotAdapter::lightsOf(*simulation));
-        store.publishVehicles(SnapshotAdapter::vehiclesOf(*simulation));
+       store.publishSnapshot(
+    static_cast<std::size_t>(simulation->getCurrentTick()),
+    SnapshotAdapter::lightsOf(*simulation),
+    SnapshotAdapter::vehiclesOf(*simulation)
+);
 #ifdef USE_GUI
         if (simulation->allVehiclesFinished()) {
             simulation = std::make_unique<CoreSimulation>();
