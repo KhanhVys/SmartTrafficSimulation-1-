@@ -8,9 +8,11 @@
 
 class SnapshotStore {
 public:
-    void publishTick(std::size_t tick);
-    void publishVehicles(const std::vector<VehicleSnapshot>& vehicles);
-    void publishLights(const std::vector<LightSnapshot>& lights);
+    void publishSnapshot(
+        std::size_t tick,
+        const std::vector<LightSnapshot>& lights,
+        const std::vector<VehicleSnapshot>& vehicles
+    );
 
     SimulationSnapshot getSnapshot() const;
 

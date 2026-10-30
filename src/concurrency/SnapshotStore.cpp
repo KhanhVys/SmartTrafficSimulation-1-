@@ -1,20 +1,17 @@
 #include "SnapshotStore.h"
 
-void SnapshotStore::publishTick(std::size_t tick) {
-    // currentTick chỉ được ghi bởi luồng mô phỏng trong prototype này.
-    currentTick.store(tick);
-}
-
-void SnapshotStore::publishVehicles(
+void SnapshotStore::publishSnapshot(
+    std::size_t tick,
+    const std::vector<LightSnapshot>& newLights,
     const std::vector<VehicleSnapshot>& newVehicles) {
-    std::lock_guard<std::mutex> lock(vehicleMutex);
-    vehicles = newVehicles;
-}
+    // Thứ tự khóa bắt buộc: lightMutex trước, vehicleMutex sau.
+    // getSnapshot() dùng đúng thứ tự này để tránh deadlock.
+    std::lock_guard<std::mutex> lightLock(lightMutex);
+    std::lock_guard<std::mutex> vehicleLock(vehicleMutex);
 
-void SnapshotStore::publishLights(
-    const std::vector<LightSnapshot>& newLights) {
-    std::lock_guard<std::mutex> lock(lightMutex);
     lights = newLights;
+    vehicles = newVehicles;
+    currentTick.store(tick);
 }
 
 SimulationSnapshot SnapshotStore::getSnapshot() const {
