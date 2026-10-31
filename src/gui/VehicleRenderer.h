@@ -16,6 +16,10 @@ private:
     static sf::Color getVehicleColor(int vehicleId);
     sf::RectangleShape roof;
     sf::RectangleShape headlight;
+    sf::RectangleShape headlight2;                       // đèn pha thứ hai (đèn pha thứ nhất là headlight)
+    sf::RectangleShape taillight1, taillight2;           // đèn hậu
+    sf::RectangleShape windshield, rearWindow;           // kính trước, kính sau
+    sf::RectangleShape shadow;                           // bóng đổ
     sf::RectangleShape wheel1, wheel2, wheel3, wheel4;
     sf::RectangleShape leftSignal, rightSignal;
 

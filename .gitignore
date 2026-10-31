@@ -4,4 +4,8 @@ build/
 *.exe
 .vs/
 .vscode/
+build-mingw/build-asan/
+build-mingw/
+
+build-asan/
 build-mingw/
