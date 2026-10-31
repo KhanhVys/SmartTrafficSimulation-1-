@@ -26,21 +26,21 @@ Renderer::Renderer(unsigned int width, unsigned int height, const std::string& t
     // Mỗi đèn được gán chặt với (Direction, turnArrow) để nhận đúng trạng thái từ snapshot bất kể thứ tự
     // (số toạ độ có thể chỉnh lại theo mắt sau khi chạy)
 
-    // 1. Hướng East (xe chạy sang Tây)
-    trafficLights.push_back({Direction::East, false, TrafficLightRenderer(sf::Vector2f{cx + 60.0f, cy - 165.0f}, false)});
-    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 90.0f, cy - 165.0f}, true)});
+        // 1. Hướng East (xe chạy sang Tây): góc trên-phải, mũi tên nằm phía trên hộp đèn thẳng
+    trafficLights.push_back({Direction::East, false, TrafficLightRenderer(sf::Vector2f{cx + 59.0f, cy - 167.0f}, false)});
+    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 57.0f, cy - 220.0f}, true, 270.0f)});
 
-    // 2. Hướng West (xe chạy sang Đông)
-    trafficLights.push_back({Direction::West, false, TrafficLightRenderer(sf::Vector2f{cx - 84.0f,  cy + 99.0f}, false)});
-    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 114.0f, cy + 99.0f}, true)});
+    // 2. Hướng West (xe chạy sang Đông): góc dưới-trái, mũi tên nằm phía dưới
+    trafficLights.push_back({Direction::West, false, TrafficLightRenderer(sf::Vector2f{cx - 83.0f, cy + 101.0f}, false)});
+    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 85.0f, cy + 154.0f}, true, 90.0f)});
 
-    // 3. Hướng North (xe chạy xuống Nam)
-    trafficLights.push_back({Direction::North, false, TrafficLightRenderer(sf::Vector2f{cx - 82.0f,  cy - 167.0f}, false)});
-    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 112.0f, cy - 167.0f}, true)});
+    // 3. Hướng North (xe chạy xuống Nam): góc trên-trái, mũi tên nằm phía trên
+    trafficLights.push_back({Direction::North, false, TrafficLightRenderer(sf::Vector2f{cx - 83.0f, cy - 167.0f}, false)});
+    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 85.0f, cy - 220.0f}, true, 180.0f)});
 
-    // 4. Hướng South (xe chạy lên Bắc)
-    trafficLights.push_back({Direction::South, false, TrafficLightRenderer(sf::Vector2f{cx + 58.0f, cy + 101.0f}, false)});
-    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 88.0f, cy + 101.0f}, true)});
+    // 4. Hướng South (xe chạy lên Bắc): góc dưới-phải, mũi tên nằm phía dưới
+    trafficLights.push_back({Direction::South, false, TrafficLightRenderer(sf::Vector2f{cx + 59.0f, cy + 101.0f}, false)});
+    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 57.0f, cy + 154.0f}, true, 0.0f)});
 }
 
 bool Renderer::isWindowOpen() const {

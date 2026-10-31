@@ -25,15 +25,21 @@ TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn, floa
         arrowLamp.setFillColor(sf::Color(15, 15, 15));
         arrowLamp.setPosition(sf::Vector2f{ox + 3.0f, oy + 3.0f});
 
-        // Arrow pointing left: shaft + head
-        arrowShaft.setSize(sf::Vector2f{9.0f, 4.0f});
-        arrowShaft.setPosition(sf::Vector2f{ox + 14.0f, oy + 12.0f});
+        // Mũi tên: thân + đầu, xoay quanh tâm hộp đèn
+const sf::Vector2f center{ox + 14.0f, oy + 14.0f};
 
-        arrow.setPointCount(3);
-        arrow.setPoint(0, sf::Vector2f{0.0f, 7.0f});    // tip
-        arrow.setPoint(1, sf::Vector2f{8.0f, 0.0f});
-        arrow.setPoint(2, sf::Vector2f{8.0f, 14.0f});
-        arrow.setPosition(sf::Vector2f{ox + 6.0f, oy + 7.0f});
+arrowShaft.setSize(sf::Vector2f{9.0f, 4.0f});
+arrowShaft.setOrigin(sf::Vector2f{0.0f, 2.0f});     // gốc ở đầu thân, giữa chiều dày
+arrowShaft.setPosition(center);
+arrowShaft.setRotation(sf::degrees(arrowAngleDeg));
+
+arrow.setPointCount(3);
+arrow.setPoint(0, sf::Vector2f{0.0f, 7.0f});        // mũi nhọn
+arrow.setPoint(1, sf::Vector2f{8.0f, 0.0f});
+arrow.setPoint(2, sf::Vector2f{8.0f, 14.0f});
+arrow.setOrigin(sf::Vector2f{8.0f, 7.0f});          // gốc ở chân đầu mũi tên
+arrow.setPosition(center);
+arrow.setRotation(sf::degrees(arrowAngleDeg));
     }
 
     setState(LightColor::Red);
