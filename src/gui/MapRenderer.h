@@ -11,7 +11,9 @@ private:
     std::vector<sf::RectangleShape> laneLines; // Vạch kẻ đường
     std::vector<sf::RectangleShape> stopLines;  // Vạch dừng xe trước ngã tư
     std::vector<sf::RectangleShape> crosswalks; // Vạch qua đường (ngựa vằn)
-
+    std::vector<sf::RectangleShape> sidewalks; // Vỉa hè dọc mép đường
+    std::vector<sf::RectangleShape> edgeLines; // Vạch liền ở mép đường
+    std::vector<sf::CircleShape> trees;        // Tán cây
 public:
     MapRenderer(float width, float height);
     void draw(sf::RenderWindow& window);

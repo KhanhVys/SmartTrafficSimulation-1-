@@ -36,6 +36,7 @@ public:
     void move(sf::Vector2f offset);
     void setRotation(float degrees);
     void setTurnSignal(TurnSignal signal);
+    void setColorById(int vehicleId); // chọn màu thân xe theo vehicleId % số màu
     void update();
     void draw(sf::RenderWindow& window);
 

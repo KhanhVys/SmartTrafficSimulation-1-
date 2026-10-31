@@ -2,7 +2,8 @@
 #include <algorithm>
 
 Renderer::Renderer(unsigned int width, unsigned int height, const std::string& title)
-    : window(sf::VideoMode({width, height}), title),
+    : window(sf::VideoMode({width, height}), title, sf::Style::Default, sf::State::Windowed,
+       []{ sf::ContextSettings s; s.antiAliasingLevel = 8; return s; }()),
       mapRenderer(static_cast<float>(width), static_cast<float>(height)) {
 
     window.setFramerateLimit(60);
@@ -18,19 +19,19 @@ Renderer::Renderer(unsigned int width, unsigned int height, const std::string& t
 
     // 1. Hướng East (xe chạy sang Tây)
     trafficLights.push_back({Direction::East, false, TrafficLightRenderer(sf::Vector2f{cx + 60.0f, cy - 165.0f}, false)});
-    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 90.0f, cy - 165.0f}, true)});
+    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 90.0f, cy - 165.0f}, true, Direction::East)});
 
     // 2. Hướng West (xe chạy sang Đông)
     trafficLights.push_back({Direction::West, false, TrafficLightRenderer(sf::Vector2f{cx - 84.0f,  cy + 99.0f}, false)});
-    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 114.0f, cy + 99.0f}, true)});
+    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 114.0f, cy + 99.0f}, true, Direction::West)});
 
     // 3. Hướng North (xe chạy xuống Nam)
     trafficLights.push_back({Direction::North, false, TrafficLightRenderer(sf::Vector2f{cx - 82.0f,  cy - 167.0f}, false)});
-    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 112.0f, cy - 167.0f}, true)});
+    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 112.0f, cy - 167.0f}, true, Direction::North)});
 
     // 4. Hướng South (xe chạy lên Bắc)
     trafficLights.push_back({Direction::South, false, TrafficLightRenderer(sf::Vector2f{cx + 58.0f, cy + 101.0f}, false)});
-    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 88.0f, cy + 101.0f}, true)});
+    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 88.0f, cy + 101.0f}, true, Direction::South)});
 }
 
 bool Renderer::isWindowOpen() const {
@@ -89,6 +90,7 @@ void Renderer::updateVehicles(const std::vector<VehicleSnapshot>& vehicleSnapsho
                 vs.movement
             );
             it = res.first;
+            it->second.setColorById(vs.vehicleId);
         }
 
         // Cập nhật thuộc tính vị trí, góc xoay và xi-nhan

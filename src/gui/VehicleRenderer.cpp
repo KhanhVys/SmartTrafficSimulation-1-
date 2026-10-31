@@ -86,7 +86,20 @@ void VehicleRenderer::setRotation(float degrees) {
     rotationDeg = degrees;
     setPosition(body.getPosition());
 }
-
+void VehicleRenderer::setColorById(int vehicleId) {
+    static const sf::Color PALETTE[] = {
+        sf::Color(30, 144, 255),   // xanh dương
+        sf::Color(220, 50, 50),    // đỏ
+        sf::Color(240, 190, 40),   // vàng
+        sf::Color(60, 170, 90),    // xanh lá
+        sf::Color(150, 90, 200),   // tím
+        sf::Color(240, 130, 40),   // cam
+        sf::Color(230, 230, 235),  // trắng
+        sf::Color(40, 200, 200),   // ngọc
+    };
+    constexpr int N = static_cast<int>(sizeof(PALETTE) / sizeof(PALETTE[0]));
+    body.setFillColor(PALETTE[((vehicleId % N) + N) % N]);
+}
 void VehicleRenderer::setTurnSignal(TurnSignal signal) {
     currentSignal = signal;
 }

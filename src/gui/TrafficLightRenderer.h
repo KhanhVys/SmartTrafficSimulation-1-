@@ -15,9 +15,15 @@ private:
     sf::RectangleShape arrowShaft;
     sf::ConvexShape arrow;   // arrow head
     bool hasArrow;
+    sf::Vector2f glowCenter {0.0f, 0.0f};
+    sf::Color glowColor {0, 0, 0, 0};
+    bool glowOn = false;
 
 public:
-    TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false);
+    // approach: nhánh mà xe đi VÀO ngã tư (cùng nghĩa với Direction của Core).
+    // Với đèn rẽ trái, mũi tên quay về phía bên trái của tài xế khi xe đi vào từ nhánh này.
+    TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false,
+                         Direction approach = Direction::South);
     void setState(LightColor state);
     void draw(sf::RenderWindow& window);
 };
