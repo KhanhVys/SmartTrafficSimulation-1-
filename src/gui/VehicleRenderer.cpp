@@ -9,13 +9,24 @@ namespace {
     constexpr float HALF_L     = CAR_LENGTH / 2.0f; // 20.0f
     constexpr float HALF_W     = CAR_WIDTH / 2.0f;  // 10.0f
 }
+sf::Color VehicleRenderer::getVehicleColor(int vehicleId) {
+    const sf::Color colors[] = {
+        sf::Color(30, 144, 255),
+        sf::Color(220, 60, 60),
+        sf::Color(255, 190, 60),
+        sf::Color(80, 180, 120),
+        sf::Color(170, 110, 210),
+        sf::Color(240, 130, 160)
+    };
 
-VehicleRenderer::VehicleRenderer(sf::Vector2f startPos, Direction dir, Movement mov) 
+    return colors[vehicleId % 6];
+}
+VehicleRenderer::VehicleRenderer(sf::Vector2f startPos, Direction dir, Movement mov, int vehicleId)
     : direction(dir), movement(mov) {
     
     // 1. Thân xe (40x20)
     body.setSize(sf::Vector2f{CAR_LENGTH, CAR_WIDTH});
-    body.setFillColor(sf::Color(30, 144, 255));
+    body.setFillColor(getVehicleColor(vehicleId));
     body.setOrigin(sf::Vector2f{HALF_L, HALF_W});
 
     // 2. Mui xe / Kính (thu nhỏ tỷ lệ tương ứng)

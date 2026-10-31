@@ -13,6 +13,7 @@ enum class TurnSignal {
 class VehicleRenderer {
 private:
     sf::RectangleShape body;
+    static sf::Color getVehicleColor(int vehicleId);
     sf::RectangleShape roof;
     sf::RectangleShape headlight;
     sf::RectangleShape wheel1, wheel2, wheel3, wheel4;
@@ -30,7 +31,7 @@ private:
     float rotationDeg = 0.0f;
 
 public:
-    VehicleRenderer(sf::Vector2f startPos, Direction dir = Direction::East, Movement mov = Movement::Straight);
+    VehicleRenderer(sf::Vector2f startPos, Direction dir=Direction::East, Movement mov=Movement::Straight, int vehicleId=0);
 
     void setPosition(sf::Vector2f pos);
     void move(sf::Vector2f offset);

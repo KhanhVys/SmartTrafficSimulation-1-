@@ -1,6 +1,6 @@
 #include "TrafficLightRenderer.h"
 
-TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn)
+TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn, float arrowAngleDeg)
     : hasArrow(leftTurn) {
 
     if (!leftTurn) {
@@ -40,12 +40,27 @@ TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn)
 }
 
 void TrafficLightRenderer::setState(LightColor state) {
+    sf::Color activeColor = sf::Color::Red;
+
+    if (state == LightColor::Green) {
+        activeColor = sf::Color::Green;
+    }
+    else if (state == LightColor::Yellow) {
+        activeColor = sf::Color::Yellow;
+    }
+
+    glowColor = activeColor;
+    glowOn = true;
+
     if (hasArrow) {
-        sf::Color c = sf::Color::Red;
-        if (state == LightColor::Green)       c = sf::Color::Green;
-        else if (state == LightColor::Yellow) c = sf::Color::Yellow;
-        arrowShaft.setFillColor(c);
-        arrow.setFillColor(c);
+        arrowLamp.setFillColor(sf::Color(15, 15, 15));
+        arrowShaft.setFillColor(activeColor);
+        arrow.setFillColor(activeColor);
+
+        glowCenter = sf::Vector2f{
+            arrowLamp.getPosition().x + 11.0f,
+            arrowLamp.getPosition().y + 11.0f
+        };
         return;
     }
 
@@ -54,10 +69,50 @@ void TrafficLightRenderer::setState(LightColor state) {
     redLight.setFillColor(state == LightColor::Red ? sf::Color::Red : offColor);
     yellowLight.setFillColor(state == LightColor::Yellow ? sf::Color::Yellow : offColor);
     greenLight.setFillColor(state == LightColor::Green ? sf::Color::Green : offColor);
+
+    if (state == LightColor::Red) {
+        glowCenter = sf::Vector2f{
+            redLight.getPosition().x + 7.0f,
+            redLight.getPosition().y + 7.0f
+        };
+    }
+    else if (state == LightColor::Yellow) {
+        glowCenter = sf::Vector2f{
+            yellowLight.getPosition().x + 7.0f,
+            yellowLight.getPosition().y + 7.0f
+        };
+    }
+    else {
+        glowCenter = sf::Vector2f{
+            greenLight.getPosition().x + 7.0f,
+            greenLight.getPosition().y + 7.0f
+        };
+    }
 }
 
 void TrafficLightRenderer::draw(sf::RenderWindow& window) {
     window.draw(box);
+
+    // Hiệu ứng quầng sáng
+    if (glowOn) {
+        sf::CircleShape outerGlow(17.0f);
+        outerGlow.setOrigin(sf::Vector2f{17.0f, 17.0f});
+        outerGlow.setPosition(glowCenter);
+
+        sf::Color outerColor = glowColor;
+        outerColor.a = 30;
+        outerGlow.setFillColor(outerColor);
+        window.draw(outerGlow);
+
+        sf::CircleShape innerGlow(12.0f);
+        innerGlow.setOrigin(sf::Vector2f{12.0f, 12.0f});
+        innerGlow.setPosition(glowCenter);
+
+        sf::Color innerColor = glowColor;
+        innerColor.a = 55;
+        innerGlow.setFillColor(innerColor);
+        window.draw(innerGlow);
+    }
 
     if (hasArrow) {
         window.draw(arrowLamp);

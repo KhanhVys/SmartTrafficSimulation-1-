@@ -2,7 +2,17 @@
 #include <algorithm>
 
 Renderer::Renderer(unsigned int width, unsigned int height, const std::string& title)
-    : window(sf::VideoMode({width, height}), title),
+    : window(
+        sf::VideoMode({width, height}),
+        title,
+        sf::Style::Default,
+        sf::State::Windowed,
+        [] {
+    sf::ContextSettings settings;
+    settings.antiAliasingLevel = 8;
+    return settings;
+}()
+      ),
       mapRenderer(static_cast<float>(width), static_cast<float>(height)) {
 
     window.setFramerateLimit(60);
@@ -83,11 +93,12 @@ void Renderer::updateVehicles(const std::vector<VehicleSnapshot>& vehicleSnapsho
         if (it == activeVehicles.end()) {
             // Thêm mới xe vào pool
             auto res = activeVehicles.try_emplace(
-                vs.vehicleId, 
-                sf::Vector2f{static_cast<float>(vs.x), static_cast<float>(vs.y)}, 
-                vs.direction, 
-                vs.movement
-            );
+    vs.vehicleId,
+    sf::Vector2f{static_cast<float>(vs.x), static_cast<float>(vs.y)},
+    vs.direction,
+    vs.movement,
+    vs.vehicleId
+);
             it = res.first;
         }
 
