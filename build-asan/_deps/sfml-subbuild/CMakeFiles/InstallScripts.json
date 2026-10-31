@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-subbuild/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

@@ -1,5 +1,0 @@
-TrafficRuleTest 3 0.0256288
-CoreSimulationTest 3 0.0619841
-IntegrationCoordinatorTest 3 0.0225111
-SnapshotAdapterTest 3 0.0301381
----
