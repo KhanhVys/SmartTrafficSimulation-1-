@@ -1,0 +1,2 @@
+C:\msys64\clang64\bin\llvm-ar.exe qc liblogic.a CMakeFiles/logic.dir/src/Logic/TrafficRule.cpp.obj
+C:\msys64\clang64\bin\llvm-ranlib.exe liblogic.a

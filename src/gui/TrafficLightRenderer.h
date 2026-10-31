@@ -20,10 +20,14 @@ private:
     bool glowOn = false;
 
 public:
+<<<<<<< HEAD
     // approach: nhánh mà xe đi VÀO ngã tư (cùng nghĩa với Direction của Core).
     // Với đèn rẽ trái, mũi tên quay về phía bên trái của tài xế khi xe đi vào từ nhánh này.
     TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false,
                          Direction approach = Direction::South);
+=======
+    TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false, float arrowAngleDeg = 0.0f);
+>>>>>>> 7a72981f201c9a97a5e645f5208b00e8f59042fc
     void setState(LightColor state);
     void draw(sf::RenderWindow& window);
 };

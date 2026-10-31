@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/core.dir/src/core/AcceleratingState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/AcceleratingState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/BrakingState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/BrakingState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/CoreSimulation.cpp.obj"
+  "CMakeFiles/core.dir/src/core/CoreSimulation.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/CruisingState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/CruisingState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/GreenState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/GreenState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/IRoadComponent.cpp.obj"
+  "CMakeFiles/core.dir/src/core/IRoadComponent.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/Intersection.cpp.obj"
+  "CMakeFiles/core.dir/src/core/Intersection.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/Path.cpp.obj"
+  "CMakeFiles/core.dir/src/core/Path.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/RedState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/RedState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/Road.cpp.obj"
+  "CMakeFiles/core.dir/src/core/Road.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/RoadNetwork.cpp.obj"
+  "CMakeFiles/core.dir/src/core/RoadNetwork.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/TrafficGenerator.cpp.obj"
+  "CMakeFiles/core.dir/src/core/TrafficGenerator.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/TrafficLight.cpp.obj"
+  "CMakeFiles/core.dir/src/core/TrafficLight.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/TurningState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/TurningState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/Vehicle.cpp.obj"
+  "CMakeFiles/core.dir/src/core/Vehicle.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/WaitingState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/WaitingState.cpp.obj.d"
+  "CMakeFiles/core.dir/src/core/YellowState.cpp.obj"
+  "CMakeFiles/core.dir/src/core/YellowState.cpp.obj.d"
+  "libcore.a"
+  "libcore.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/core.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

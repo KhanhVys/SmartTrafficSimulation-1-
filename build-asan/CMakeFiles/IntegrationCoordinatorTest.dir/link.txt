@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\IntegrationCoordinatorTest.dir/objects.a
+C:\msys64\clang64\bin\llvm-ar.exe qc CMakeFiles\IntegrationCoordinatorTest.dir/objects.a @CMakeFiles\IntegrationCoordinatorTest.dir\objects1.rsp
+C:\msys64\clang64\bin\clang++.exe -fsanitize=address -fno-omit-frame-pointer -fsanitize=address -fsanitize=address -Wl,--whole-archive CMakeFiles\IntegrationCoordinatorTest.dir/objects.a -Wl,--no-whole-archive -o IntegrationCoordinatorTest.exe -Wl,--out-implib,libIntegrationCoordinatorTest.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\IntegrationCoordinatorTest.dir\linkLibs.rsp

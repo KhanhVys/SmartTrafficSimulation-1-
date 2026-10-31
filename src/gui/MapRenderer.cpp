@@ -56,25 +56,25 @@ MapRenderer::MapRenderer(float width, float height) {
     for (float x = cx - nsHalfRoad; x < cx + nsHalfRoad; x += 14.0f) {
         sf::RectangleShape cwTop(sf::Vector2f{8.0f, 15.0f});
         cwTop.setFillColor(cwColor);
-        cwTop.setPosition(sf::Vector2f{x, cy - 124.0f});
+        cwTop.setPosition(sf::Vector2f{x, cy - 94.0f});
         crosswalks.push_back(cwTop);
 
         sf::RectangleShape cwBottom(sf::Vector2f{8.0f, 15.0f});
         cwBottom.setFillColor(cwColor);
-        cwBottom.setPosition(sf::Vector2f{x, cy + 109.0f});
+        cwBottom.setPosition(sf::Vector2f{x, cy + 79.0f});
         crosswalks.push_back(cwBottom);
     }
 
     // 5b. Vạch qua đường cắt ngang đường đôi Đông - Tây (bên trái và phải ngã tư)
-    for (float y = cy - ewHalfRoad + 4.0f; y < cy + ewHalfRoad - 8.0f; y += 14.0f) {
+    for (float y = cy - 77.0f; y < cy + 70.0f; y += 14.0f) {
         sf::RectangleShape cwLeft(sf::Vector2f{15.0f, 8.0f});
         cwLeft.setFillColor(cwColor);
-        cwLeft.setPosition(sf::Vector2f{cx - nsHalfRoad - 22.0f, y});
+        cwLeft.setPosition(sf::Vector2f{cx - nsHalfRoad + 1.0f, y});
         crosswalks.push_back(cwLeft);
 
         sf::RectangleShape cwRight(sf::Vector2f{15.0f, 8.0f});
         cwRight.setFillColor(cwColor);
-        cwRight.setPosition(sf::Vector2f{cx + nsHalfRoad + 7.0f, y});
+        cwRight.setPosition(sf::Vector2f{cx + nsHalfRoad - 16.0f, y});
         crosswalks.push_back(cwRight);
     }
 

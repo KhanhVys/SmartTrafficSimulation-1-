@@ -1,0 +1,43 @@
+_deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.cpp.obj: \
+  C:/msys64/clang64/lib/clang/22/share/asan_ignorelist.txt \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/src/SFML/Window/Touch.cpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/src/SFML/Window/InputImpl.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/Config.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/Window/Keyboard.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/Window/Export.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/Window/Mouse.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/System/Vector2.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/System/Export.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/System/Angle.hpp \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/System/Angle.inl \
+  C:/msys64/clang64/include/c++/v1/cassert \
+  C:/msys64/clang64/include/c++/v1/__config \
+  C:/msys64/clang64/include/c++/v1/__config_site \
+  C:/msys64/clang64/include/c++/v1/__configuration/abi.h \
+  C:/msys64/clang64/include/c++/v1/__configuration/compiler.h \
+  C:/msys64/clang64/include/c++/v1/__configuration/platform.h \
+  C:/msys64/clang64/include/c++/v1/__configuration/availability.h \
+  C:/msys64/clang64/include/c++/v1/__configuration/language.h \
+  C:/msys64/clang64/include/c++/v1/__configuration/experimental.h \
+  C:/msys64/clang64/include/c++/v1/__configuration/hardening.h \
+  C:/msys64/clang64/include/assert.h C:/msys64/clang64/include/crtdefs.h \
+  C:/msys64/clang64/include/corecrt.h C:/msys64/clang64/include/_mingw.h \
+  C:/msys64/clang64/include/_mingw_mac.h \
+  C:/msys64/clang64/include/_mingw_secapi.h \
+  C:/msys64/clang64/lib/clang/22/include/vadefs.h \
+  C:/msys64/clang64/include/vadefs.h \
+  C:/msys64/clang64/include/c++/v1/stdlib.h \
+  C:/msys64/clang64/include/stdlib.h \
+  C:/msys64/clang64/include/corecrt_wstdlib.h \
+  C:/msys64/clang64/lib/clang/22/include/limits.h \
+  C:/msys64/clang64/include/limits.h \
+  C:/msys64/clang64/include/sec_api/stdlib_s.h \
+  C:/msys64/clang64/include/c++/v1/__math/abs.h \
+  C:/msys64/clang64/include/c++/v1/__type_traits/enable_if.h \
+  C:/msys64/clang64/include/c++/v1/__type_traits/is_integral.h \
+  C:/msys64/clang64/include/c++/v1/__type_traits/integral_constant.h \
+  C:/msys64/clang64/include/c++/v1/__type_traits/remove_cv.h \
+  C:/msys64/clang64/include/malloc.h \
+  C:/msys64/clang64/lib/clang/22/include/mm_malloc.h \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/System/Vector2.inl \
+  C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/sfml-src/include/SFML/Window/Touch.hpp

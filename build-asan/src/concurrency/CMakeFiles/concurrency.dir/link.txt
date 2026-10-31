@@ -1,0 +1,2 @@
+C:\msys64\clang64\bin\llvm-ar.exe qc libconcurrency.a CMakeFiles/concurrency.dir/SimulationThread.cpp.obj CMakeFiles/concurrency.dir/SnapshotStore.cpp.obj
+C:\msys64\clang64\bin\llvm-ranlib.exe libconcurrency.a

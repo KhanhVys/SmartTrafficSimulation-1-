@@ -1,0 +1,3 @@
+C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/freetype-subbuild/CMakeFiles/freetype-populate.dir
+C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/freetype-subbuild/CMakeFiles/edit_cache.dir
+C:/Users/tangv/Documents/SmartTrafficSimulation-1-/build-asan/_deps/freetype-subbuild/CMakeFiles/rebuild_cache.dir
