@@ -16,21 +16,21 @@ Renderer::Renderer(unsigned int width, unsigned int height, const std::string& t
     // Mỗi đèn được gán chặt với (Direction, turnArrow) để nhận đúng trạng thái từ snapshot bất kể thứ tự
     // (số toạ độ có thể chỉnh lại theo mắt sau khi chạy)
 
-    // 1. Hướng East (xe chạy sang Tây)
+       // 1. Hướng East (xe chạy sang Tây): trái của xe là xuống
     trafficLights.push_back({Direction::East, false, TrafficLightRenderer(sf::Vector2f{cx + 60.0f, cy - 165.0f}, false)});
-    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 90.0f, cy - 165.0f}, true)});
+    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 90.0f, cy - 165.0f}, true, 270.0f)});
 
-    // 2. Hướng West (xe chạy sang Đông)
+    // 2. Hướng West (xe chạy sang Đông): trái của xe là lên
     trafficLights.push_back({Direction::West, false, TrafficLightRenderer(sf::Vector2f{cx - 84.0f,  cy + 99.0f}, false)});
-    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 114.0f, cy + 99.0f}, true)});
+    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 114.0f, cy + 99.0f}, true, 90.0f)});
 
-    // 3. Hướng North (xe chạy xuống Nam)
+    // 3. Hướng North (xe chạy xuống Nam): trái của xe là sang phải màn hình
     trafficLights.push_back({Direction::North, false, TrafficLightRenderer(sf::Vector2f{cx - 82.0f,  cy - 167.0f}, false)});
-    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 112.0f, cy - 167.0f}, true)});
+    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 112.0f, cy - 167.0f}, true, 180.0f)});
 
-    // 4. Hướng South (xe chạy lên Bắc)
+    // 4. Hướng South (xe chạy lên Bắc): trái của xe là sang trái màn hình
     trafficLights.push_back({Direction::South, false, TrafficLightRenderer(sf::Vector2f{cx + 58.0f, cy + 101.0f}, false)});
-    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 88.0f, cy + 101.0f}, true)});
+    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 88.0f, cy + 101.0f}, true, 0.0f)});
 }
 
 bool Renderer::isWindowOpen() const {
