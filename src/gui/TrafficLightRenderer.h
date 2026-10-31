@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "common/Types.h"   // LightColor dùng chung toàn dự án
+#include "common/Types.h"
 
 class TrafficLightRenderer {
 private:
@@ -10,14 +10,24 @@ private:
     sf::CircleShape yellowLight;
     sf::CircleShape greenLight;
 
-    // Left-turn light: one lamp with an arrow inside
+    // Left-turn light
     sf::CircleShape arrowLamp;
     sf::RectangleShape arrowShaft;
-    sf::ConvexShape arrow;   // arrow head
+    sf::ConvexShape arrow;
     bool hasArrow;
 
+    // Glow effect
+    sf::Vector2f glowCenter{0.0f, 0.0f};
+    sf::Color glowColor{0, 0, 0, 0};
+    bool glowOn = false;
+
 public:
-    TrafficLightRenderer(sf::Vector2f pos, bool leftTurn = false);
+    TrafficLightRenderer(
+        sf::Vector2f pos,
+        bool leftTurn = false,
+        float arrowAngleDeg = 0.0f
+    );
+
     void setState(LightColor state);
     void draw(sf::RenderWindow& window);
 };
