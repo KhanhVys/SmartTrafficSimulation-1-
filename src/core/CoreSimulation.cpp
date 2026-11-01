@@ -9,7 +9,7 @@
 CoreSimulation::CoreSimulation(int vehicleCount, double maxSpeed)
     : network(RoadNetwork::createDefault()) {
     TrafficGenerator generator(network, maxSpeed);
-    vehicles = generator.generateInitialVehicles(vehicleCount);
+    vehicles = generator.generateRandomVehicles(vehicleCount);
 }
 
 void CoreSimulation::advanceClock() { ++currentTick; }

@@ -20,6 +20,9 @@ public:
     // count nằm trong [0, 13], ngoài khoảng đó ném std::invalid_argument.
     std::vector<std::unique_ptr<Vehicle>> generateInitialVehicles(int count) const;
 
+    // Phân bổ NGẪU NHIÊN: mỗi lần chạy mỗi khác. Chỉ bốc tổ hợp (nhánh, làn, hướng) hợp lệ,
+    // và không nhét quá số xe mà một làn chứa được. seed = 0 nghĩa là lấy ngẫu nhiên thật.
+    std::vector<std::unique_ptr<Vehicle>> generateRandomVehicles(int count, unsigned seed = 0) const;
 private:
     const RoadNetwork& network;
     double maxSpeed;
