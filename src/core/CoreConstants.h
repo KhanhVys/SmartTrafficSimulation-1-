@@ -33,7 +33,7 @@ constexpr double ACCELERATION = 60.0;            // pixel/giây^2
 constexpr double COMFORT_DECELERATION = 90.0;    // phanh bình thường
 constexpr double HARD_DECELERATION = 180.0;      // phanh gấp tối đa
 constexpr double MIN_FOLLOW_GAP = 12.0;          // khoảng hở tối thiểu giữa hai xe cùng làn
-constexpr double STOP_LINE_GAP = 25.0;           // vạch dừng cách mép ngã tư            // vạch dừng cách mép ngã tư
+constexpr double STOP_LINE_GAP = 29.0;           // vạch dừng cách mép ngã tư            // vạch dừng cách mép ngã tư
 constexpr double TURN_SPEED_RATIO = 0.5;         // tốc độ khi rẽ = tỉ lệ này * tốc độ tối đa
 constexpr double TURN_SLOWDOWN_DISTANCE = 70.0;  // bắt đầu giảm tốc trước vạch dừng khi sắp rẽ
 constexpr double WAIT_TOLERANCE = 3.0;           // sai số coi là "đã tới vạch / sát xe trước"

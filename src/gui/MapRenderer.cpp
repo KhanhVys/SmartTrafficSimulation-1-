@@ -1,7 +1,9 @@
 #include "MapRenderer.h"
 #include <algorithm>
 #include <cmath>
-#include "core/CoreConstants.h"   
+#include <random>
+#include <vector>
+#include "core/CoreConstants.h"
 namespace {
     // Tạo 1 "khối" nằm ở một góc ngã tư, cạnh trong bo tròn.
     // (ix, iy): góc trong của khối (sát ngã tư). (sx, sy): hướng đi ra xa ngã tư, mỗi giá trị là +1 hoặc -1.
@@ -48,19 +50,23 @@ MapRenderer::MapRenderer(float width, float height) {
     const sf::Color paintYellow(236, 192, 44);
 
     // ---- Vị trí vạch tính từ STOP_LINE_GAP ----
-    const float gap          = static_cast<float>(STOP_LINE_GAP);   // 25
+        // ---- Vị trí vạch tính từ STOP_LINE_GAP ----
+    const float shoulder     = 4.0f;
+    const float nsEdge       = nsHalfRoad + shoulder;
+    const float ewEdge       = ewHalfRoad + shoulder;
+    const float gap          = static_cast<float>(STOP_LINE_GAP) - shoulder;
     const float zebraDepth   = 15.0f;                               // chiều sâu vạch qua đường
     const float zebraMargin  = (gap - paintStop - zebraDepth) / 2.0f;   // hở đều 2 phía = 3
     const float dashStart    = gap + 10.0f;                         // vạch đứt đầu tiên cách mép ngã tư
-    // 1. Đường Bắc - Nam (rộng 108px)
-    northSouthRoad.setSize(sf::Vector2f{nsHalfRoad * 2.0f, height});
+
+    northSouthRoad.setSize(sf::Vector2f{nsEdge * 2.0f, height});
     northSouthRoad.setFillColor(sf::Color(50, 50, 50));
-    northSouthRoad.setPosition(sf::Vector2f{cx - nsHalfRoad, 0.0f});
+    northSouthRoad.setPosition(sf::Vector2f{cx - nsEdge, 0.0f});
 
     // 2. Đường Đông - Tây (3 làn mỗi chiều + dải phân cách)
-    eastWestRoad.setSize(sf::Vector2f{width, ewHalfRoad * 2.0f});
+    eastWestRoad.setSize(sf::Vector2f{width, ewEdge * 2.0f});
     eastWestRoad.setFillColor(sf::Color(50, 50, 50));
-    eastWestRoad.setPosition(sf::Vector2f{0.0f, cy - ewHalfRoad});
+    eastWestRoad.setPosition(sf::Vector2f{0.0f, cy - ewEdge});
     std::mt19937 rng(7);   // seed cố định -> mỗi lần chạy giống nhau
     std::uniform_real_distribution<float> rnd01(0.0f, 1.0f);
     auto addSpecks = [&](float x, float y, float w, float h) {
@@ -76,16 +82,16 @@ MapRenderer::MapRenderer(float width, float height) {
         roadSpecks.push_back(sp);
     }
 };
-addSpecks(cx - nsHalfRoad, 0.0f, nsHalfRoad * 2.0f, height);
-addSpecks(0.0f, cy - ewHalfRoad, width, ewHalfRoad * 2.0f);
+addSpecks(cx - nsEdge, 0.0f, nsEdge * 2.0f, height);
+addSpecks(0.0f, cy - ewEdge, width, ewEdge * 2.0f);
     // 3. Dải phân cách giữa đường Đông - Tây: tách 2 đoạn, KHÔNG chạy xuyên qua ngã tư
-    medianLeft.setSize(sf::Vector2f{cx - nsHalfRoad, ewMedianHalf * 2.0f});
+    medianLeft.setSize(sf::Vector2f{cx - nsEdge, ewMedianHalf * 2.0f});
     medianLeft.setFillColor(sf::Color(100, 100, 100));
     medianLeft.setPosition(sf::Vector2f{0.0f, cy - ewMedianHalf});
 
-    medianRight.setSize(sf::Vector2f{width - (cx + nsHalfRoad), ewMedianHalf * 2.0f});
+    medianRight.setSize(sf::Vector2f{width - (cx + nsEdge), ewMedianHalf * 2.0f});
     medianRight.setFillColor(sf::Color(100, 100, 100));
-    medianRight.setPosition(sf::Vector2f{cx + nsHalfRoad, cy - ewMedianHalf});
+    medianRight.setPosition(sf::Vector2f{cx + nsEdge, cy - ewMedianHalf});
 
     // 4. Vạch kẻ làn đứt nét đường Đông - Tây
     float l1 = ewMedianHalf + ewLaneWidth;         // 35
@@ -100,9 +106,9 @@ addSpecks(0.0f, cy - ewHalfRoad, width, ewHalfRoad * 2.0f);
         laneLines.push_back(line);
     };
     for (float y : yPositions) {
-        for (float x = cx + nsHalfRoad + dashStart; x < width; x += dashStep)
+        for (float x = cx + nsEdge + dashStart; x < width; x += dashStep)
             addDashEW(x, y);                                   // phía Đông
-        for (float x = cx - nsHalfRoad - dashStart - dashLen; x > -dashLen; x -= dashStep)
+        for (float x = cx - nsEdge - dashStart - dashLen; x > -dashLen; x -= dashStep)
             addDashEW(x, y);                                   // phía Tây
     }
 
@@ -113,9 +119,9 @@ addSpecks(0.0f, cy - ewHalfRoad, width, ewHalfRoad * 2.0f);
         line.setPosition(sf::Vector2f{cx - paintThin / 2.0f, y});
         laneLines.push_back(line);
     };
-    for (float y = cy + ewHalfRoad + dashStart; y < height; y += dashStep)
+    for (float y = cy + ewEdge + dashStart; y < height; y += dashStep)
         addDashNS(y);                                          // phía Nam
-    for (float y = cy - ewHalfRoad - dashStart - dashLen; y > -dashLen; y -= dashStep)
+    for (float y = cy - ewEdge - dashStart - dashLen; y > -dashLen; y -= dashStep)
         addDashNS(y);                                          // phía Bắc
 
     sf::Color cwColor(220, 220, 220, 200);
@@ -125,12 +131,12 @@ addSpecks(0.0f, cy - ewHalfRoad, width, ewHalfRoad * 2.0f);
         const float x = cx - 53.0f + 14.0f * static_cast<float>(i);
         sf::RectangleShape cwTop(sf::Vector2f{zebraW, zebraDepth});
         cwTop.setFillColor(cwColor);
-        cwTop.setPosition(sf::Vector2f{x, cy - ewHalfRoad - zebraMargin - zebraDepth});
+        cwTop.setPosition(sf::Vector2f{x, cy - ewEdge - zebraMargin - zebraDepth});
         crosswalks.push_back(cwTop);
 
         sf::RectangleShape cwBottom(sf::Vector2f{zebraW, zebraDepth});
         cwBottom.setFillColor(cwColor);
-        cwBottom.setPosition(sf::Vector2f{x, cy + ewHalfRoad + zebraMargin});
+        cwBottom.setPosition(sf::Vector2f{x, cy + ewEdge + zebraMargin});
         crosswalks.push_back(cwBottom);
     }
 
@@ -139,8 +145,8 @@ addSpecks(0.0f, cy - ewHalfRoad, width, ewHalfRoad * 2.0f);
         const float d    = 6.0f + 14.0f * static_cast<float>(i);
         const float yTop = cy - ewHalfRoad + d;
         const float yBot = cy + ewMedianHalf + d;
-        const float xL   = cx - nsHalfRoad - zebraMargin - zebraDepth;
-        const float xR   = cx + nsHalfRoad + zebraMargin;
+        const float xL   = cx - nsEdge - zebraMargin - zebraDepth;
+        const float xR   = cx + nsEdge + zebraMargin;
         for (float y : {yTop, yBot}) {
             sf::RectangleShape l(sf::Vector2f{zebraDepth, zebraW});
             l.setFillColor(cwColor); l.setPosition(sf::Vector2f{xL, y}); crosswalks.push_back(l);
@@ -150,44 +156,43 @@ addSpecks(0.0f, cy - ewHalfRoad, width, ewHalfRoad * 2.0f);
     }
 
        // 6. Vạch dừng: chiếm khoảng cách [gap - paintStop, gap] tính từ mép ngã tư
-    const float halfLanes = ewHalfRoad - ewMedianHalf;   // 90
+    const float halfLanes = ewEdge - ewMedianHalf;       // 94
 
     sf::RectangleShape stopEast(sf::Vector2f{paintStop, halfLanes});
     stopEast.setFillColor(paintWhite);
-    stopEast.setPosition(sf::Vector2f{cx - nsHalfRoad - gap, cy + ewMedianHalf});
+    stopEast.setPosition(sf::Vector2f{cx - nsEdge - gap, cy + ewMedianHalf});
     stopLines.push_back(stopEast);
 
     sf::RectangleShape stopWest(sf::Vector2f{paintStop, halfLanes});
     stopWest.setFillColor(paintWhite);
-    stopWest.setPosition(sf::Vector2f{cx + nsHalfRoad + gap - paintStop, cy - ewHalfRoad});
+    stopWest.setPosition(sf::Vector2f{cx + nsEdge + gap - paintStop, cy - ewEdge});
     stopLines.push_back(stopWest);
 
     sf::RectangleShape stopSouth(sf::Vector2f{nsHalfRoad - 2.0f, paintStop});
     stopSouth.setFillColor(paintWhite);
-    stopSouth.setPosition(sf::Vector2f{cx - nsHalfRoad, cy - ewHalfRoad - gap});
+    stopSouth.setPosition(sf::Vector2f{cx - nsEdge, cy - ewEdge - gap});
     stopLines.push_back(stopSouth);
 
-    sf::RectangleShape stopNorth(sf::Vector2f{nsHalfRoad - 2.0f, paintStop});
+    sf::RectangleShape stopNorth(sf::Vector2f{nsEdge - 2.0f, paintStop});
     stopNorth.setFillColor(paintWhite);
-    stopNorth.setPosition(sf::Vector2f{cx + 2.0f, cy + ewHalfRoad + gap - paintStop});
+    stopNorth.setPosition(sf::Vector2f{cx + 2.0f, cy + ewEdge + gap - paintStop});
     stopLines.push_back(stopNorth);
-    
+
         // 7. Vỉa hè liên tục quanh 4 góc ngã tư (bo tròn), có bó vỉa và viền trắng sát lề đường
     const float curbRadius    = 16.0f;  // bán kính bo góc ở mép đường
     const float curbWidth     = 3.0f;   // bề rộng bó vỉa
-    const float sidewalkWidth = 60.0f;  // bề rộng vỉa hè (cộng bó vỉa 3 px = 34 px, vừa đủ chứa hộp đèn)
+    const float sidewalkWidth = 56.0f;  // bề rộng vỉa hè (cộng bó vỉa 3 px = 34 px, vừa đủ chứa hộp đèn)
     const sf::Color curbColor(105, 105, 110);
     const sf::Color sidewalkColor(200, 200, 204);
-    const sf::Color groundColor(158, 154, 144);   
+    const sf::Color groundColor(158, 154, 144);
 
     struct Corner { float ix, iy, sx, sy; };
     const Corner corners[4] = {
-        {cx - nsHalfRoad, cy - ewHalfRoad, -1.0f, -1.0f},   // Tây - Bắc
-        {cx + nsHalfRoad, cy - ewHalfRoad, +1.0f, -1.0f},   // Đông - Bắc
-        {cx - nsHalfRoad, cy + ewHalfRoad, -1.0f, +1.0f},   // Tây - Nam
-        {cx + nsHalfRoad, cy + ewHalfRoad, +1.0f, +1.0f},   // Đông - Nam
+        {cx - nsEdge, cy - ewEdge, -1.0f, -1.0f},   // Tây - Bắc
+        {cx + nsEdge, cy - ewEdge, +1.0f, -1.0f},   // Đông - Bắc
+        {cx - nsEdge, cy + ewEdge, -1.0f, +1.0f},   // Tây - Nam
+        {cx + nsEdge, cy + ewEdge, +1.0f, +1.0f},   // Đông - Nam
     };
-    for (const Corner& c : corners) {
     auto addRect = [&](float x, float y, float w, float h, sf::Color col) {
     sf::RectangleShape r(sf::Vector2f{w, h});
     r.setPosition(sf::Vector2f{x, y});
@@ -218,6 +223,8 @@ auto addShrub = [&](float x, float y, float rad) {
     addCircle(x, y, rad, sf::Color(46, 100, 54));
     addCircle(x - rad * 0.3f, y - rad * 0.2f, rad * 0.65f, sf::Color(72, 138, 76));
 };
+
+    for (const Corner& c : corners) {
 // Lấp góc bằng nhựa đường: quạt tam giác từ góc vuông tới các điểm trên cung
 {
     const int   fan = 8;
@@ -246,47 +253,14 @@ auto addShrub = [&](float x, float y, float rad) {
 
         // Lớp 3: nền bên trong vỉa hè (sau này đặt nhà, cây ở đây)
         cornerBlocks.push_back(makeBlock(c.ix, c.iy, c.sx, c.sy, curbWidth + sidewalkWidth, curbRadius, groundColor));
-    
+
     }
-    
-    // ================= CẢNH QUAN 4 GÓC =================
-    // Quy ước: (x, y) của addRect/addBuilding là góc TRÊN-TRÁI; của addTree/addShrub/addCircle là TÂM.
-    auto addRect = [&](float x, float y, float w, float h, sf::Color col) {
-        sf::RectangleShape r(sf::Vector2f{w, h});
-        r.setPosition(sf::Vector2f{x, y});
-        r.setFillColor(col);
-        decorRects.push_back(r);
-    };
-    auto addCircle = [&](float x, float y, float rad, sf::Color col) {
-        sf::CircleShape s(rad);
-        s.setOrigin(sf::Vector2f{rad, rad});
-        s.setPosition(sf::Vector2f{x, y});
-        s.setFillColor(col);
-        decorCircles.push_back(s);
-    };
-    // Nhà: bóng đổ -> tường (màu mái tối đi một nửa) -> mái
-    auto addBuilding = [&](float x, float y, float w, float h, sf::Color roof) {
-        addRect(x + 4, y + 5, w, h, sf::Color(0, 0, 0, 56));
-        addRect(x, y, w, h, sf::Color(roof.r / 2, roof.g / 2, roof.b / 2));
-        addRect(x + 2, y + 2, w - 4, h - 4, roof);
-    };
-    // Cây: bóng -> tán tối -> tán sáng lệch lên trên
-    auto addTree = [&](float x, float y, float rad) {
-        addCircle(x + rad * 0.3f, y + rad * 0.4f, rad, sf::Color(0, 0, 0, 56));
-        addCircle(x, y, rad, sf::Color(40, 92, 52));
-        addCircle(x - rad * 0.2f, y - rad * 0.25f, rad * 0.65f, sf::Color(70, 132, 74));
-    };
-    // Bụi cây thấp
-    auto addShrub = [&](float x, float y, float rad) {
-        addCircle(x, y, rad, sf::Color(46, 100, 54));
-        addCircle(x - rad * 0.3f, y - rad * 0.2f, rad * 0.65f, sf::Color(72, 138, 76));
-    };
 
     const sf::Color lawnColor(96, 142, 86);
     const sf::Color glassColor(158, 204, 226);
     const sf::Color driveColor(186, 184, 178);
 
-    // ---------- GÓC ĐÔNG-BẮC: khu cửa hàng 
+    // ---------- GÓC ĐÔNG-BẮC: khu cửa hàng ----------
     {
         addBuilding(734, 159, 140, 62, sf::Color(188, 172, 150));
         addBuilding(882, 159, 112, 62, sf::Color(160, 176, 194));
@@ -299,10 +273,14 @@ auto addShrub = [&](float x, float y, float rad) {
         addBuilding(734, 36, 212, 112, sf::Color(150, 154, 162));
         addTree(990, 125, 9);
         addTree(1070, 125, 9);
-        for (float x = 752; x < 1180; x += 20) addShrub(x, 235, 5);
+
+       // Hàng cây trên vỉa hè phía trên bên phải
+    for (float x = 750.0f; x < 1180.0f; x += 44.0f) {
+        addTree(x, 270.0f, 13.5f);
+}
     }
 
-    // ---------- GÓC TÂY-BẮC: khu nhà ở 
+    // ---------- GÓC TÂY-BẮC: khu nhà ở ----------
     {
         // hàng trước: sân cỏ, lối xe, nhà
         addRect(10, 127, 152, 115, lawnColor);
@@ -317,8 +295,12 @@ auto addShrub = [&](float x, float y, float rad) {
         addTree(296, 170, 14);
         addTree(148, 190, 15);
         for (float x : {42.0f, 64.0f, 86.0f, 206.0f, 262.0f}) addShrub(x, 225, 5);
-        // hàng rào cây ngăn 2 dãy nhà
-        for (float x = 14; x < 470; x += 9) addShrub(x, 100, 5);
+
+        // Hàng cây trên vỉa hè phía trên bên trái
+    for (float x = 30.0f; x < 460.0f; x += 44.0f) {
+        addTree(x, 270.0f, 13.5f);
+}
+
         // hàng sau
         addRect(14, 8, 124, 84, lawnColor);
         addRect(258, 8, 218, 84, lawnColor);
@@ -329,9 +311,13 @@ auto addShrub = [&](float x, float y, float rad) {
         addTree(222, 72, 17);
     }
 
-    // ---------- GÓC TÂY-NAM: khu văn phòng 
+    // ---------- GÓC TÂY-NAM: khu văn phòng ----------
     {
-        for (float x = 16; x < 470; x += 15) addShrub(x, 566, 5);
+        // Hàng cây vỉa hè lớn phía dưới (Tây-Nam)
+        for (float x = 30.0f; x < 460.0f; x += 44.0f) {
+            addTree(x, 530.0f, 13.5f);
+        }
+
         addRect(12, 695, 456, 94, sf::Color(208, 204, 194));          // sân lát
         addBuilding(272, 587, 190, 88, sf::Color(118, 128, 144));
         addBuilding(104, 583, 142, 100, sf::Color(150, 154, 150));
@@ -350,13 +336,17 @@ auto addShrub = [&](float x, float y, float rad) {
             addCircle(x, 721, 10, sf::Color(92, 68, 50));
             addShrub(x, 721, 7);
         }
-        // hàng cây thẳng hàng
+        // hàng cây thẳng hàng trong khuôn viên
         for (int i = 0; i < 7; ++i) addTree(450.0f - 68.0f * i, 767, 11);
     }
 
-    // ---------- GÓC ĐÔNG-NAM: cà phê + chung cư + công viên 
+    // ---------- GÓC ĐÔNG-NAM: cà phê + chung cư + công viên ----------
     {
-        for (float x = 740; x < 1190; x += 20) addShrub(x, 565, 5);
+        // Hàng cây vỉa hè lớn phía dưới (Đông-Nam)
+        for (float x = 740.0f; x < 1190.0f; x += 44.0f) {
+            addTree(x, 530.0f, 13.5f);
+        }
+
         // quán cà phê: sân lát, nhà, 3 bàn ô
         addRect(728, 573, 176, 90, sf::Color(214, 204, 186));
         addBuilding(740, 581, 88, 58, sf::Color(172, 102, 84));
@@ -367,7 +357,7 @@ auto addShrub = [&](float x, float y, float rad) {
         addBuilding(1014, 585, 172, 96, sf::Color(198, 194, 186));
         addRect(1034, 619, 40, 26, glassColor);
         addRect(1086, 619, 40, 26, glassColor);
-        for (float y = 579; y < 680; y += 8) addShrub(1004, y, 4.5f);
+        
         // công viên: cỏ -> lối đi -> hồ
         addRect(728, 679, 282, 108, lawnColor);
         addRect(728, 719, 282, 12, sf::Color(220, 206, 170));
@@ -384,7 +374,7 @@ auto addShrub = [&](float x, float y, float rad) {
         addTree(982, 705, 14);
         addTree(1146, 745, 20);
         addTree(1026, 777, 12);
-    }
+}
 }
 
 void MapRenderer::draw(sf::RenderWindow& window) {
@@ -392,8 +382,8 @@ void MapRenderer::draw(sf::RenderWindow& window) {
     window.draw(eastWestRoad);
     for (const auto& s : roadSpecks) window.draw(s);
     window.draw(medianLeft);
-    window.draw(medianRight);   
-    
+    window.draw(medianRight);
+
     for (const auto& b : cornerBlocks) window.draw(b);
     for (const auto& r : decorRects)   window.draw(r);
     for (const auto& c : decorCircles) window.draw(c);
