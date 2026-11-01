@@ -15,10 +15,12 @@ TrafficLightRenderer::TrafficLightRenderer(sf::Vector2f pos, bool leftTurn, floa
     } else {
         // Left-turn light: 28x28 box, centered vertically next to the 66px light
         float ox = pos.x;
-        float oy = pos.y + 19.0f;
+        float oy = pos.y;
 
         box.setSize(sf::Vector2f{28.0f, 28.0f});
         box.setFillColor(sf::Color(30, 30, 30));
+        box.setOutlineThickness(1.5f);
+        box.setOutlineColor(sf::Color(78, 78, 84));
         box.setPosition(sf::Vector2f{ox, oy});
 
         arrowLamp.setRadius(11.0f);
@@ -37,7 +39,7 @@ arrow.setPointCount(3);
 arrow.setPoint(0, sf::Vector2f{0.0f, 7.0f});        // mũi nhọn
 arrow.setPoint(1, sf::Vector2f{8.0f, 0.0f});
 arrow.setPoint(2, sf::Vector2f{8.0f, 14.0f});
-arrow.setOrigin(sf::Vector2f{8.0f, 7.0f});          // gốc ở chân đầu mũi tên
+arrow.setOrigin(sf::Vector2f{8.0f, 7.0f});          // gốgôsở chân đầu mũi tên
 arrow.setPosition(center);
 arrow.setRotation(sf::degrees(arrowAngleDeg));
     }
