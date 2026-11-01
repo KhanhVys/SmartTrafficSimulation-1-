@@ -26,21 +26,14 @@ Renderer::Renderer(unsigned int width, unsigned int height, const std::string& t
     // Mỗi đèn được gán chặt với (Direction, turnArrow) để nhận đúng trạng thái từ snapshot bất kể thứ tự
     // (số toạ độ có thể chỉnh lại theo mắt sau khi chạy)
 
-        // 1. Hướng East (xe chạy sang Tây): góc trên-phải, mũi tên nằm phía trên hộp đèn thẳng
-    trafficLights.push_back({Direction::East, false, TrafficLightRenderer(sf::Vector2f{cx + 59.0f, cy - 167.0f}, false)});
-    trafficLights.push_back({Direction::East, true,  TrafficLightRenderer(sf::Vector2f{cx + 57.0f, cy - 220.0f}, true, 270.0f)});
-
-    // 2. Hướng West (xe chạy sang Đông): góc dưới-trái, mũi tên nằm phía dưới
-    trafficLights.push_back({Direction::West, false, TrafficLightRenderer(sf::Vector2f{cx - 83.0f, cy + 101.0f}, false)});
-    trafficLights.push_back({Direction::West, true,  TrafficLightRenderer(sf::Vector2f{cx - 85.0f, cy + 154.0f}, true, 90.0f)});
-
-    // 3. Hướng North (xe chạy xuống Nam): góc trên-trái, mũi tên nằm phía trên
-    trafficLights.push_back({Direction::North, false, TrafficLightRenderer(sf::Vector2f{cx - 83.0f, cy - 167.0f}, false)});
-    trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 85.0f, cy - 220.0f}, true, 180.0f)});
-
-    // 4. Hướng South (xe chạy lên Bắc): góc dưới-phải, mũi tên nằm phía dưới
-    trafficLights.push_back({Direction::South, false, TrafficLightRenderer(sf::Vector2f{cx + 59.0f, cy + 101.0f}, false)});
-    trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 57.0f, cy + 154.0f}, true, 0.0f)});
+    trafficLights.push_back({Direction::East,  false, TrafficLightRenderer(sf::Vector2f{cx + 80.0f,  cy - 213.0f}, false)});
+trafficLights.push_back({Direction::East,  true,  TrafficLightRenderer(sf::Vector2f{cx + 78.0f,  cy - 142.0f}, true, 270.0f)});
+trafficLights.push_back({Direction::West,  false, TrafficLightRenderer(sf::Vector2f{cx - 104.0f, cy + 114.0f}, false)});
+trafficLights.push_back({Direction::West,  true,  TrafficLightRenderer(sf::Vector2f{cx - 106.0f, cy + 185.0f}, true, 90.0f)});
+trafficLights.push_back({Direction::North, false, TrafficLightRenderer(sf::Vector2f{cx - 104.0f, cy - 213.0f}, false)});
+trafficLights.push_back({Direction::North, true,  TrafficLightRenderer(sf::Vector2f{cx - 106.0f, cy - 142.0f}, true, 180.0f)});
+trafficLights.push_back({Direction::South, false, TrafficLightRenderer(sf::Vector2f{cx + 80.0f,  cy + 114.0f}, false)});
+trafficLights.push_back({Direction::South, true,  TrafficLightRenderer(sf::Vector2f{cx + 78.0f,  cy + 185.0f}, true, 0.0f)});
 }
 
 bool Renderer::isWindowOpen() const {
@@ -114,7 +107,7 @@ void Renderer::render(const SimulationSnapshot& snapshot) {
     updateLights(snapshot.lights);
     updateVehicles(snapshot.vehicles);
 
-    window.clear(sf::Color(35, 110, 35));
+    window.clear(sf::Color(158, 154, 144));
 
     mapRenderer.draw(window);
 
